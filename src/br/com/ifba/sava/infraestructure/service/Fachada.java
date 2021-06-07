@@ -47,7 +47,11 @@ public class Fachada implements IFachada {
     public List<Usuario> getAllUsuario(){
         return this.serviceUsuario.getAllUsuario();
     }
-    
+    //deleta um usuário
+    @Override
+    public void deleteUsuario(final Usuario usuario){
+        this.serviceUsuario.deleteUsuario(usuario);
+    }
     //------------------- Tipo Usuario ----------------------------//
     private final IServiceTipoUsuario serviceTipoUsuario = new ServiceTipoUsuario();
     // Constroi lista com todos os usuários cadastrados
@@ -55,5 +59,10 @@ public class Fachada implements IFachada {
 	public  List<TipoUsuario> getAllTipoUsuario(){
             return this.serviceTipoUsuario.getAllTipoUsuario();
         }
+    @Override
+        public void deleteTipoUsuario(final TipoUsuario tipousuario){
+            this.serviceTipoUsuario.deleteTipoUsuario(tipousuario);
+    }
+
     
 }

@@ -12,6 +12,6 @@ import java.util.List;
  *
  * @author jhinr
  */
-interface IServiceTipoUsuario {
+public interface IServiceTipoUsuario {
     public abstract List<TipoUsuario> getAllTipoUsuario();
 }

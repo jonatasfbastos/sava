@@ -2,6 +2,7 @@ package br.com.ifba.sava.infraestructure.service;
 
 import br.com.ifba.sava.infraestructure.endereco.model.Endereco;
 import br.com.ifba.sava.login.tipousuario.model.TipoUsuario;
+import br.com.ifba.sava.login.usuario.model.Usuario;
 import java.util.List;
 public interface IFachada {
     
@@ -17,5 +18,8 @@ public interface IFachada {
     
     
     //------------------- Usuario ----------------------------//
+    List<Usuario> getAllUsuario();
+    
+    //------------------- Tipo Usuario ----------------------------//
     public abstract List<TipoUsuario> getAllTipoUsuario();
 }

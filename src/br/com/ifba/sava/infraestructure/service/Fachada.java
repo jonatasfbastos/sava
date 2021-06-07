@@ -3,6 +3,9 @@ package br.com.ifba.sava.infraestructure.service;
 import br.com.ifba.sava.infraestructure.endereco.model.Endereco;
 import br.com.ifba.sava.infraestructure.endereco.service.IServiceEndereco;
 import br.com.ifba.sava.infraestructure.endereco.service.ServiceEndereco;
+import br.com.ifba.sava.login.tipousuario.model.TipoUsuario;
+import br.com.ifba.sava.login.tipousuario.service.ServiceTipoUsuario;
+import br.com.ifba.sava.login.tipousuario.service.IServiceTipoUsuario;
 import br.com.ifba.sava.login.usuario.model.Usuario;
 import br.com.ifba.sava.login.usuario.service.IServiceUsuario;
 import br.com.ifba.sava.login.usuario.service.ServiceUsuario;
@@ -44,5 +47,13 @@ public class Fachada implements IFachada {
     public List<Usuario> getAllUsuario(){
         return this.serviceUsuario.getAllUsuario();
     }
+    
+    //------------------- Tipo Usuario ----------------------------//
+    private final IServiceTipoUsuario serviceTipoUsuario = new ServiceTipoUsuario();
+    // Constroi lista com todos os usuários cadastrados
+    @Override
+	public  List<TipoUsuario> getAllTipoUsuario(){
+            return this.serviceTipoUsuario.getAllTipoUsuario();
+        }
     
 }

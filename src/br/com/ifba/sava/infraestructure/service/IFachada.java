@@ -19,7 +19,15 @@ public interface IFachada {
     
     //------------------- Usuario ----------------------------//
     List<Usuario> getAllUsuario();
+    //deleta um usuário
+    void deleteUsuario(final Usuario usuario);
     
     //------------------- Tipo Usuario ----------------------------//
     public abstract List<TipoUsuario> getAllTipoUsuario();
+    public abstract void deleteTipoUsuario(final TipoUsuario tipousuario); 
+    
+    
+     
+
+
 }

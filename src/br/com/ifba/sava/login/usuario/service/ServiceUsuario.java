@@ -43,8 +43,24 @@ public class ServiceUsuario implements IServiceUsuario{
 
        @Override
        public List<Usuario> getAllUsuario() {
-               return this.daoUsuario.findAll();
+            return this.daoUsuario.findAll();
        }
-
+       
+    //------------------- Deleta Usuário --------------------------   
+        @Override
+        public void deleteUsuario(final Usuario usuario) {
+            if(usuario == null){ 
+                throw new BusinessException(USUARIO_NULL);
+            }
+            if(usuario.getId() == null || usuario.getId() < 1){
+                throw new BusinessException(ID_REQUIRED);
+            }
+            final Usuario previous = this.daoUsuario.findById(usuario.getId());
+                if(previous == null){
+                  throw new BusinessException (ALREADY_DELETED);
+            }
+            this.daoUsuario.delete(usuario);
+        }
+    //----------------------------------------------------------------
 
 }

@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface IServiceTipoUsuario {
     public abstract List<TipoUsuario> getAllTipoUsuario();
+    public abstract void deleteTipoUsuario(final TipoUsuario tipousuario);
 }

@@ -5,6 +5,7 @@
  */
 package br.com.ifba.sava.login.tipousuario.service;
 
+import br.com.ifba.sava.infraestructure.exception.BusinessException;
 import br.com.ifba.sava.login.tipousuario.dao.IDaoTipoUsuario;
 import br.com.ifba.sava.login.tipousuario.model.TipoUsuario;
 import java.util.List;
@@ -36,10 +37,7 @@ public final class ServiceTipoUsuario implements IServiceTipoUsuario{
 	
 	/**
      * Representa a menssagem de erro se o Tipo de UsuÃ¡rio estiver sendo usado.
-     */
-	
-	private static final String USUARIO_USANDO_TIPOUSUARIO = "O Perfil de UsuÃ¡rio nÃ£o pode ser excluÃ­do, pois estÃ¡ sendo utilizado em outro local";
-	
+ 
 	
 
 	 /**
@@ -52,4 +50,19 @@ public final class ServiceTipoUsuario implements IServiceTipoUsuario{
 		// TODO Auto-generated method stub
 		return daoTipoUsuario.findAll();
 	}
+   //------------------- Deleta Usuário --------------------------     
+        @Override
+	public void deleteTipoUsuario(TipoUsuario tipoUsuario) {
+	    if(tipoUsuario == null){ 
+                throw new BusinessException(TIPOUSUARIO_NULL);
+    	    }
+            if(tipoUsuario.getId() == null || tipoUsuario.getId() < 1){
+    		throw new BusinessException(ID_REQUIRED);
+    	    }
+    	    final TipoUsuario previous = this.daoTipoUsuario.findById(tipoUsuario.getId());
+            if(previous == null){
+        	throw new BusinessException (ALREADY_DELETED);
+            }
+        } 
+   //----------------------------------------------------------------
 }

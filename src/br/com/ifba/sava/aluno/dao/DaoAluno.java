@@ -5,10 +5,27 @@
  */
 package br.com.ifba.sava.aluno.dao;
 
+import br.com.ifba.sava.aluno.model.Aluno;
+import br.com.ifba.sava.ifraestrucutre.dao.BaseDao;
+
 /**
  *
  * @author Tarcio
  */
-public class DaoAluno {
+public class DaoAluno extends BaseDao<Aluno> implements IDaoAluno{
+    
+    public DaoAluno(){
+        super();
+    }
+    
+    @Override
+    public boolean deleteAluno(Aluno aluno) {
+           try {
+            this.delete(aluno);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
     
 }

@@ -5,10 +5,14 @@
  */
 package br.com.ifba.sava.aluno.dao;
 
+import br.com.ifba.sava.aluno.model.Aluno;
+import br.com.ifba.sava.ifraestrucutre.dao.IBaseDao;
+
 /**
  *
  * @author Tarcio
  */
-public interface IDaoAluno {
+public interface IDaoAluno extends IBaseDao<Aluno>{
     
+    public abstract boolean deleteAluno(Aluno aluno);
 }

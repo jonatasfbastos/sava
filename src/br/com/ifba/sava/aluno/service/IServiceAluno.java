@@ -5,10 +5,14 @@
  */
 package br.com.ifba.sava.aluno.service;
 
+import br.com.ifba.sava.aluno.model.Aluno;
+
 /**
  *
  * @author Tarcio
  */
 public interface IServiceAluno {
     
+    //deleta aluno
+    public abstract void deleteAluno(Aluno aluno);
 }

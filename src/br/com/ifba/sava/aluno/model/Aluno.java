@@ -5,7 +5,7 @@
  */
 package br.com.ifba.sava.aluno.model;
 
-import br.com.ifba.sava.infraestructure.model.PersistenceEntity;
+import br.com.ifba.sava.infraestructure.pessoa.model.Pessoa;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "ALUNO")
-public class Aluno extends PersistenceEntity implements Serializable{
+public class Aluno extends Pessoa implements Serializable{
     
     @Column(name = "NOME", length=100, nullable=false)
     private String nome;

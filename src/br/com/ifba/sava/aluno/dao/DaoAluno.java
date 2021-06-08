@@ -19,12 +19,12 @@ public class DaoAluno extends BaseDao<Aluno> implements IDaoAluno{
     }
     
     @Override
-    public boolean deleteAluno(Aluno aluno) {
+    public void deleteAluno(Aluno aluno) {
            try {
             this.delete(aluno);
-            return true;
+            
         } catch (Exception e) {
-            return false;
+            e.printStackTrace();
         }
     }
     

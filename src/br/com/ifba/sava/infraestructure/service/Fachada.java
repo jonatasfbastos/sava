@@ -1,5 +1,8 @@
 package br.com.ifba.sava.infraestructure.service;
 
+import br.com.ifba.sava.aluno.model.Aluno;
+import br.com.ifba.sava.aluno.service.IServiceAluno;
+import br.com.ifba.sava.aluno.service.ServiceAluno;
 import br.com.ifba.sava.infraestructure.endereco.model.Endereco;
 import br.com.ifba.sava.infraestructure.endereco.service.IServiceEndereco;
 import br.com.ifba.sava.infraestructure.endereco.service.ServiceEndereco;
@@ -65,4 +68,10 @@ public class Fachada implements IFachada {
     }
 
     
+    //------------------- Aluno ----------------------------//
+    private final IServiceAluno serviceAluno = new ServiceAluno();
+    
+    public void deleteAluno(Aluno aluno){
+        this.serviceAluno.deleteAluno(aluno);
+    }
 }

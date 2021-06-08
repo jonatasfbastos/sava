@@ -14,5 +14,5 @@ import br.com.ifba.sava.ifraestrucutre.dao.IBaseDao;
  */
 public interface IDaoAluno extends IBaseDao<Aluno>{
     
-    public abstract boolean deleteAluno(Aluno aluno);
+    public abstract void deleteAluno(Aluno aluno);
 }

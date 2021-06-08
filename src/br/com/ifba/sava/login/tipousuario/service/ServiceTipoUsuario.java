@@ -63,6 +63,7 @@ public final class ServiceTipoUsuario implements IServiceTipoUsuario{
             if(previous == null){
         	throw new BusinessException (ALREADY_DELETED);
             }
+            this.daoTipoUsuario.delete(tipoUsuario);
         } 
    //----------------------------------------------------------------
 }

@@ -1,11 +1,15 @@
 package br.com.ifba.sava.infraestructure.service;
 
+import br.com.ifba.sava.aluno.dao.DaoAluno;
+import br.com.ifba.sava.aluno.dao.IDaoAluno;
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.aluno.service.IServiceAluno;
 import br.com.ifba.sava.aluno.service.ServiceAluno;
+import static br.com.ifba.sava.aluno.service.ServiceAluno.ALUNO_NULL;
 import br.com.ifba.sava.infraestructure.endereco.model.Endereco;
 import br.com.ifba.sava.infraestructure.endereco.service.IServiceEndereco;
 import br.com.ifba.sava.infraestructure.endereco.service.ServiceEndereco;
+import br.com.ifba.sava.infraestructure.exception.BusinessException;
 import br.com.ifba.sava.login.tipousuario.model.TipoUsuario;
 import br.com.ifba.sava.login.tipousuario.service.ServiceTipoUsuario;
 import br.com.ifba.sava.login.tipousuario.service.IServiceTipoUsuario;
@@ -18,6 +22,18 @@ import java.util.List;
 
 
 public class Fachada implements IFachada {
+    //------------------- ALUNO -------------------------------//
+    private final IDaoAluno daoAluno = new DaoAluno();
+    
+    @Override
+    public Aluno saveAluno(Aluno aluno){
+        if(aluno == null){
+            //Tratamento de exceção; se o aluno for NULL/Vazio
+            throw new BusinessException(ALUNO_NULL);
+        }
+        return daoAluno.salvarAluno(aluno);
+    }
+    
     
     //------------------- Endereço ----------------------------//
     private final IServiceEndereco serviceEndereco = new ServiceEndereco();

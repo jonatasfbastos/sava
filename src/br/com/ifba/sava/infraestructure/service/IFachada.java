@@ -1,10 +1,14 @@
 package br.com.ifba.sava.infraestructure.service;
 
+import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.infraestructure.endereco.model.Endereco;
 import br.com.ifba.sava.login.tipousuario.model.TipoUsuario;
 import br.com.ifba.sava.login.usuario.model.Usuario;
 import java.util.List;
 public interface IFachada {
+    
+    //------------------- ALUNO -------------------------------//
+    public abstract Aluno saveAluno(Aluno aluno);
     
     //------------------- Endereço ----------------------------//
     // Método que salva um Endereço na base de dados

@@ -13,6 +13,8 @@ import br.com.ifba.sava.aluno.model.Aluno;
  */
 public interface IServiceAluno {
     
+    //salva o aluno
+    public abstract Aluno saveAluno(Aluno aluno);
     //deleta aluno
     public abstract void deleteAluno(Aluno aluno);
 }

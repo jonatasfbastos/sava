@@ -15,7 +15,7 @@ import br.com.ifba.sava.infraestructure.exception.BusinessException;
  * @author Tarcio
  */
 public class ServiceAluno implements IServiceAluno{
-    
+    //================= CONSTANTES =============================================
     //mensagem de erro se o Aluno for null;
     public final static String ALUNO_NULL = "Aluno null";
     
@@ -28,7 +28,18 @@ public class ServiceAluno implements IServiceAluno{
     //mensagem de erro se o Aluno for inválido;
     public final static String ALUNO_INVALIDO = "Aluno inválido";
     
+    //================= OBJETO =================================================
     private final IDaoAluno daoAluno = new DaoAluno();
+    
+    //================= MÉTODOS ================================================
+    @Override
+    public Aluno saveAluno(Aluno aluno){
+        if(aluno == null){
+            //Tratamento de exceção; se o aluno for NULL/Vazio
+            throw new BusinessException(ALUNO_NULL);
+        }
+        return daoAluno.salvarAluno(aluno);
+    }
     
     @Override
     public void deleteAluno(Aluno aluno) {

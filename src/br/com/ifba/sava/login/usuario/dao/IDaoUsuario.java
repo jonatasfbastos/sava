@@ -15,4 +15,5 @@ import java.util.List;
  */
 public interface IDaoUsuario extends IBaseDao<Usuario>{
     public List<Usuario> findByNome(Usuario usuario);
+    public List<Usuario> findByLoginSenha(Usuario usuario);
 }

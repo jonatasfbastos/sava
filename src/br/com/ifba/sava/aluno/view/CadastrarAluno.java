@@ -6,6 +6,7 @@
 package br.com.ifba.sava.aluno.view;
 
 import br.com.ifba.sava.aluno.model.Aluno;
+import br.com.ifba.sava.infraestructure.service.FachadaInstance;
 import br.com.ifba.sava.infraestructure.support.StringUtil;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -78,9 +79,17 @@ public class CadastrarAluno extends javax.swing.JFrame {
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome");
 
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+
         lblNascimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblNascimento.setForeground(new java.awt.Color(255, 255, 255));
         lblNascimento.setText("Nascimento");
+
+        txtNascimento.setText("  /  / ");
 
         lblMatricula.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblMatricula.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,11 +182,14 @@ public class CadastrarAluno extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(278, 278, 278)
+                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblNome)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +205,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
                                     .addComponent(lblUf))
                                 .addGap(5, 5, 5)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(txtNascimento)
                                     .addComponent(txtMatricula)
                                     .addComponent(txtCpf)
                                     .addComponent(txtCidade)
@@ -202,16 +214,16 @@ public class CadastrarAluno extends javax.swing.JFrame {
                                     .addComponent(txtRua)
                                     .addComponent(txtNumCasa)
                                     .addComponent(txtComplemento)
-                                    .addComponent(txtUf)))
+                                    .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblSobrenome)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtSobrenome)))
+                                .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(72, 72, 72)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(lblTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblNumero)
                                 .addComponent(lblDdd, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(lblEmail))
                         .addGap(30, 30, 30)
@@ -219,16 +231,13 @@ public class CadastrarAluno extends javax.swing.JFrame {
                             .addComponent(txtNumero)
                             .addComponent(txtDdd)
                             .addComponent(txtTipo)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(278, 278, 278)
-                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(142, Short.MAX_VALUE))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNome, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -251,8 +260,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmail)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(303, 303, 303)
-                        .addComponent(btnCadastrar))
+                        .addGap(248, 248, 248))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,6 +301,8 @@ public class CadastrarAluno extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUf)
                             .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(46, 46, 46)
+                .addComponent(btnCadastrar)
                 .addGap(27, 27, 27))
         );
 
@@ -343,10 +353,15 @@ public class CadastrarAluno extends javax.swing.JFrame {
             //aluno2.setNumero(txtNumero.getText());
             //aluno2.setDdd(txtDdd.getText());
             //aluno2.setTipo(txtTipo.getText());
-
+            
+            FachadaInstance.getInstance().saveAluno(aluno2);
         }    
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments

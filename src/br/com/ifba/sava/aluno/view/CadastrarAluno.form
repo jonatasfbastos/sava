@@ -52,12 +52,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
+                          <Component id="btnCadastrar" min="-2" pref="114" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="lblNome" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="50" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="txtNome" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -75,7 +79,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtNascimento" pref="150" max="32767" attributes="0"/>
+                                      <Component id="txtNascimento" max="32767" attributes="0"/>
                                       <Component id="txtMatricula" max="32767" attributes="0"/>
                                       <Component id="txtCpf" max="32767" attributes="0"/>
                                       <Component id="txtCidade" max="32767" attributes="0"/>
@@ -84,20 +88,20 @@
                                       <Component id="txtRua" max="32767" attributes="0"/>
                                       <Component id="txtNumCasa" max="32767" attributes="0"/>
                                       <Component id="txtComplemento" max="32767" attributes="0"/>
-                                      <Component id="txtUf" max="32767" attributes="0"/>
+                                      <Component id="txtUf" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblSobrenome" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtSobrenome" max="32767" attributes="0"/>
+                                  <Component id="txtSobrenome" min="-2" pref="151" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="lblTipo" max="32767" attributes="0"/>
-                                  <Component id="lblNumero" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblNumero" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblDdd" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -107,25 +111,21 @@
                               <Component id="txtNumero" max="32767" attributes="0"/>
                               <Component id="txtDdd" max="32767" attributes="0"/>
                               <Component id="txtTipo" max="32767" attributes="0"/>
-                              <Component id="txtEmail" pref="150" max="32767" attributes="0"/>
+                              <Component id="txtEmail" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
-                          <Component id="btnCadastrar" min="-2" pref="114" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace pref="142" max="32767" attributes="0"/>
+                  <EmptySpace pref="93" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="61" max="32767" attributes="0"/>
+                  <EmptySpace pref="70" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblNome" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNumero" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblTipo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtTipo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -150,10 +150,9 @@
                               <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
-                          <Component id="btnCadastrar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="248" pref="248" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -205,6 +204,8 @@
                           </Group>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="btnCadastrar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -223,6 +224,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNome">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField()"/>
           </AuxValues>
@@ -239,6 +243,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNascimento">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="  /  / "/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMatricula">
           <Properties>

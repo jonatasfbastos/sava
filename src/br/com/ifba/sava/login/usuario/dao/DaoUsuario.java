@@ -23,17 +23,17 @@ public class DaoUsuario extends BaseDao<Usuario> implements IDaoUsuario{
     
    @Override
    public List<Usuario> findByNome(Usuario usuario) {
-        String sql = "select c from Usuario c";
-        TypedQuery<Usuario> typedQuery = this.getEntityManager().createQuery(sql, Usuario.class);
+        String jpql = "select c from Usuario c";
+        TypedQuery<Usuario> typedQuery = this.getEntityManager().createQuery(jpql, Usuario.class);
         List<Usuario> listUsuario = typedQuery.getResultList();
         return listUsuario;
 	}
 
     @Override 
    public List<Usuario> findByLoginSenha(Usuario usuario) {
-            String sql = "SELECT u FROM Usuario AS u WHERE u.login=:login AND u.senha=:senha";
+            String jpql = "SELECT u FROM Usuario AS u WHERE u.login=:login AND u.senha=:senha";
         // inserindo comando na querry e inserindo os dados
-        TypedQuery<Usuario> typedQuery = this.getEntityManager().createQuery(sql, Usuario.class);
+        TypedQuery<Usuario> typedQuery = this.getEntityManager().createQuery(jpql, Usuario.class);
         typedQuery.setParameter("login", usuario.getLogin());
         typedQuery.setParameter("senha", usuario.getSenha());
         return typedQuery.getResultList();

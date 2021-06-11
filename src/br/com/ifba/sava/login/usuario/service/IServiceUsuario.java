@@ -14,7 +14,13 @@ import java.util.List;
  */
 public interface IServiceUsuario {
 
+    //LISTAR TODOS USUARIOS
     List<Usuario> getAllUsuario();
+    //DELETAR USUARIO
     void deleteUsuario(final Usuario usuario);
+    //ATUALIZAR USUARIO
+    Usuario updateUsuario(Usuario usuario);
+    //VERIFICAR USUARIO
+    boolean usuarioExisting(Usuario usuario);
     
 }

@@ -9,6 +9,8 @@ public interface IFachada {
     
     //------------------- ALUNO -------------------------------//
     public abstract Aluno saveAluno(Aluno aluno);
+    public abstract Aluno updateAluno(Aluno aluno);
+    public abstract void deleteAluno(Aluno aluno);
     
     //------------------- Endereço ----------------------------//
     // Método que salva um Endereço na base de dados

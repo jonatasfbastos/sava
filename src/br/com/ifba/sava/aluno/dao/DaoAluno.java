@@ -54,4 +54,12 @@ public class DaoAluno extends BaseDao<Aluno> implements IDaoAluno{
         }
     }
     
+    @Override
+    public Aluno updateAluno(Aluno aluno) {
+        if(this.findById(aluno.getId()) == null) {
+            throw new BusinessException(ALUNO_NAO_EXISTE);
+        }
+        return this.update(aluno);
+    }
+    
 }

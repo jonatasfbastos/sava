@@ -17,4 +17,6 @@ public interface IServiceAluno {
     public abstract Aluno saveAluno(Aluno aluno);
     //deleta aluno
     public abstract void deleteAluno(Aluno aluno);
+    
+    public abstract Aluno updateAluno(Aluno aluno);
 }

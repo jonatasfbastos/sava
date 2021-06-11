@@ -53,5 +53,13 @@ public class ServiceAluno implements IServiceAluno{
             this.daoAluno.delete(aluno);
         }
     }
+
+    @Override
+    public Aluno updateAluno(Aluno aluno) {
+        if(aluno == null) {
+            throw new BusinessException(ALUNO_NULL);
+        }
+        return daoAluno.updateAluno(aluno);
+    }
     
 }

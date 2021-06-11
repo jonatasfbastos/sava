@@ -23,15 +23,20 @@ import java.util.List;
 
 public class Fachada implements IFachada {
     //------------------- ALUNO -------------------------------//
-    private final IDaoAluno daoAluno = new DaoAluno();
+    private final IServiceAluno serviceAluno = new ServiceAluno();
     
     @Override
     public Aluno saveAluno(Aluno aluno){
-        if(aluno == null){
-            //Tratamento de exceção; se o aluno for NULL/Vazio
-            throw new BusinessException(ALUNO_NULL);
-        }
-        return daoAluno.salvarAluno(aluno);
+        return serviceAluno.saveAluno(aluno);
+    }
+    
+    public void deleteAluno(Aluno aluno){
+        this.serviceAluno.deleteAluno(aluno);
+    }
+
+    @Override
+    public Aluno updateAluno(Aluno aluno) {
+        return serviceAluno.updateAluno(aluno);
     }
     
     
@@ -85,9 +90,5 @@ public class Fachada implements IFachada {
 
     
     //------------------- Aluno ----------------------------//
-    private final IServiceAluno serviceAluno = new ServiceAluno();
     
-    public void deleteAluno(Aluno aluno){
-        this.serviceAluno.deleteAluno(aluno);
-    }
 }

@@ -9,13 +9,13 @@ import br.com.ifba.sava.ifraestrucutre.dao.BaseDao;
 import br.com.ifba.sava.login.usuario.model.Usuario;
 import java.util.List;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
  * @author jhinr
  */
 public class DaoUsuario extends BaseDao<Usuario> implements IDaoUsuario{
-    private String sql;
     
     public DaoUsuario() {
         super();
@@ -23,27 +23,19 @@ public class DaoUsuario extends BaseDao<Usuario> implements IDaoUsuario{
     
    @Override
    public List<Usuario> findByNome(Usuario usuario) {
-            String query  = "FROM Usuario WHERE upper(login) like upper('"+
-            usuario.getLogin()+"%')";
-            //String query = "SELECT * FROM USUARIO WHERE login LIKE '"+usuario.getLogin()+"%'";
-            return  BaseDao.entityManager.createQuery(query).getResultList();
+        String sql = "select c from Usuario c";
+        TypedQuery<Usuario> typedQuery = this.getEntityManager().createQuery(sql, Usuario.class);
+        List<Usuario> listUsuario = typedQuery.getResultList();
+        return listUsuario;
 	}
-    @Override
+
+    @Override 
    public List<Usuario> findByLoginSenha(Usuario usuario) {
-           this.setSql("SELECT u FROM Usuario AS u WHERE u.login=:login AND u.senha=:senha");
+            String sql = "SELECT u FROM Usuario AS u WHERE u.login=:login AND u.senha=:senha";
         // inserindo comando na querry e inserindo os dados
-        Query query = entityManager.createQuery(this.getSql());
-        query.setParameter("login", usuario.getLogin());
-        query.setParameter("senha", usuario.getSenha());
-        return query.getResultList();
-	}
-
-
-    public String getSql() {
-        return sql;
-    }
-
-    public void setSql(String sql) {
-        this.sql = sql;
-    }   
+        TypedQuery<Usuario> typedQuery = this.getEntityManager().createQuery(sql, Usuario.class);
+        typedQuery.setParameter("login", usuario.getLogin());
+        typedQuery.setParameter("senha", usuario.getSenha());
+        return typedQuery.getResultList();
+	} 
 }

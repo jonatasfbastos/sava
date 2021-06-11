@@ -98,6 +98,9 @@ public class BaseDao<Entity extends PersistenceEntity> implements IBaseDao<Entit
         
         return clazz;
     }
-
+    
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
     
 }

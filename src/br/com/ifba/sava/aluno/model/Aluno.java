@@ -5,10 +5,10 @@
  */
 package br.com.ifba.sava.aluno.model;
 
+import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.infraestructure.pessoa.model.Pessoa;
-import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -17,40 +17,20 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "ALUNO")
-public class Aluno extends Pessoa implements Serializable{
+public class Aluno extends Pessoa{
     
-    @Column(name = "NOME", length=100, nullable=false)
-    private String nome;
+    @OneToOne
+    private int matricula;
     
-    @Column(name = "SOBRENOME", length=100, nullable=false)
-    private String sobrenome;
-    
-    @Column(name = "NASCIMENTO", length=100, nullable=false)
-    private String nascimento;
+    @OneToOne
+    private Curso curso;
 
-    public String getNome() {
-        return nome;
+    public int getMatricula() {
+        return matricula;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public String getNascimento() {
-        return nascimento;
-    }
-
-    public void setNascimento(String nascimento) {
-        this.nascimento = nascimento;
-    }
-    
-    
+             
 }

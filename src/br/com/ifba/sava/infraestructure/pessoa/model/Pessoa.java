@@ -42,6 +42,9 @@ public abstract class Pessoa extends PersistenceEntity implements Serializable{
     
     @OneToOne
     private String email;
+    
+    @OneToOne
+    private int cpf;
 
     public String getNome() {
         return nome;

@@ -6,6 +6,7 @@
 package br.com.ifba.sava.aluno.service;
 
 import br.com.ifba.sava.aluno.model.Aluno;
+import java.util.List;
 
 /**
  *

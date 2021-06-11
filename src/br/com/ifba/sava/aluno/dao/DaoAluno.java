@@ -9,6 +9,7 @@ import br.com.ifba.sava.aluno.model.Aluno;
 import static br.com.ifba.sava.aluno.service.ServiceAluno.ALUNO_EXISTE;
 import br.com.ifba.sava.ifraestrucutre.dao.BaseDao;
 import br.com.ifba.sava.infraestructure.exception.BusinessException;
+import java.util.List;
 
 /**
  *

@@ -40,7 +40,11 @@ public class ServiceAluno implements IServiceAluno{
         }
         return daoAluno.salvarAluno(aluno);
     }
-    
+     @Override
+    public List<Aluno> getAllAluno() {
+        return this.daoAluno.findAll();
+    }
+
     @Override
     public void deleteAluno(Aluno aluno) {
          if(aluno == null){

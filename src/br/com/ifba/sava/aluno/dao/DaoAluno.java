@@ -53,7 +53,12 @@ public class DaoAluno extends BaseDao<Aluno> implements IDaoAluno{
             e.printStackTrace();
         }
     }
-    
+
+    @Override
+    public List<Aluno> takeAll(){
+        return this.findAll();
+    }
+
     @Override
     public Aluno updateAluno(Aluno aluno) {
         if(this.findById(aluno.getId()) == null) {

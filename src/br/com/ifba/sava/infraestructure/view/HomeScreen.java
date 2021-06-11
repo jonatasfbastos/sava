@@ -39,7 +39,13 @@ public class HomeScreen extends javax.swing.JFrame {
         btnAddClassCouncil = new javax.swing.JButton();
         txtSearchClassCouncil = new javax.swing.JTextField();
         btnSearchClassCouncil = new javax.swing.JButton();
-        pnlClasses = new javax.swing.JPanel();
+        pnlSubjects = new javax.swing.JPanel();
+        pnlMainBarSubjects1 = new javax.swing.JPanel();
+        btnAddSubjects1 = new javax.swing.JButton();
+        txtSearchSubjects1 = new javax.swing.JTextField();
+        btnSearchSubjects1 = new javax.swing.JButton();
+        spnlSubjects1 = new javax.swing.JScrollPane();
+        tblSubjects1 = new javax.swing.JTable();
         pnlTeachers = new javax.swing.JPanel();
         pnlMainBarTeachers = new javax.swing.JPanel();
         btnAddTeacher = new javax.swing.JButton();
@@ -249,20 +255,111 @@ public class HomeScreen extends javax.swing.JFrame {
 
         pnlScreens.add(pnlClassCouncil);
 
-        pnlClasses.setBackground(new java.awt.Color(255, 255, 255));
+        pnlSubjects.setBackground(new java.awt.Color(72, 71, 97));
 
-        javax.swing.GroupLayout pnlClassesLayout = new javax.swing.GroupLayout(pnlClasses);
-        pnlClasses.setLayout(pnlClassesLayout);
-        pnlClassesLayout.setHorizontalGroup(
-            pnlClassesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 886, Short.MAX_VALUE)
+        pnlMainBarSubjects1.setBackground(new java.awt.Color(72, 71, 97));
+
+        btnAddSubjects1.setText("Adicionar Turma");
+
+        txtSearchSubjects1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchSubjects1ActionPerformed(evt);
+            }
+        });
+
+        btnSearchSubjects1.setText("Buscar");
+
+        javax.swing.GroupLayout pnlMainBarSubjects1Layout = new javax.swing.GroupLayout(pnlMainBarSubjects1);
+        pnlMainBarSubjects1.setLayout(pnlMainBarSubjects1Layout);
+        pnlMainBarSubjects1Layout.setHorizontalGroup(
+            pnlMainBarSubjects1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainBarSubjects1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtSearchSubjects1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSearchSubjects1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
+                .addComponent(btnAddSubjects1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
-        pnlClassesLayout.setVerticalGroup(
-            pnlClassesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 882, Short.MAX_VALUE)
+        pnlMainBarSubjects1Layout.setVerticalGroup(
+            pnlMainBarSubjects1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainBarSubjects1Layout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addGroup(pnlMainBarSubjects1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchSubjects1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchSubjects1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddSubjects1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
-        pnlScreens.add(pnlClasses);
+        tblSubjects1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        tblSubjects1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Professor", "Disciplina", "Matriculados"
+            }
+        ));
+        spnlSubjects1.setViewportView(tblSubjects1);
+        if (tblSubjects1.getColumnModel().getColumnCount() > 0) {
+            tblSubjects1.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        javax.swing.GroupLayout pnlSubjectsLayout = new javax.swing.GroupLayout(pnlSubjects);
+        pnlSubjects.setLayout(pnlSubjectsLayout);
+        pnlSubjectsLayout.setHorizontalGroup(
+            pnlSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSubjectsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlMainBarSubjects1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spnlSubjects1, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnlSubjectsLayout.setVerticalGroup(
+            pnlSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSubjectsLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(pnlMainBarSubjects1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(spnlSubjects1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(239, Short.MAX_VALUE))
+        );
+
+        pnlScreens.add(pnlSubjects);
 
         pnlTeachers.setBackground(new java.awt.Color(72, 71, 97));
 
@@ -498,7 +595,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void tabClassCouncilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabClassCouncilMouseClicked
         pnlClassCouncil.setVisible(true);
-        pnlClasses.setVisible(false);
+        pnlSubjects.setVisible(false);
         pnlTeachers.setVisible(false);
         pnlStudents.setVisible(false);
         
@@ -510,7 +607,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void tabSubjectsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSubjectsMouseClicked
         pnlClassCouncil.setVisible(false);
-        pnlClasses.setVisible(true);
+        pnlSubjects.setVisible(true);
         pnlTeachers.setVisible(false);
         pnlStudents.setVisible(false);
         
@@ -522,7 +619,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void tabTeachersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabTeachersMouseClicked
         pnlClassCouncil.setVisible(false);
-        pnlClasses.setVisible(false);
+        pnlSubjects.setVisible(false);
         pnlTeachers.setVisible(true);
         pnlStudents.setVisible(false);
         
@@ -534,7 +631,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void tabStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabStudentsMouseClicked
         pnlClassCouncil.setVisible(false);
-        pnlClasses.setVisible(false);
+        pnlSubjects.setVisible(false);
         pnlTeachers.setVisible(false);
         pnlStudents.setVisible(true);
         
@@ -555,6 +652,10 @@ public class HomeScreen extends javax.swing.JFrame {
     private void txtSearchClassCouncilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchClassCouncilActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchClassCouncilActionPerformed
+
+    private void txtSearchSubjects1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchSubjects1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchSubjects1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -594,33 +695,39 @@ public class HomeScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddClassCouncil;
     private javax.swing.JButton btnAddStudent;
+    private javax.swing.JButton btnAddSubjects1;
     private javax.swing.JButton btnAddTeacher;
     private javax.swing.JButton btnSearchClassCouncil;
     private javax.swing.JButton btnSearchStudent;
+    private javax.swing.JButton btnSearchSubjects1;
     private javax.swing.JButton btnSearchTeachers;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblClassCouncil;
     private javax.swing.JLabel lblSubjects;
     private javax.swing.JPanel pnlClassCouncil;
-    private javax.swing.JPanel pnlClasses;
     private javax.swing.JPanel pnlMainBarClassCouncil;
     private javax.swing.JPanel pnlMainBarStudents;
+    private javax.swing.JPanel pnlMainBarSubjects1;
     private javax.swing.JPanel pnlMainBarTeachers;
     private javax.swing.JPanel pnlNavBar;
     private javax.swing.JPanel pnlScreens;
     private javax.swing.JPanel pnlStudents;
+    private javax.swing.JPanel pnlSubjects;
     private javax.swing.JPanel pnlTeachers;
     private javax.swing.JScrollPane spnlStudents;
+    private javax.swing.JScrollPane spnlSubjects1;
     private javax.swing.JScrollPane spnlTeachers;
     private javax.swing.JPanel tabClassCouncil;
     private javax.swing.JPanel tabStudents;
     private javax.swing.JPanel tabSubjects;
     private javax.swing.JPanel tabTeachers;
     private javax.swing.JTable tblStudents;
+    private javax.swing.JTable tblSubjects1;
     private javax.swing.JTable tblTeachers;
     private javax.swing.JTextField txtSearchClassCouncil;
     private javax.swing.JTextField txtSearchStudent;
+    private javax.swing.JTextField txtSearchSubjects1;
     private javax.swing.JTextField txtSearchTeachers;
     // End of variables declaration//GEN-END:variables
 }

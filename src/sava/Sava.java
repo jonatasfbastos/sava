@@ -5,6 +5,10 @@
  */
 package sava;
 
+import br.com.ifba.sava.ifraestrucutre.dao.BaseDao;
+import br.com.ifba.sava.login.usuario.dao.DaoUsuario;
+import br.com.ifba.sava.login.usuario.model.Usuario;
+
 /**
  *
  * @author jonatasfbastos
@@ -16,6 +20,12 @@ public class Sava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Usuario usuario = new Usuario();
+        //BaseDao baseDao = new BaseDao();//classe pessoa nao esta indo e nao da p fazer o resto e salva
+        usuario.setLogin("rafael");
+        usuario.setSenha("123456");
+       // baseDao.save(usuario);
+        
     }
     
 }

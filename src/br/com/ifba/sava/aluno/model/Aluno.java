@@ -5,10 +5,10 @@
  */
 package br.com.ifba.sava.aluno.model;
 
-import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.infraestructure.pessoa.model.Pessoa;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -19,17 +19,13 @@ import javax.persistence.Table;
 @Table(name = "ALUNO")
 public class Aluno extends Pessoa{
     
-    @OneToOne
-    private int matricula;
-    
-    @OneToOne
-    private Curso curso;
+    private String matricula;
 
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
              

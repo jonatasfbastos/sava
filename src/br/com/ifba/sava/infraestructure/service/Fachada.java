@@ -39,6 +39,11 @@ public class Fachada implements IFachada {
         return serviceAluno.updateAluno(aluno);
     }
     
+    @Override
+    public List<Aluno> takeAll() {
+        return serviceAluno.getAllAluno();
+    }
+    
     
     //------------------- Endereço ----------------------------//
     private final IServiceEndereco serviceEndereco = new ServiceEndereco();
@@ -90,5 +95,7 @@ public class Fachada implements IFachada {
 
     
     //------------------- Aluno ----------------------------//
+
+    
     
 }

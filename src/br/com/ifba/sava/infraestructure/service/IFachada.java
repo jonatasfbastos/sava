@@ -11,6 +11,7 @@ public interface IFachada {
     public abstract Aluno saveAluno(Aluno aluno);
     public abstract Aluno updateAluno(Aluno aluno);
     public abstract void deleteAluno(Aluno aluno);
+    public List<Aluno> takeAll();
     
     //------------------- Endereço ----------------------------//
     // Método que salva um Endereço na base de dados

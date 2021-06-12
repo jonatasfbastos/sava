@@ -9,6 +9,7 @@ import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.infraestructure.service.FachadaInstance;
 import br.com.ifba.sava.infraestructure.support.StringUtil;
 import java.awt.Color;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -333,29 +334,29 @@ public class CadastrarAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUfActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+        // Teste de CRUD //////
+        Aluno aluno1 = new Aluno();
         Aluno aluno2 = new Aluno();
         
-        if(validaCampos()== true){
-            aluno2.setNome(txtNome.getText());
-            aluno2.setSobrenome(txtSobrenome.getText());
-            aluno2.setNascimento(txtNascimento.getText());
-            //aluno2.setMatricula(txtMatricula.getText());
-            //aluno2.setCpf(txtCpf.getText());
-            aluno2.setEmail(txtEmail.getText());
-            //aluno2.setCidade(txtCidade.getText());
-            //aluno2.setCep(txtCep.getText());
-            //aluno2.setBairro(txtBairro.getText());
-            //aluno2.setRua(txtRua.getText());
-            //aluno2.setNumCasa(txtNumCasa.getText());
-            //aluno2.setComplemento(txtComplemento.getText());
-            //aluno2.setUf(txtUf.getText());
-            //aluno2.setNumero(txtNumero.getText());
-            //aluno2.setDdd(txtDdd.getText());
-            //aluno2.setTipo(txtTipo.getText());
-            
-            FachadaInstance.getInstance().saveAluno(aluno2);
-        }    
+        aluno1.setNome("Pedro");
+        aluno1.setSobrenome("Henrique");
+        aluno1.setMatricula("20191IREADS0020");
+        
+        aluno2.setNome("Joao");
+        aluno2.setSobrenome("Suvela");
+        aluno2.setMatricula("20191IREADS0021");
+       
+        FachadaInstance.getInstance().saveAluno(aluno1);
+        FachadaInstance.getInstance().saveAluno(aluno2);
+        
+        List<Aluno> listAlunos = FachadaInstance.getInstance().takeAll();
+        for (Aluno listAluno : listAlunos) {
+            System.out.println(listAluno.getNome());
+        }
+        
+        FachadaInstance.getInstance().deleteAluno(aluno2);
+        aluno1.setNome("PEDROOO");
+        FachadaInstance.getInstance().updateAluno(aluno1);
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

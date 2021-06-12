@@ -14,8 +14,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -30,21 +28,18 @@ public abstract class Pessoa extends PersistenceEntity implements Serializable{
     
     @Column(name = "SOBRENOME", length=100, nullable=false)
     private String sobrenome;
-    
+    /*
     @Column(name = "NASCIMENTO", length=100, nullable=false)
     private String nascimento;
     
-    @OneToOne
     private Endereco endereco;
     
-    @OneToMany
     private List<Telefone> telefones;
     
-    @OneToOne
     private String email;
     
-    @OneToOne
     private int cpf;
+    */
 
     public String getNome() {
         return nome;
@@ -61,7 +56,7 @@ public abstract class Pessoa extends PersistenceEntity implements Serializable{
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
-
+    /*
     public String getNascimento() {
         return nascimento;
     }
@@ -94,6 +89,6 @@ public abstract class Pessoa extends PersistenceEntity implements Serializable{
         this.email = email;
     }
 
-    
+    */
 }
 

@@ -9,12 +9,12 @@ package br.com.ifba.sava.infraestructure.service;
  *
  * @author jonatasfbastos
  */
-public class FachadaInstance {
+public class FacadeInstance {
     
     /**
      * Represents the singleton instance of the class.
      */
-    private static IFachada fachadaInstance;
+    private static IFacade fachadaInstance;
 
     /**
      * Object monitor for synchronize.
@@ -24,18 +24,18 @@ public class FachadaInstance {
     /**
      * Create a new instance of this class.
      */
-    public FachadaInstance() {
+    public FacadeInstance() {
         super();
     }
     
     /**
-     * Return a new instance of Fachada if there's not.
+     * Return a new instance of Facade if there's not.
      * @return 
      */
-    public static IFachada getInstance() {
+    public static IFacade getInstance() {
         synchronized (MONITOR) {
             if (fachadaInstance == null) {
-                fachadaInstance = new Fachada();
+                fachadaInstance = new Facade();
             }
         }
         return fachadaInstance;

@@ -5,7 +5,7 @@
  */
 package br.com.ifba.sava.login.usuario.service;
 
-import br.com.ifba.sava.infraestructure.exception.BusinessException;
+import br.com.ifba.sava.infrastructure.exception.BusinessException;
 import br.com.ifba.sava.login.usuario.dao.DaoUsuario;
 import br.com.ifba.sava.login.usuario.dao.IDaoUsuario;
 import br.com.ifba.sava.login.usuario.model.Usuario;
@@ -62,8 +62,7 @@ public class ServiceUsuario implements IServiceUsuario{
             }
             this.daoUsuario.delete(usuario);
         }
-    //----------------------------------------------------------------
-        
+           
     //------------------- Atualizar Usuário --------------------------   
         @Override
        public Usuario updateUsuario(Usuario usuario) {
@@ -80,7 +79,6 @@ public class ServiceUsuario implements IServiceUsuario{
                }
                return daoUsuario.update(usuario);
        }
-    //----------------------------------------------------------------
         
     //------------------- Verificar Usuário --------------------------   
         @Override

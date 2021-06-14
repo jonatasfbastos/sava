@@ -8,7 +8,7 @@ package br.com.ifba.sava.aluno.service;
 import br.com.ifba.sava.aluno.dao.DaoAluno;
 import br.com.ifba.sava.aluno.dao.IDaoAluno;
 import br.com.ifba.sava.aluno.model.Aluno;
-import br.com.ifba.sava.infraestructure.exception.BusinessException;
+import br.com.ifba.sava.infrastructure.exception.BusinessException;
 import java.util.List;
 
 /**

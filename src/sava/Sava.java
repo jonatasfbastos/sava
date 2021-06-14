@@ -5,7 +5,7 @@
  */
 package sava;
 
-import br.com.ifba.sava.ifraestrucutre.dao.BaseDao;
+import br.com.ifba.sava.infrastructure.dao.BaseDao;
 import br.com.ifba.sava.login.usuario.dao.DaoUsuario;
 import br.com.ifba.sava.login.usuario.model.Usuario;
 

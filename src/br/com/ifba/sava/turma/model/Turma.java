@@ -6,7 +6,7 @@
 package br.com.ifba.sava.turma.model;
 
 import br.com.ifba.sava.aluno.model.Aluno;
-import br.com.ifba.sava.infraestructure.model.PersistenceEntity;
+import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
 import java.util.List;
 
 /**

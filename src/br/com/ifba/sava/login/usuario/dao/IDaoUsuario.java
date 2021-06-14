@@ -5,7 +5,7 @@
  */
 package br.com.ifba.sava.login.usuario.dao;
 
-import br.com.ifba.sava.ifraestrucutre.dao.IBaseDao;
+import br.com.ifba.sava.infrastructure.dao.IBaseDao;
 import br.com.ifba.sava.login.usuario.model.Usuario;
 import java.util.List;
 

@@ -6,7 +6,7 @@
 package br.com.ifba.sava.aluno.dao;
 
 import br.com.ifba.sava.aluno.model.Aluno;
-import br.com.ifba.sava.ifraestrucutre.dao.IBaseDao;
+import br.com.ifba.sava.infrastructure.dao.IBaseDao;
 
 /**
  *

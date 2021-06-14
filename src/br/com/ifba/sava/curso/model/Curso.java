@@ -6,8 +6,8 @@
 package br.com.ifba.sava.curso.model;
 
 import br.com.ifba.sava.aluno.model.Aluno;
-import br.com.ifba.sava.infraestructure.model.PersistenceEntity;
-import br.com.ifba.sava.materia.model.Materia;
+import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
+import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.turma.model.Turma;
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class Curso extends PersistenceEntity{
    
     private String nome;
     
-    private List<Materia> listMaterias;
+    private List<Disciplina> listMaterias;
    
     private List<Turma> listTurmas;
     

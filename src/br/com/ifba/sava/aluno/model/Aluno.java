@@ -5,10 +5,8 @@
  */
 package br.com.ifba.sava.aluno.model;
 
-import br.com.ifba.sava.infraestructure.pessoa.model.Pessoa;
+import br.com.ifba.sava.infrastructure.pessoa.model.Pessoa;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**

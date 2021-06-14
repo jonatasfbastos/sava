@@ -5,7 +5,7 @@
  */
 package br.com.ifba.sava.login.usuario.model;
 
-import br.com.ifba.sava.infraestructure.model.PersistenceEntity;
+import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -38,8 +38,11 @@ public class ServiceAluno implements IServiceAluno{
         if(aluno == null){
             //Tratamento de exceção; se o aluno for NULL/Vazio
             throw new BusinessException(ALUNO_NULL);
-        }
-        return daoAluno.salvarAluno(aluno);
+        } else if(daoAluno.findById(aluno.getId()) != null) {
+            throw new BusinessException(ALUNO_EXISTE);
+        } else {
+            return daoAluno.save(aluno);
+        }  
     }
      @Override
     public List<Aluno> getAllAluno() {
@@ -63,8 +66,11 @@ public class ServiceAluno implements IServiceAluno{
     public Aluno updateAluno(Aluno aluno) {
         if(aluno == null) {
             throw new BusinessException(ALUNO_NULL);
+        } else if(daoAluno.findById(aluno.getId()) == null) {
+            throw new BusinessException(ALUNO_NAO_EXISTE);
+        } else {
+            return daoAluno.update(aluno);
         }
-        return daoAluno.updateAluno(aluno);
     }
     
 }

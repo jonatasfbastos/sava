@@ -13,9 +13,6 @@ import br.com.ifba.sava.infrastructure.dao.IBaseDao;
  * @author Tarcio
  */
 public interface IDaoAluno extends IBaseDao<Aluno>{
+ 
     
-    public abstract Aluno salvarAluno(Aluno aluno);
-    public abstract void deleteAluno(Aluno aluno);
-    public abstract Aluno updateAluno(Aluno aluno);
-    public abstract java.util.List<Aluno> takeAll();
 }

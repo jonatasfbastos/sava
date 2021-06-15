@@ -5,6 +5,9 @@
  */
 package br.com.ifba.sava.aluno.view;
 
+import br.com.ifba.sava.aluno.model.Aluno;
+import br.com.ifba.sava.infrastructure.service.FacadeInstance;
+
 /**
  *
  * @author sheor
@@ -763,7 +766,13 @@ public class RegisterStudentScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // TODO add your handling code here:
+        Aluno aluno = new Aluno();
+        
+        aluno.setNome("Pedro");
+        aluno.setSobrenome("Henrique");
+        aluno.setMatricula("20191IREADS0024");
+        
+        FacadeInstance.getInstance().saveAluno(aluno);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**

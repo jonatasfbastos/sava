@@ -771,6 +771,8 @@ public class RegisterStudentScreen extends javax.swing.JFrame {
         aluno.setNome("Pedro");
         aluno.setSobrenome("Henrique");
         aluno.setMatricula("20191IREADS0024");
+        aluno.setCpf("08146191401");
+        aluno.setEmail("pedro.steam2016@hotmail.com");
         
         FacadeInstance.getInstance().saveAluno(aluno);
     }//GEN-LAST:event_btnRegisterActionPerformed

@@ -6,6 +6,9 @@ import br.com.ifba.sava.login.usuario.service.IServiceUsuario;
 import br.com.ifba.sava.login.usuario.service.ServiceUsuario;
 import br.com.ifba.sava.aluno.service.IServiceAluno;
 import br.com.ifba.sava.aluno.service.ServiceAluno;
+import br.com.ifba.sava.disciplina.model.Disciplina;
+import br.com.ifba.sava.disciplina.service.IServiceDisciplina;
+import br.com.ifba.sava.disciplina.service.ServiceDisciplina;
 import java.util.List;
 
 
@@ -28,7 +31,7 @@ public class Facade implements IFacade {
     }
     
     @Override
-    public List<Aluno> takeAll() {
+    public List<Aluno> getAllAlunos() {
         return serviceAluno.getAllAluno();
     }
        
@@ -46,5 +49,19 @@ public class Facade implements IFacade {
     public void deleteUsuario(final Usuario usuario){
         this.serviceUsuario.deleteUsuario(usuario);
     }    
+    
+    
+    //------------------ DISCIPLINA --------------------------//
+    private final IServiceDisciplina serviceDisciplina = new ServiceDisciplina();
+    
+    @Override
+    public Disciplina saveDisciplina(Disciplina disciplina) {
+        return serviceDisciplina.saveDisciplina(disciplina);
+    }
+
+    @Override
+    public void removeDisciplina(Disciplina disciplina) {
+        serviceDisciplina.removeDisciplina(disciplina);
+    }
     
 }

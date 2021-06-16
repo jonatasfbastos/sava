@@ -5,11 +5,15 @@
  */
 package br.com.ifba.sava.disciplina.model;
 
+import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
+import javax.persistence.Entity;
+
 /**
  *
  * @author pedro_14b4yz1
  */
-public class Disciplina {
+@Entity
+public class Disciplina extends PersistenceEntity{
     
     private String nome;
     private String codigo;

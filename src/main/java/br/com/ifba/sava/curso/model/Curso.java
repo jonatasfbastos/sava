@@ -19,10 +19,4 @@ public class Curso extends PersistenceEntity{
    
     private String nome;
     
-    private List<Disciplina> listMaterias;
-   
-    private List<Turma> listTurmas;
-    
-    private List<Aluno> listAlunos;
-    
 }

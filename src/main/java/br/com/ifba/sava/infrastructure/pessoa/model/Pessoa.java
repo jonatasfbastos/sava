@@ -29,6 +29,16 @@ public abstract class Pessoa extends PersistenceEntity implements Serializable{
     private String cpf;
     
     private String email;
+    
+    private String telefone;
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
     public String getCpf() {
         return cpf;

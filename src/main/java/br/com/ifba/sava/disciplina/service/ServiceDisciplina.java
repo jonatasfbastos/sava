@@ -9,6 +9,7 @@ import br.com.ifba.sava.disciplina.dao.DaoDisciplina;
 import br.com.ifba.sava.disciplina.dao.IDaoDisciplina;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.infrastructure.exception.BusinessException;
+import java.util.List;
 
 /**
  *
@@ -30,6 +31,7 @@ public class ServiceDisciplina implements IServiceDisciplina{
     
     private IDaoDisciplina daoDisciplina = new DaoDisciplina();
     
+    
     @Override
     public Disciplina saveDisciplina(Disciplina disciplina) {
         if(disciplina == null) {
@@ -40,7 +42,13 @@ public class ServiceDisciplina implements IServiceDisciplina{
             return daoDisciplina.save(disciplina);
         }
     }
-
+    
+    
+    @Override
+    public List<Disciplina> getAllDisciplinas() {
+        return daoDisciplina.findAll();
+    }
+   
     @Override
     public void removeDisciplina(Disciplina disciplina) {
         if(disciplina == null) {
@@ -51,5 +59,7 @@ public class ServiceDisciplina implements IServiceDisciplina{
             daoDisciplina.delete(disciplina);
         }
     }
+
+    
     
 }

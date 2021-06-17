@@ -58,6 +58,11 @@ public class Facade implements IFacade {
     public Disciplina saveDisciplina(Disciplina disciplina) {
         return serviceDisciplina.saveDisciplina(disciplina);
     }
+    
+    @Override
+    public List<Disciplina> getAllDisciplinas(){
+        return serviceDisciplina.getAllDisciplinas();
+    }
 
     @Override
     public void removeDisciplina(Disciplina disciplina) {

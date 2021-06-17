@@ -6,6 +6,7 @@
 package br.com.ifba.sava.disciplina.service;
 
 import br.com.ifba.sava.disciplina.model.Disciplina;
+import java.util.List;
 
 /**
  *
@@ -14,5 +15,8 @@ import br.com.ifba.sava.disciplina.model.Disciplina;
 public interface IServiceDisciplina {
     
     public abstract Disciplina saveDisciplina(Disciplina disciplina);
+    public List<Disciplina> getAllDisciplinas();
     public abstract void removeDisciplina(Disciplina disciplina);
+    
+    
 }

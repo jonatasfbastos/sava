@@ -5,18 +5,27 @@
  */
 package br.com.ifba.sava.curso.model;
 
-import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
-import br.com.ifba.sava.disciplina.model.Disciplina;
-import br.com.ifba.sava.turma.model.Turma;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
- * @author pedro_14b4yz1
+ * @author Gustavo
  */
+
+@Entity
+@Table (name = "CURSO")
 public class Curso extends PersistenceEntity{
-   
+    
+    @Column (name="NOME", length=100, nullable=false)
     private String nome;
     
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getNome(String nome) {
+        return nome;
+    }
 }

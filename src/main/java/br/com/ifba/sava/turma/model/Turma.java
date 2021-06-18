@@ -20,6 +20,7 @@ import javax.persistence.Table;
  * @author Gustavo
  */
 
+
 @Entity
 @Table (name = "TURMA")
 public class Turma extends PersistenceEntity{

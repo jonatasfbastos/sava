@@ -7,6 +7,7 @@ package br.com.ifba.sava.aluno.dao;
 
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.infrastructure.dao.IBaseDao;
+import java.util.List;
 
 /**
  *
@@ -14,5 +15,6 @@ import br.com.ifba.sava.infrastructure.dao.IBaseDao;
  */
 public interface IDaoAluno extends IBaseDao<Aluno>{
  
+    public abstract List<Aluno> findByName(String name);
     
 }

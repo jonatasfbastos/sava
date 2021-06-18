@@ -74,4 +74,15 @@ public class ServiceAluno implements IServiceAluno{
         }
     }
     
+    @Override
+    public List<Aluno> findByName(String name) {
+        if(name == null) {
+            throw new BusinessException("Nome null");
+        } else if(name.isEmpty()) {
+            throw new BusinessException("Nome vazio");
+        } else {
+            return daoAluno.findByName(name);
+        }
+    }
+    
 }

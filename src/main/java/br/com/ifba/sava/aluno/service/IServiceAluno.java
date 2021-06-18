@@ -22,4 +22,6 @@ public interface IServiceAluno {
     public abstract Aluno updateAluno(Aluno aluno);
     // Metodo que retorna todos os Alunos da base de dados
     public abstract List<Aluno> getAllAluno();
+    
+    public List<Aluno> findByName(String name);
 }

@@ -12,6 +12,7 @@ public interface IFacade {
     public abstract Aluno updateAluno(Aluno aluno);
     public abstract void deleteAluno(Aluno aluno);
     public List<Aluno> getAllAlunos();
+    public List<Aluno> findByName(String name);
     
            
     //------------------- USUÁRIO ----------------------------//

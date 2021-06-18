@@ -298,9 +298,10 @@ public class CadastrarAluno extends javax.swing.JFrame {
         FacadeInstance.getInstance().saveAluno(aluno1);
         //FacadeInstance.getInstance().saveAluno(aluno2);
         
-        List<Aluno> listAlunos = FacadeInstance.getInstance().getAllAlunos();
+        List<Aluno> listAlunos = FacadeInstance.getInstance().findByName("Pedro");
         for (Aluno listAluno : listAlunos) {
             System.out.println(listAluno.getNome());
+            System.out.println(listAluno.getEmail());
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

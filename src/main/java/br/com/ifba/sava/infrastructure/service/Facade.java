@@ -34,6 +34,11 @@ public class Facade implements IFacade {
     public List<Aluno> getAllAlunos() {
         return serviceAluno.getAllAluno();
     }
+    
+    @Override
+    public List<Aluno> findByName(String name) {
+        return serviceAluno.findByName(name);
+    }
        
     
     //------------------- USUÁRIO ----------------------------//
@@ -68,5 +73,7 @@ public class Facade implements IFacade {
     public void removeDisciplina(Disciplina disciplina) {
         serviceDisciplina.removeDisciplina(disciplina);
     }
+
+    
     
 }

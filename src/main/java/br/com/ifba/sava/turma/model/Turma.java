@@ -10,18 +10,26 @@ import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author pedro_14b4yz1
+ * @author Gustavo
  */
+
+@Entity
+@Table (name = "TURMA")
 public class Turma extends PersistenceEntity{
+  
+    @OneToOne(mappedBy = "turma")
+    private Curso curso;
     
     private List<Aluno> listAlunos;
     
     private List<Disciplina> listDisciplinas;
-    
-    private Curso curso;
 
     public List<Aluno> getListAlunos() {
         return listAlunos;

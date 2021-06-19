@@ -9,6 +9,9 @@ import br.com.ifba.sava.aluno.service.ServiceAluno;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.service.IServiceDisciplina;
 import br.com.ifba.sava.disciplina.service.ServiceDisciplina;
+import br.com.ifba.sava.professor.model.Professor;
+import br.com.ifba.sava.professor.service.IServiceProfessor;
+import br.com.ifba.sava.professor.service.ServiceProfessor;
 import java.util.List;
 
 
@@ -21,6 +24,7 @@ public class Facade implements IFacade {
         return serviceAluno.saveAluno(aluno);
     }
     
+    @Override
     public void deleteAluno(Aluno aluno){
         this.serviceAluno.deleteAluno(aluno);
     }
@@ -75,5 +79,22 @@ public class Facade implements IFacade {
     }
 
     
+    //-------------------- PROFESSOR -------------------------//
+    private final IServiceProfessor serviceProfessor = new ServiceProfessor();
+
+    @Override
+    public Professor saveProfessor(Professor prof) {
+        return serviceProfessor.saveProfessor(prof);
+    }
+
+    @Override
+    public void deleteProfessor(Professor prof) {
+        this.serviceProfessor.deleteProfessor(prof);
+    }
+
+    @Override
+    public Professor updateProfessor(Professor prof) {
+        return serviceProfessor.updateProfessor(prof);
+    }
     
 }

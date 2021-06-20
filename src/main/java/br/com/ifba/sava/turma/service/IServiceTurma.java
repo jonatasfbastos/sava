@@ -6,12 +6,15 @@
 package br.com.ifba.sava.turma.service;
 
 import br.com.ifba.sava.turma.model.Turma;
+import java.util.List;
 
 /**
  *
  * @author Rafael
  */
 public interface IServiceTurma {
-    
+    //ATUALIZAR TURMA
     public abstract Turma updateTurma(Turma turma);
+    //LISTAR TODAS AS TURMAS
+    public List<Turma> getAllTurma();
 }

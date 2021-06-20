@@ -8,6 +8,7 @@ package br.com.ifba.sava.turma.service;
 import br.com.ifba.sava.infrastructure.exception.BusinessException;
 import br.com.ifba.sava.turma.dao.DaoTurma;
 import br.com.ifba.sava.turma.model.Turma;
+import java.util.List;
 
 /**
  *
@@ -42,6 +43,10 @@ public class ServiceTurma implements IServiceTurma{
             return daoTurma.update(turma);
         }
     }
-
+    
+    @Override
+    public List<Turma> getAllTurma() {
+        return this.daoTurma.findAll();
+    }
     
 }

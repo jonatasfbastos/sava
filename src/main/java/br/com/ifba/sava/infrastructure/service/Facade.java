@@ -12,6 +12,11 @@ import br.com.ifba.sava.disciplina.service.ServiceDisciplina;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.professor.service.IServiceProfessor;
 import br.com.ifba.sava.professor.service.ServiceProfessor;
+import br.com.ifba.sava.turma.model.Turma;
+import br.com.ifba.sava.turma.service.IServiceTurma;
+import br.com.ifba.sava.turma.service.ServiceTurma;
+
+
 import java.util.List;
 
 
@@ -97,4 +102,15 @@ public class Facade implements IFacade {
         return serviceProfessor.updateProfessor(prof);
     }
     
+    //-------------------- TURMA -------------------------//
+   private final IServiceTurma serviceTurma = new ServiceTurma();
+
+    @Override
+    public Turma updateTurma(Turma turma){
+        return serviceTurma.updateTurma(turma);
+    }
+    @Override
+    public List<Turma> getAllTurma() {
+        return serviceTurma.getAllTurma();
+    }
 }

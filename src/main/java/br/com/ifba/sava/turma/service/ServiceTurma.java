@@ -39,6 +39,7 @@ public class ServiceTurma implements IServiceTurma{
     
     //============================= MÉTODOS ====================================
     
+    //ATUALIZAR TURMA
     @Override
     public Turma updateTurma(Turma turma) {
         if(turma == null) {
@@ -50,11 +51,13 @@ public class ServiceTurma implements IServiceTurma{
         }
     }
     
+    //LISTAR TURMA
     @Override
     public List<Turma> getAllTurma() {
         return this.daoTurma.findAll();
     }
     
+    //DELETAR TURMA
     @Override
     public void deleteTurma(final Turma turma) {
         if(turma == null){ 

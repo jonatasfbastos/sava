@@ -13,5 +13,7 @@ import br.com.ifba.sava.turma.model.Turma;
  * @author Rafael
  */
 public interface IDaoTurma extends IBaseDao<Turma>{
-    
+
+    public abstract boolean saveTurma (Turma turma);//salvar curso
+
 }

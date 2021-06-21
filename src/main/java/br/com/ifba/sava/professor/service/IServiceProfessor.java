@@ -22,5 +22,7 @@ public interface IServiceProfessor {
     //listar todos os professores
     public abstract List<Professor> getAllProfessor();
 
+    public List<Professor> findBySiape(String siape);
+
     
 }

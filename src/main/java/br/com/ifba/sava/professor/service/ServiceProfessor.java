@@ -71,5 +71,15 @@ public class ServiceProfessor implements IServiceProfessor{
     public List<Professor> getAllProfessor(){
         return this.daoProfessor.findAll();
 }
+     @Override
+    public List<Professor> findBySiape(String siape) {
+        if(siape == null) {
+            throw new BusinessException("Siape null");
+        } else if(siape.isEmpty()) {
+            throw new BusinessException("siape vazio");
+        } else {
+            return daoProfessor.findBySiape(siape);
+        }
+    }
 
 }

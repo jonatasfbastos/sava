@@ -46,6 +46,9 @@ public class CadastrarAluno extends javax.swing.JFrame {
         pnlNome = new javax.swing.JPanel();
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
+        pnlCPF = new javax.swing.JPanel();
+        lblEmail2 = new javax.swing.JLabel();
+        txtEmail2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -204,54 +207,96 @@ public class CadastrarAluno extends javax.swing.JFrame {
                 .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
         );
 
+        pnlCPF.setBackground(new java.awt.Color(102, 101, 120));
+
+        lblEmail2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        lblEmail2.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmail2.setText("CPF:");
+
+        txtEmail2.setBackground(new java.awt.Color(102, 101, 120));
+        txtEmail2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        txtEmail2.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtEmail2.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtEmail2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmail2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlCPFLayout = new javax.swing.GroupLayout(pnlCPF);
+        pnlCPF.setLayout(pnlCPFLayout);
+        pnlCPFLayout.setHorizontalGroup(
+            pnlCPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCPFLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblEmail2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmail2))
+        );
+        pnlCPFLayout.setVerticalGroup(
+            pnlCPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCPFLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblEmail2)
+                .addGap(11, 11, 11))
+            .addComponent(txtEmail2)
+        );
+
         javax.swing.GroupLayout pnlRegisterContainerLayout = new javax.swing.GroupLayout(pnlRegisterContainer);
         pnlRegisterContainer.setLayout(pnlRegisterContainerLayout);
         pnlRegisterContainerLayout.setHorizontalGroup(
             pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRegisterContainerLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlNome, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
+                    .addComponent(pnlNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegisterContainerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(149, 149, 149))
+                .addGap(208, 208, 208))
         );
         pnlRegisterContainerLayout.setVerticalGroup(
             pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRegisterContainerLayout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
-                .addComponent(pnlNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnlSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnlEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRegisterContainerLayout.createSequentialGroup()
+                        .addComponent(pnlSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(pnlEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout pnlMainContainerLayout = new javax.swing.GroupLayout(pnlMainContainer);
         pnlMainContainer.setLayout(pnlMainContainerLayout);
         pnlMainContainerLayout.setHorizontalGroup(
             pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainContainerLayout.createSequentialGroup()
-                .addContainerGap(343, Short.MAX_VALUE)
+            .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                .addGap(267, 267, 267)
                 .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(307, 307, 307))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         pnlMainContainerLayout.setVerticalGroup(
             pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainContainerLayout.createSequentialGroup()
-                .addContainerGap(129, Short.MAX_VALUE)
+            .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                .addGap(134, 134, 134)
                 .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -260,7 +305,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlMainContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,43 +324,43 @@ public class CadastrarAluno extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         Aluno aluno1 = new Aluno();
         
-        /*aluno1.setNome(txtNome.getText());
+        aluno1.setNome(txtNome.getText());
         aluno1.setSobrenome(txtSobrenome.getText());
-        aluno1.setMatricula(txtNumeroMatricula.getText());*/
+        aluno1.setMatricula(txtNumeroMatricula.getText());
+        aluno1.setCpf(txtEmail2.getText());
+        aluno1.setSenha(txtEmail2.getText()+"."+txtNumeroMatricula.getText());
         
-        aluno1.setNome("Pedro");
-        aluno1.setSobrenome("Henrique");
-        aluno1.setMatricula("20191IREADS0020");
-        aluno1.setCpf("08146191408");
-        aluno1.setEmail("pedro.steam2016@hotmail.com");
-        //aluno1.setEmail("pedro@mail.com");
-        //aluno1.setCpf("2343123232");
+        txtEmail.setText("");
+        txtNome.setText("");
+        txtSobrenome.setText("");
+        txtEmail2.setText("");
+        txtNumeroMatricula.setText("");
         
-       /* aluno2.setName("Joao");
-        aluno2.setLastname("Suvela");
-        aluno2.setMatricula("20191IREADS0021");*/
-       
         FacadeInstance.getInstance().saveAluno(aluno1);
         //FacadeInstance.getInstance().saveAluno(aluno2);
         
-        List<Aluno> listAlunos = FacadeInstance.getInstance().findByName("Pedro");
+        /*List<Aluno> listAlunos = FacadeInstance.getInstance().findByName("Pedro");
         for (Aluno listAluno : listAlunos) {
             System.out.println(listAluno.getNome());
             System.out.println(listAluno.getEmail());
-        }
+        }*/
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void txtSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSobrenomeActionPerformed
-
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void txtEmail2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmail2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmail2ActionPerformed
+
+    private void txtSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSobrenomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -356,9 +401,11 @@ public class CadastrarAluno extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblEmail2;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNumeroMatricula;
     private javax.swing.JLabel lblSobrenome;
+    private javax.swing.JPanel pnlCPF;
     private javax.swing.JPanel pnlEmail;
     private javax.swing.JPanel pnlMainContainer;
     private javax.swing.JPanel pnlNome;
@@ -366,6 +413,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
     private javax.swing.JPanel pnlRegisterContainer;
     private javax.swing.JPanel pnlSobrenome;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEmail2;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumeroMatricula;
     private javax.swing.JTextField txtSobrenome;

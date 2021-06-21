@@ -17,4 +17,6 @@ public interface IServiceTurma {
     public abstract Turma updateTurma(Turma turma);
     //LISTAR TODAS AS TURMAS
     public List<Turma> getAllTurma();
+    //DELETAR TURMA
+    public void deleteTurma(final Turma turma);
 }

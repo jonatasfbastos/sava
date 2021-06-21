@@ -28,6 +28,12 @@ public class ServiceTurma implements IServiceTurma{
     //mensagem de erro se o Aluno for inválido;
     public final static String TURMA_INVALIDO = "A Turma inválida";
     
+    //menasgem de erro se o ID da Taurma for nulo
+    private static final String ID_REQUIRED = "O id é requerido";
+    
+    //mensagem de erro se a Turma já foi deletada anteriomente
+    private final static String ALREADY_DELETED = "A turma já foi deletado antes, sua operação não pode ser completada";
+    
     //============================= OBJETOS ====================================
     private final DaoTurma daoTurma = new DaoTurma();
     
@@ -47,6 +53,21 @@ public class ServiceTurma implements IServiceTurma{
     @Override
     public List<Turma> getAllTurma() {
         return this.daoTurma.findAll();
+    }
+    
+    @Override
+    public void deleteTurma(final Turma turma) {
+        if(turma == null){ 
+            throw new BusinessException(TURMA_NULL);
+        }
+        if(turma.getId() == null || turma.getId() < 1){
+            throw new BusinessException(ID_REQUIRED);
+        }
+        final Turma previous = this.daoTurma.findById(turma.getId());
+            if(previous == null){
+                throw new BusinessException (ALREADY_DELETED);
+            }
+        this.daoTurma.delete(turma);
     }
     
 }

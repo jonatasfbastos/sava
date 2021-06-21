@@ -16,5 +16,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PROFESSOR")
 public class Professor extends Pessoa{
-    
+    private String siape;
+
+    public String getSiape(){
+        return siape;
+    }
+
+    public void setSiape(){
+        this.siape = siape;
+    }
 }

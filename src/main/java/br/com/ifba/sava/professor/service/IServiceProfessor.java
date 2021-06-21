@@ -19,6 +19,8 @@ public interface IServiceProfessor {
     public abstract void deleteProfessor(Professor prof);
     //atualiza o professor
     public abstract Professor updateProfessor(Professor prof);
-    
+    //listar todos os professores
+    public abstract List<Professor> getAllProfessor();
+
     
 }

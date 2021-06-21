@@ -14,4 +14,13 @@ import br.com.ifba.sava.professor.model.Professor;
  */
 public class DaoProfessor extends BaseDao<Professor> implements IDaoProfessor{
     
+    @Override
+    public List<Professor> findBySiape(String siape) {
+        String busca = "SELECT a FROM Professor AS a WHERE a.siape=:siape";
+        // inserindo comando na querry e inserindo os dados
+        Query query = entityManager.createQuery(busca);
+        query.setParameter("siape", siape);
+        return query.getResultList();
+    }
+
 }

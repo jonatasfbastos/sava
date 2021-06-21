@@ -67,5 +67,9 @@ public class ServiceProfessor implements IServiceProfessor{
             return daoProfessor.update(prof);
         }
     }
-    
+    @Override
+    public List<Professor> getAllProfessor(){
+        return this.daoProfessor.findAll();
+}
+
 }

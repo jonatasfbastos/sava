@@ -14,4 +14,5 @@ import br.com.ifba.sava.professor.model.Professor;
  */
 public interface IDaoProfessor extends IBaseDao<Professor>{
     
+    public abstract List<Professor> findBySiape(String siape);
 }

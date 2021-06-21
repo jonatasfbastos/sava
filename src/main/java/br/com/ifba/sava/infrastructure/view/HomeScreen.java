@@ -5,7 +5,13 @@
  */
 package br.com.ifba.sava.infrastructure.view;
 
+import br.com.ifba.sava.aluno.model.Aluno;
+import br.com.ifba.sava.aluno.view.CadastrarAluno;
+import br.com.ifba.sava.infrastructure.service.Facade;
+import br.com.ifba.sava.infrastructure.service.FacadeInstance;
 import java.awt.Color;
+import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author sheor
  */
 public class HomeScreen extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form HomeScreen
      */
@@ -83,15 +89,15 @@ public class HomeScreen extends javax.swing.JFrame {
         tabClassCouncilLayout.setHorizontalGroup(
             tabClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabClassCouncilLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(58, 58, 58)
                 .addComponent(lblClassCouncil)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         tabClassCouncilLayout.setVerticalGroup(
             tabClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabClassCouncilLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblClassCouncil, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addComponent(lblClassCouncil, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -235,7 +241,7 @@ public class HomeScreen extends javax.swing.JFrame {
             pnlClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClassCouncilLayout.createSequentialGroup()
                 .addComponent(pnlMainBarClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 515, Short.MAX_VALUE))
+                .addGap(0, 512, Short.MAX_VALUE))
         );
 
         pnlScreens.add(pnlClassCouncil);
@@ -453,6 +459,11 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlMainBarStudents.setBackground(new java.awt.Color(72, 71, 97));
 
         btnAddStudent.setText("Adicionar Aluno");
+        btnAddStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddStudentActionPerformed(evt);
+            }
+        });
 
         txtSearchStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -584,12 +595,25 @@ public class HomeScreen extends javax.swing.JFrame {
         List<Student> takeAll = daoStudent.takeAll();
         for(int i = 0; i < takeAll.size(); i++) {
             
-        }*/
+        }*/         
+        
+//        List<Aluno> aluno1 = FacadeInstance.getInstance().getAllAlunos();
         DefaultTableModel valores = (DefaultTableModel) tblStudents.getModel();
         while (tblStudents.getModel().getRowCount() > 0) {  
            ((DefaultTableModel) tblStudents.getModel()).removeRow(0);  
         } 
-        
+        //Aluno alunos = new Aluno();
+       ///AlunoDao alunoDao = new AlunoDao();
+        Facade facade = new Facade();
+        List<Aluno> aluno = facade.getAllAlunos();
+        for(int i = 0;i<aluno.size();i++){
+            Object[] dados = {
+                aluno.get(i).getNome(),
+                aluno.get(i).getSobrenome(),
+                aluno.get(i).getMatricula()
+            };
+            valores.addRow(dados);
+        }
 //        Student students = new Student();
 //        DaoStudent daoStudent = new DaoStudent();
 //        List<Student> student = daoStudent.takeAll();
@@ -641,10 +665,22 @@ public class HomeScreen extends javax.swing.JFrame {
         tabStudents.setBackground(new Color(204,204,255));
     }//GEN-LAST:event_tabClassCouncilMouseClicked
 
+    private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
+        
+       CadastrarAluno tela1 = new CadastrarAluno();
+       //HomeScreen aq = new HomeScreen();
+       //tela1.dispose();
+       tela1.setVisible(true);
+       //tela.setVisible(false);
+       //tela1.dispose();
+       //aq.setDefaultCloseOperation(aq.HIDE_ON_CLOSE);
+    }//GEN-LAST:event_btnAddStudentActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        HomeScreen tela = new HomeScreen();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -671,7 +707,8 @@ public class HomeScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeScreen().setVisible(true);
+                tela.setVisible(true);
+                System.out.println("teste");
             }
         });
     }

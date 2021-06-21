@@ -9,6 +9,14 @@ import br.com.ifba.sava.aluno.service.ServiceAluno;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.service.IServiceDisciplina;
 import br.com.ifba.sava.disciplina.service.ServiceDisciplina;
+import br.com.ifba.sava.professor.model.Professor;
+import br.com.ifba.sava.professor.service.IServiceProfessor;
+import br.com.ifba.sava.professor.service.ServiceProfessor;
+import br.com.ifba.sava.turma.model.Turma;
+import br.com.ifba.sava.turma.service.IServiceTurma;
+import br.com.ifba.sava.turma.service.ServiceTurma;
+
+
 import java.util.List;
 
 
@@ -21,6 +29,7 @@ public class Facade implements IFacade {
         return serviceAluno.saveAluno(aluno);
     }
     
+    @Override
     public void deleteAluno(Aluno aluno){
         this.serviceAluno.deleteAluno(aluno);
     }
@@ -68,6 +77,11 @@ public class Facade implements IFacade {
     public List<Disciplina> getAllDisciplinas(){
         return serviceDisciplina.getAllDisciplinas();
     }
+    
+    @Override
+    public Disciplina updateDisciplina(Disciplina disciplina){
+        return serviceDisciplina.updateDisciplina(disciplina);
+    }
 
     @Override
     public void removeDisciplina(Disciplina disciplina) {
@@ -75,5 +89,33 @@ public class Facade implements IFacade {
     }
 
     
+    //-------------------- PROFESSOR -------------------------//
+    private final IServiceProfessor serviceProfessor = new ServiceProfessor();
+
+    @Override
+    public Professor saveProfessor(Professor prof) {
+        return serviceProfessor.saveProfessor(prof);
+    }
+
+    @Override
+    public void deleteProfessor(Professor prof) {
+        this.serviceProfessor.deleteProfessor(prof);
+    }
+
+    @Override
+    public Professor updateProfessor(Professor prof) {
+        return serviceProfessor.updateProfessor(prof);
+    }
     
+    //-------------------- TURMA -------------------------//
+   private final IServiceTurma serviceTurma = new ServiceTurma();
+
+    @Override
+    public Turma updateTurma(Turma turma){
+        return serviceTurma.updateTurma(turma);
+    }
+    @Override
+    public List<Turma> getAllTurma() {
+        return serviceTurma.getAllTurma();
+    }
 }

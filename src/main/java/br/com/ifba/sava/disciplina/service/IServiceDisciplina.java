@@ -16,6 +16,7 @@ public interface IServiceDisciplina {
     
     public abstract Disciplina saveDisciplina(Disciplina disciplina);
     public List<Disciplina> getAllDisciplinas();
+    public Disciplina updateDisciplina(Disciplina disciplina);
     public abstract void removeDisciplina(Disciplina disciplina);
     
     

@@ -83,9 +83,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       <Component id="lblClassCouncil" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="55" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -93,7 +93,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblClassCouncil" pref="34" max="32767" attributes="0"/>
+                      <Component id="lblClassCouncil" pref="32" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -133,7 +133,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="61" green="47" red="48" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Turmas"/>
+                <Property name="text" type="java.lang.String" value="Disciplinas"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -268,7 +268,7 @@
                           <Component id="txtSearchClassCouncil" min="-2" pref="238" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnSearchClassCouncil" min="-2" pref="102" max="-2" attributes="0"/>
-                          <EmptySpace pref="330" max="32767" attributes="0"/>
+                          <EmptySpace pref="350" max="32767" attributes="0"/>
                           <Component id="btnAddClassCouncil" min="-2" pref="153" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
@@ -376,8 +376,11 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="btnAddSubjects">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Adicionar Turma"/>
+                    <Property name="text" type="java.lang.String" value="Adicionar Disciplina"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddSubjectsActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSearchSubjects">
                   <Events>
@@ -404,10 +407,9 @@
                       <Font name="Microsoft Sans Serif" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="32">
+                      <Table columnCount="3" rowCount="32">
                         <Column editable="true" title="Nome" type="java.lang.Object"/>
                         <Column editable="true" title="Professor" type="java.lang.Object"/>
-                        <Column editable="true" title="Disciplina" type="java.lang.Object"/>
                         <Column editable="true" title="Matriculados" type="java.lang.Object"/>
                       </Table>
                     </Property>
@@ -419,11 +421,6 @@
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -457,7 +454,7 @@
                   <Component id="pnlMainBarTeachers" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="spnlTeachers" pref="866" max="32767" attributes="0"/>
+                      <Component id="spnlTeachers" pref="886" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -514,6 +511,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Adicionar Professor"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddTeacherActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSearchTeachers">
                   <Events>
@@ -594,7 +594,7 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="spnlStudents" pref="866" max="32767" attributes="0"/>
+                          <Component id="spnlStudents" pref="886" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -632,7 +632,7 @@
                           <Component id="txtSearchStudent" min="-2" pref="238" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnSearchStudent" min="-2" pref="102" max="-2" attributes="0"/>
-                          <EmptySpace pref="330" max="32767" attributes="0"/>
+                          <EmptySpace pref="350" max="32767" attributes="0"/>
                           <Component id="btnAddStudent" min="-2" pref="153" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
@@ -657,6 +657,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Adicionar Aluno"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddStudentActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSearchStudent">
                   <Events>

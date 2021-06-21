@@ -7,8 +7,10 @@ package br.com.ifba.sava.infrastructure.view;
 
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.aluno.view.CadastrarAluno;
+import br.com.ifba.sava.disciplina.view.CadastrarDisciplina;
 import br.com.ifba.sava.infrastructure.service.Facade;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
+import br.com.ifba.sava.professor.view.CadastrarProfessor;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JFrame;
@@ -110,7 +112,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
         lblSubjects.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblSubjects.setForeground(new java.awt.Color(72, 71, 97));
-        lblSubjects.setText("Turmas");
+        lblSubjects.setText("Disciplinas");
         tabSubjects.add(lblSubjects, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 30));
 
         tabTeachers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -216,7 +218,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(txtSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
                 .addComponent(btnAddClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -241,7 +243,7 @@ public class HomeScreen extends javax.swing.JFrame {
             pnlClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClassCouncilLayout.createSequentialGroup()
                 .addComponent(pnlMainBarClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 512, Short.MAX_VALUE))
+                .addGap(0, 515, Short.MAX_VALUE))
         );
 
         pnlScreens.add(pnlClassCouncil);
@@ -250,7 +252,12 @@ public class HomeScreen extends javax.swing.JFrame {
 
         pnlMainBarSubjects.setBackground(new java.awt.Color(72, 71, 97));
 
-        btnAddSubjects.setText("Adicionar Turma");
+        btnAddSubjects.setText("Adicionar Disciplina");
+        btnAddSubjects.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSubjectsActionPerformed(evt);
+            }
+        });
 
         txtSearchSubjects.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,41 +294,41 @@ public class HomeScreen extends javax.swing.JFrame {
         tblSubjects.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
         tblSubjects.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome", "Professor", "Disciplina", "Matriculados"
+                "Nome", "Professor", "Matriculados"
             }
         ));
         spnlSubjects.setViewportView(tblSubjects);
@@ -355,6 +362,11 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlMainBarTeachers.setBackground(new java.awt.Color(72, 71, 97));
 
         btnAddTeacher.setText("Adicionar Professor");
+        btnAddTeacher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddTeacherActionPerformed(evt);
+            }
+        });
 
         txtSearchTeachers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -440,7 +452,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addComponent(pnlMainBarTeachers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlTeachersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spnlTeachers, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
+                .addComponent(spnlTeachers, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlTeachersLayout.setVerticalGroup(
@@ -482,7 +494,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(txtSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
                 .addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -527,7 +539,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(pnlStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlStudentsLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(spnlStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
+                    .addComponent(spnlStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pnlStudentsLayout.setVerticalGroup(
@@ -675,6 +687,19 @@ public class HomeScreen extends javax.swing.JFrame {
        //tela1.dispose();
        //aq.setDefaultCloseOperation(aq.HIDE_ON_CLOSE);
     }//GEN-LAST:event_btnAddStudentActionPerformed
+
+    private void btnAddTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTeacherActionPerformed
+       CadastrarProfessor tela = new CadastrarProfessor();
+       //HomeScreen aq = new HomeScreen();
+       //tela1.dispose();
+       tela.setVisible(true);
+    }//GEN-LAST:event_btnAddTeacherActionPerformed
+
+    private void btnAddSubjectsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSubjectsActionPerformed
+        CadastrarDisciplina tela = new CadastrarDisciplina();
+        tela.setVisible(true);
+
+    }//GEN-LAST:event_btnAddSubjectsActionPerformed
 
     /**
      * @param args the command line arguments

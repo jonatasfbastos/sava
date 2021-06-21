@@ -133,7 +133,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="61" green="47" red="48" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Turmas"/>
+                <Property name="text" type="java.lang.String" value="Disciplinas"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -376,8 +376,11 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="btnAddSubjects">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Adicionar Turma"/>
+                    <Property name="text" type="java.lang.String" value="Adicionar Disciplina"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddSubjectsActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSearchSubjects">
                   <Events>
@@ -404,10 +407,9 @@
                       <Font name="Microsoft Sans Serif" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="32">
+                      <Table columnCount="3" rowCount="32">
                         <Column editable="true" title="Nome" type="java.lang.Object"/>
                         <Column editable="true" title="Professor" type="java.lang.Object"/>
-                        <Column editable="true" title="Disciplina" type="java.lang.Object"/>
                         <Column editable="true" title="Matriculados" type="java.lang.Object"/>
                       </Table>
                     </Property>
@@ -419,11 +421,6 @@
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -514,6 +511,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Adicionar Professor"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddTeacherActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSearchTeachers">
                   <Events>

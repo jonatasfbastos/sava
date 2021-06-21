@@ -48,6 +48,17 @@ public class ServiceDisciplina implements IServiceDisciplina{
     public List<Disciplina> getAllDisciplinas() {
         return daoDisciplina.findAll();
     }
+    
+    @Override
+    public Disciplina updateDisciplina(Disciplina disciplina) {
+          if(disciplina == null) {
+            throw new BusinessException(DISCIPLINA_NULL);
+        } else if(daoDisciplina.findById(disciplina.getId()) == null) {
+            throw new BusinessException(DISCIPLINA_NAO_EXISTE);
+        } else {
+            return daoDisciplina.update(disciplina);
+        }
+    }
    
     @Override
     public void removeDisciplina(Disciplina disciplina) {
@@ -59,6 +70,8 @@ public class ServiceDisciplina implements IServiceDisciplina{
             daoDisciplina.delete(disciplina);
         }
     }
+
+    
 
     
     

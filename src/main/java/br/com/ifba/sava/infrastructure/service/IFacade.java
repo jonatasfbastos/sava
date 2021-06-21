@@ -25,6 +25,7 @@ public interface IFacade {
     //------------------ DISCIPLINA --------------------------//
     public abstract Disciplina saveDisciplina(Disciplina disciplina);
     public List<Disciplina> getAllDisciplinas();
+    public abstract Disciplina updateDisciplina(Disciplina disciplina);
     public abstract void removeDisciplina(Disciplina disciplina);
     
     //------------------ PROFESSOR --------------------------//

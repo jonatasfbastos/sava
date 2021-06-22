@@ -13,6 +13,8 @@ import java.util.List;
  * @author Rafael
  */
 public interface IServiceTurma {
+    //salvar turma
+    public abstract Turma saveTurma(Turma turma);
     //ATUALIZAR TURMA
     public abstract Turma updateTurma(Turma turma);
     //LISTAR TODAS AS TURMAS

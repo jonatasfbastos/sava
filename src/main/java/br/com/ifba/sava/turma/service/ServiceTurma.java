@@ -39,6 +39,17 @@ public class ServiceTurma implements IServiceTurma{
     
     //============================= MÉTODOS ====================================
     
+    @Override
+    public Turma saveTurma(Turma turma) {
+        if(turma == null){
+            throw new BusinessException(TURMA_NULL);
+        }else if(daoTurma.findById(turma.getId()) == null){
+            throw new BusinessException(TURMA_NAO_EXISTE);
+        }
+        else{
+            return daoTurma.save(turma);
+        }
+    }
     //ATUALIZAR TURMA
     @Override
     public Turma updateTurma(Turma turma) {

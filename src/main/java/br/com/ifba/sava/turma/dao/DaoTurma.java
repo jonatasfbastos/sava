@@ -15,17 +15,6 @@ import br.com.ifba.sava.turma.model.Turma;
  */
 public class DaoTurma extends BaseDao<Turma> implements IDaoTurma {
     
-    // Representa a mensagem de erro se a turma for null;
-    public final static String TURMA_NULL = "Turma null";
 
-    @Override
-    public boolean saveTurma(Turma turma) {
-        if(turma == null){
-            throw new BusinessException(TURMA_NULL);
-        }
-        else{
-            this.save(turma);
-            return true;
-        }
-    }
+    
 }

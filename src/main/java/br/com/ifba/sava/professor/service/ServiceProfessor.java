@@ -9,6 +9,7 @@ import br.com.ifba.sava.infrastructure.exception.BusinessException;
 import br.com.ifba.sava.professor.dao.DaoProfessor;
 import br.com.ifba.sava.professor.dao.IDaoProfessor;
 import br.com.ifba.sava.professor.model.Professor;
+import java.util.List;
 
 /**
  *

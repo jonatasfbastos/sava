@@ -9,6 +9,9 @@ import br.com.ifba.sava.aluno.service.ServiceAluno;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.service.IServiceDisciplina;
 import br.com.ifba.sava.disciplina.service.ServiceDisciplina;
+import br.com.ifba.sava.etapa.model.Etapa;
+import br.com.ifba.sava.etapa.service.IServiceEtapa;
+import br.com.ifba.sava.etapa.service.ServiceEtapa;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.professor.service.IServiceProfessor;
 import br.com.ifba.sava.professor.service.ServiceProfessor;
@@ -117,5 +120,28 @@ public class Facade implements IFacade {
     @Override
     public List<Turma> getAllTurma() {
         return serviceTurma.getAllTurma();
+    }
+    
+    //-------------------- ETAPA ------------------------//
+    private final IServiceEtapa serviceEtapa = new ServiceEtapa();
+    
+    @Override
+    public Etapa saveEtapa(Etapa etapa) {
+        return serviceEtapa.saveEtapa(etapa);
+    }
+    
+    @Override
+    public List<Etapa> getAllEtapa(){
+        return serviceEtapa.getAllEtapa();
+    }
+    
+    @Override
+    public Etapa updateEtapa(Etapa etapa){
+        return serviceEtapa.updateEtapa(etapa);
+    }
+
+    @Override
+    public void removeEtapa(Etapa etapa) {
+        serviceEtapa.removeEtapa(etapa);
     }
 }

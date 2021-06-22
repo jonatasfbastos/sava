@@ -6,6 +6,7 @@
 package br.com.ifba.sava.professor.service;
 
 import br.com.ifba.sava.professor.model.Professor;
+import java.util.List;
 
 /**
  *

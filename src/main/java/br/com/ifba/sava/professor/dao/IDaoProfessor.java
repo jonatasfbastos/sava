@@ -7,6 +7,7 @@ package br.com.ifba.sava.professor.dao;
 
 import br.com.ifba.sava.infrastructure.dao.IBaseDao;
 import br.com.ifba.sava.professor.model.Professor;
+import java.util.List;
 
 /**
  *

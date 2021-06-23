@@ -7,12 +7,14 @@ package br.com.ifba.sava.disciplina.model;
 
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author pedro_14b4yz1
  */
 @Entity
+@Table (name = "DISCIPLINA")
 public class Disciplina extends PersistenceEntity{
     
     private String nome;

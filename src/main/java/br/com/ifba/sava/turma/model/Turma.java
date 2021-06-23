@@ -29,7 +29,7 @@ import javax.persistence.Table;
 @Table (name = "TURMA")
 public class Turma extends PersistenceEntity{
   
-    @OneToOne(mappedBy = "turma")
+    @OneToOne(mappedBy = "CURSO")
     private Curso curso;
     
     private List<Aluno> listAlunos;

@@ -9,7 +9,10 @@ import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
 import br.com.ifba.sava.turma.model.Turma;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,10 +20,13 @@ import javax.persistence.Table;
  * @author jhinr
  */
 @Entity
-@Table (name = "Etapa")
+@Table (name = "ETAPA")
 public class Etapa extends PersistenceEntity{
     
+    @OneToMany (mappedBy = "DISCIPLINA", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Disciplina> listDisciplinas;
+    
+    @OneToMany (mappedBy = "TURMA", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Turma> listTurma;
     
     private String nome;

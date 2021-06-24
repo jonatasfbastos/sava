@@ -614,10 +614,18 @@ public class HomeScreen extends javax.swing.JFrame {
         while (tblStudents.getModel().getRowCount() > 0) {  
            ((DefaultTableModel) tblStudents.getModel()).removeRow(0);  
         } 
+        
+        //FacadeInstance.getInstance().saveAluno(aluno2);
+        
+        /*List<Aluno> listAlunos = FacadeInstance.getInstance().findByName("Pedro");
+        for (Aluno listAluno : listAlunos) {
+            System.out.println(listAluno.getNome());
+            System.out.println(listAluno.getEmail());
+        }*/
         //Aluno alunos = new Aluno();
        ///AlunoDao alunoDao = new AlunoDao();
-        Facade facade = new Facade();
-        List<Aluno> aluno = facade.getAllAlunos();
+        
+        List<Aluno> aluno = FacadeInstance.getInstance().getAllAlunos();
         for(int i = 0;i<aluno.size();i++){
             Object[] dados = {
                 aluno.get(i).getNome(),

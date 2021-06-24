@@ -28,23 +28,25 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "TURMA")
 public class Turma extends PersistenceEntity{
-  
-    @OneToOne(mappedBy = "CURSO")
-    private Curso curso;
+    /* 
+        adicionar os tipos de relação usando fetch e cascade -> ver exemplo em etapa
+    */
+    //@OneToOne(/*mappedBy = "CURSO"*/)
+    //private Curso curso;
     
-    private List<Aluno> listAlunos;
+    //private List<Aluno> listAlunos;
     
-    private List<Disciplina> listDisciplinas;
+    //private List<Disciplina> listDisciplinas;
     
     private String nome;
     private int numero;
-
+/*
     public List<Aluno> getListAlunos() {
-        return listAlunos;
+        //return listAlunos;
     }
 
     public void setListAlunos(List<Aluno> listAlunos) {
-        this.listAlunos = listAlunos;
+        //this.listAlunos = listAlunos;
     }
 
     public List<Disciplina> getListDisciplinas() {
@@ -52,7 +54,7 @@ public class Turma extends PersistenceEntity{
     }
 
     public void setListDisciplinas(List<Disciplina> listDisciplinas) {
-        this.listDisciplinas = listDisciplinas;
+       // this.listDisciplinas = listDisciplinas;
     }
 
     public Curso getCurso() {
@@ -62,7 +64,7 @@ public class Turma extends PersistenceEntity{
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
-    
+    */
     public void setNome(String nome){
         this.nome = nome;
     }

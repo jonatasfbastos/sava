@@ -23,10 +23,10 @@ import javax.persistence.Table;
 @Table (name = "ETAPA")
 public class Etapa extends PersistenceEntity{
     
-    @OneToMany (mappedBy = "DISCIPLINA", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany (fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Disciplina> listDisciplinas;
     
-    @OneToMany (mappedBy = "TURMA", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany (fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Turma> listTurma;
     
     private String nome;

@@ -6,6 +6,7 @@
 package br.com.ifba.sava.aluno.view;
 
 import br.com.ifba.sava.aluno.model.Aluno;
+import br.com.ifba.sava.infrastructure.view.HomeScreen;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
 import java.util.List;
 
@@ -337,6 +338,10 @@ public class CadastrarAluno extends javax.swing.JFrame {
         txtNumeroMatricula.setText("");
         
         FacadeInstance.getInstance().saveAluno(aluno1);
+
+        this.dispose();
+        HomeScreen tela1 = new HomeScreen();
+        tela1.setVisible(true);
         //FacadeInstance.getInstance().saveAluno(aluno2);
         
         /*List<Aluno> listAlunos = FacadeInstance.getInstance().findByName("Pedro");

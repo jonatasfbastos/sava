@@ -6,6 +6,9 @@ import br.com.ifba.sava.login.usuario.service.IServiceUsuario;
 import br.com.ifba.sava.login.usuario.service.ServiceUsuario;
 import br.com.ifba.sava.aluno.service.IServiceAluno;
 import br.com.ifba.sava.aluno.service.ServiceAluno;
+import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
+import br.com.ifba.sava.avaliacaoturma.service.IServiceAvaliacaoTurma;
+import br.com.ifba.sava.avaliacaoturma.service.ServiceAvaliacaoTurma;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.service.IServiceDisciplina;
 import br.com.ifba.sava.disciplina.service.ServiceDisciplina;
@@ -143,5 +146,30 @@ public class Facade implements IFacade {
     @Override
     public void removeEtapa(Etapa etapa) {
         serviceEtapa.removeEtapa(etapa);
+    }
+
+    
+    //--------------AVALIAÇÃO TURMA -----------------------//
+    
+    private final IServiceAvaliacaoTurma serviceAvaliacaoTurma = new ServiceAvaliacaoTurma();
+    
+    @Override
+    public AvaliacaoTurma saveAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma) {
+        return serviceAvaliacaoTurma.saveAvaliacaoTurma(avaliacaoTurma);
+    }
+
+    @Override
+    public void removeAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma) {
+        serviceAvaliacaoTurma.removeAvaliacaoTurma(avaliacaoTurma);
+    }
+
+    @Override
+    public AvaliacaoTurma updateAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma) {
+        return serviceAvaliacaoTurma.updateAvaliacaoTurma(avaliacaoTurma);
+    }
+
+    @Override
+    public AvaliacaoTurma findAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma) {
+        return serviceAvaliacaoTurma.findAvaliacaoTurma(avaliacaoTurma);
     }
 }

@@ -1,6 +1,7 @@
 package br.com.ifba.sava.infrastructure.service;
 
 import br.com.ifba.sava.aluno.model.Aluno;
+import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.login.usuario.model.Usuario;
@@ -43,5 +44,11 @@ public interface IFacade {
     public List<Etapa> getAllEtapa();
     public abstract Etapa updateEtapa(Etapa etapa);
     public abstract void removeEtapa(Etapa etapa);
+    
+    //---------------AVALIAÇÃO TURMA ------------------//
+    public abstract AvaliacaoTurma saveAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma);
+    public abstract void removeAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma);
+    public abstract AvaliacaoTurma updateAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma);
+    public abstract AvaliacaoTurma findAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma);
     
  }

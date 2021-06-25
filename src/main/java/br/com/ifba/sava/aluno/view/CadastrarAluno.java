@@ -50,6 +50,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
         pnlCPF = new javax.swing.JPanel();
         lblEmail2 = new javax.swing.JLabel();
         txtEmail2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -283,19 +284,35 @@ public class CadastrarAluno extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jButton1.setText("voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMainContainerLayout = new javax.swing.GroupLayout(pnlMainContainer);
         pnlMainContainer.setLayout(pnlMainContainerLayout);
         pnlMainContainerLayout.setHorizontalGroup(
             pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainContainerLayout.createSequentialGroup()
-                .addGap(267, 267, 267)
-                .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
         pnlMainContainerLayout.setVerticalGroup(
             pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainContainerLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
+                .addGap(21, 21, 21)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
                 .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(148, Short.MAX_VALUE))
         );
@@ -339,9 +356,6 @@ public class CadastrarAluno extends javax.swing.JFrame {
         
         FacadeInstance.getInstance().saveAluno(aluno1);
 
-        this.dispose();
-        HomeScreen tela1 = new HomeScreen();
-        tela1.setVisible(true);
         //FacadeInstance.getInstance().saveAluno(aluno2);
         
         /*List<Aluno> listAlunos = FacadeInstance.getInstance().findByName("Pedro");
@@ -366,6 +380,12 @@ public class CadastrarAluno extends javax.swing.JFrame {
     private void txtSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSobrenomeActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       this.dispose();
+        HomeScreen tela1 = new HomeScreen();
+        tela1.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,6 +425,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmail2;
     private javax.swing.JLabel lblNome;

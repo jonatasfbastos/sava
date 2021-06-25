@@ -5,6 +5,8 @@
  */
 package br.com.ifba.sava.login.view;
 
+import br.com.ifba.sava.infrastructure.view.HomeScreen;
+
 /**
  *
  * @author sheor
@@ -37,13 +39,17 @@ public class TelaLogin extends javax.swing.JFrame {
         lblUser = new javax.swing.JLabel();
         btnAccess = new javax.swing.JButton();
         lblChangePassword = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
         lblCopyRight = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnlMainContainer.setBackground(new java.awt.Color(255, 255, 255));
+        pnlMainContainer.setBackground(new java.awt.Color(72, 71, 97));
 
-        pnlLoginContainer.setBackground(new java.awt.Color(223, 231, 232));
+        pnlLoginContainer.setBackground(new java.awt.Color(255, 255, 255));
         pnlLoginContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         pnlPassword.setBackground(new java.awt.Color(72, 71, 97));
@@ -58,7 +64,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        lblPassword.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Senha:");
 
@@ -70,7 +76,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword))
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlPasswordLayout.setVerticalGroup(
             pnlPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -91,7 +97,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        lblUser.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        lblUser.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         lblUser.setForeground(new java.awt.Color(255, 255, 255));
         lblUser.setText("Usuário:");
 
@@ -101,9 +107,10 @@ public class TelaLogin extends javax.swing.JFrame {
             pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
         pnlUserLayout.setVerticalGroup(
             pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +124,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnAccess.setForeground(new java.awt.Color(255, 255, 255));
         btnAccess.setText("ACESSAR");
         btnAccess.setAlignmentY(0.0F);
-        btnAccess.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAccess.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAccess.setOpaque(false);
         btnAccess.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,64 +132,93 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
+        lblChangePassword.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         lblChangePassword.setForeground(new java.awt.Color(101, 101, 111));
-        lblChangePassword.setText("Esqueceu ou deseja mudar a senha?");
+        lblChangePassword.setText("Esqueceu sua senha?");
+        lblChangePassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(72, 71, 97));
+        jLabel4.setText("Faça o login para continuar.");
 
         javax.swing.GroupLayout pnlLoginContainerLayout = new javax.swing.GroupLayout(pnlLoginContainer);
         pnlLoginContainer.setLayout(pnlLoginContainerLayout);
         pnlLoginContainerLayout.setHorizontalGroup(
             pnlLoginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginContainerLayout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
-                .addGroup(pnlLoginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnAccess, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                        .addComponent(pnlPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblChangePassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(121, 121, 121))
-            .addGroup(pnlLoginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginContainerLayout.createSequentialGroup()
-                    .addContainerGap(135, Short.MAX_VALUE)
-                    .addComponent(pnlUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(122, 122, 122)))
+                .addContainerGap(143, Short.MAX_VALUE)
+                .addGroup(pnlLoginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlLoginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnAccess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblChangePassword, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel4)
+                    .addComponent(pnlUser, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(131, 131, 131))
         );
         pnlLoginContainerLayout.setVerticalGroup(
             pnlLoginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginContainerLayout.createSequentialGroup()
-                .addContainerGap(172, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAccess, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblChangePassword)
-                .addGap(60, 60, 60))
-            .addGroup(pnlLoginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlLoginContainerLayout.createSequentialGroup()
-                    .addGap(111, 111, 111)
-                    .addComponent(pnlUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(206, Short.MAX_VALUE)))
+                .addGap(72, 72, 72))
         );
 
-        lblCopyRight.setForeground(new java.awt.Color(101, 101, 111));
+        lblChangePassword.getAccessibleContext().setAccessibleDescription("");
+
+        lblCopyRight.setBackground(new java.awt.Color(255, 255, 255));
+        lblCopyRight.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        lblCopyRight.setForeground(new java.awt.Color(255, 255, 255));
         lblCopyRight.setText("© 2021 SAVA | Desenvolvimento: IFBA ");
+
+        jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("SAVA");
+
+        jLabel5.setFont(new java.awt.Font("Lucida Sans", 1, 10)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Sistema alguma coisa ");
 
         javax.swing.GroupLayout pnlMainContainerLayout = new javax.swing.GroupLayout(pnlMainContainer);
         pnlMainContainer.setLayout(pnlMainContainerLayout);
         pnlMainContainerLayout.setHorizontalGroup(
             pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMainContainerLayout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addComponent(pnlLoginContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(172, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainContainerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCopyRight)
                 .addGap(352, 352, 352))
+            .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                .addGroup(pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(pnlLoginContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel1))))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         pnlMainContainerLayout.setVerticalGroup(
             pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainContainerLayout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(pnlLoginContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(lblCopyRight)
@@ -212,7 +248,9 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnAccessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccessActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        HomeScreen tela1 = new HomeScreen();
+        tela1.setVisible(true);
     }//GEN-LAST:event_btnAccessActionPerformed
 
     /**
@@ -252,6 +290,10 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccess;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblChangePassword;
     private javax.swing.JLabel lblCopyRight;
     private javax.swing.JLabel lblPassword;

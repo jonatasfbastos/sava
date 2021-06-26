@@ -6,6 +6,7 @@ import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.login.usuario.model.Usuario;
 import br.com.ifba.sava.professor.model.Professor;
+import br.com.ifba.sava.responsavel.model.Responsavel;
 import br.com.ifba.sava.turma.model.Turma;
 import java.util.List;
 
@@ -50,5 +51,10 @@ public interface IFacade {
     public abstract void removeAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma);
     public abstract AvaliacaoTurma updateAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma);
     public abstract AvaliacaoTurma findAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma);
+    
+    //----------------RESPONSÁVEL --------------------//
+    public abstract Responsavel saveResponsavel(Responsavel responsavel);
+    public Responsavel updateResponsavel(Responsavel responsavel);
+    
     
  }

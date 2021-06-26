@@ -18,6 +18,9 @@ import br.com.ifba.sava.etapa.service.ServiceEtapa;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.professor.service.IServiceProfessor;
 import br.com.ifba.sava.professor.service.ServiceProfessor;
+import br.com.ifba.sava.responsavel.model.Responsavel;
+import br.com.ifba.sava.responsavel.service.IServiceResponsavel;
+import br.com.ifba.sava.responsavel.service.ServiceResponsavel;
 import br.com.ifba.sava.turma.model.Turma;
 import br.com.ifba.sava.turma.service.IServiceTurma;
 import br.com.ifba.sava.turma.service.ServiceTurma;
@@ -171,5 +174,17 @@ public class Facade implements IFacade {
     @Override
     public AvaliacaoTurma findAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma) {
         return serviceAvaliacaoTurma.findAvaliacaoTurma(avaliacaoTurma);
+    }
+    
+    //------------------- RESPONSÁVEL -----------------------//
+    private final IServiceResponsavel serviceResponsavel = new ServiceResponsavel();
+    
+    @Override
+    public Responsavel saveResponsavel(Responsavel responsavel){
+        return serviceResponsavel.saveResponsavel(responsavel);
+    }
+    @Override
+    public Responsavel updateResponsavel(Responsavel responsavel){
+        return serviceResponsavel.updateResponsavel(responsavel);
     }
 }

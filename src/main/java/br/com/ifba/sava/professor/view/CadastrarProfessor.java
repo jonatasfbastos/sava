@@ -6,6 +6,7 @@
 package br.com.ifba.sava.professor.view;
 
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
+import br.com.ifba.sava.infrastructure.view.HomeScreen;
 
 /**
  *
@@ -283,8 +284,9 @@ public class CadastrarProfessor extends javax.swing.JFrame {
        //professor1.setEmail(txtEmailProfessor.getText());
        
        //FacadeInstance.getInstance().saveProfessor(professor1);
-        
-     
+        this.dispose();
+        HomeScreen tela1 = new HomeScreen();
+        tela1.setVisible(true);
     }//GEN-LAST:event_btnCadastrarProfessorActionPerformed
 
     private void txtSobrenomeProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeProfessorActionPerformed

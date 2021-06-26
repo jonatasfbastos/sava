@@ -7,6 +7,7 @@ package br.com.ifba.sava.disciplina.view;
 
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
+import br.com.ifba.sava.infrastructure.view.HomeScreen;
 
 /**
  *
@@ -39,6 +40,7 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
         pnlNomeDisciplina = new javax.swing.JPanel();
         lblNomeDisciplina = new javax.swing.JLabel();
         txtNomeDisciplina = new javax.swing.JTextField();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -151,6 +153,13 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
                 .addGap(43, 43, 43))
         );
 
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMainContainerLayout = new javax.swing.GroupLayout(pnlMainContainer);
         pnlMainContainer.setLayout(pnlMainContainerLayout);
         pnlMainContainerLayout.setHorizontalGroup(
@@ -159,11 +168,17 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
                 .addContainerGap(343, Short.MAX_VALUE)
                 .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(307, 307, 307))
+            .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlMainContainerLayout.setVerticalGroup(
             pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainContainerLayout.createSequentialGroup()
-                .addContainerGap(129, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(109, 109, 109))
         );
@@ -198,6 +213,12 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
     private void txtNomeDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeDisciplinaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeDisciplinaActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.dispose();
+        HomeScreen tela1 = new HomeScreen();
+        tela1.setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,6 +257,7 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarDisciplina;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblNomeDisciplina;
     private javax.swing.JPanel pnlCodigo;

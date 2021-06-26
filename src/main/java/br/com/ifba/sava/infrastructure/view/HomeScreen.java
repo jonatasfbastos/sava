@@ -7,9 +7,11 @@ package br.com.ifba.sava.infrastructure.view;
 
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.aluno.view.CadastrarAluno;
+import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.view.CadastrarDisciplina;
 import br.com.ifba.sava.infrastructure.service.Facade;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
+import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.professor.view.CadastrarProfessor;
 import java.awt.Color;
 import java.util.List;
@@ -47,9 +49,9 @@ public class HomeScreen extends javax.swing.JFrame {
         
     }
     void atualizaListaAlunos() {
-        DefaultTableModel valores = (DefaultTableModel) tblStudents.getModel();
-        while (tblStudents.getModel().getRowCount() > 0) {  
-           ((DefaultTableModel) tblStudents.getModel()).removeRow(0);  
+        DefaultTableModel dadosAlunos = (DefaultTableModel) tblAlunos.getModel();
+        while (tblAlunos.getModel().getRowCount() > 0) {  
+           ((DefaultTableModel) tblAlunos.getModel()).removeRow(0);  
         } 
 
         List<Aluno> aluno = FacadeInstance.getInstance().getAllAlunos();
@@ -57,12 +59,51 @@ public class HomeScreen extends javax.swing.JFrame {
             Object[] dados = {
                 aluno.get(i).getNome(),
                 aluno.get(i).getSobrenome(),
-                aluno.get(i).getMatricula()
+                aluno.get(i).getMatricula(),
             };
+            
             System.out.println("*********************************************");
             System.out.println("matricula aq: " + aluno.get(i).getMatricula());
-            valores.addRow(dados);
+            dadosAlunos.addRow(dados);
         }
+        //this.selecionado = this.jtPesquisador.getSelectedRow();
+    }
+    
+    void atualizaListaProfessores() {
+        /*DefaultTableModel valoresProfessor = (DefaultTableModel) tblProfessores.getModel();
+        while (tblProfessores.getModel().getRowCount() > 0) {  
+           ((DefaultTableModel) tblProfessores.getModel()).removeRow(0);  
+        } 
+
+        //List<Professor> professor = FacadeInstance.getInstance().getAllProfessor();
+        for(int i = 0;i<professor.size();i++){
+            Object[] dados = {
+                professor.get(i).getNome(),
+                professor.get(i).getSobrenome(),
+            };
+            
+            System.out.println("*********************************************");
+            System.out.println("matricula aq: " + aluno.get(i).getMatricula());
+            valoresProfessor.addRow(dados);
+        }*/
+        //this.selecionado = this.jtPesquisador.getSelectedRow();
+    }
+    
+    void atualizaListaDisciplinas() {
+        DefaultTableModel dadosDisciplina = (DefaultTableModel) tblDisciplinas.getModel();
+        while (tblDisciplinas.getModel().getRowCount() > 0) {  
+           ((DefaultTableModel) tblDisciplinas.getModel()).removeRow(0);  
+        } 
+
+        List<Disciplina> disciplina = FacadeInstance.getInstance().getAllDisciplinas();
+        for(int i = 0;i<disciplina.size();i++){
+            Object[] dados = {
+                disciplina.get(i).getNome(),
+            };
+            
+            dadosDisciplina.addRow(dados);
+        }
+        //this.selecionado = this.jtPesquisador.getSelectedRow();
     }
 
     @SuppressWarnings("unchecked")
@@ -104,23 +145,23 @@ public class HomeScreen extends javax.swing.JFrame {
         btnSearchSubjects = new javax.swing.JButton();
         jComboBox3 = new javax.swing.JComboBox<>();
         spnlSubjects = new javax.swing.JScrollPane();
-        tblSubjects = new javax.swing.JTable();
+        tblDisciplinas = new javax.swing.JTable();
         pnlProfessores = new javax.swing.JPanel();
         pnlMainBarTeachers = new javax.swing.JPanel();
         btnAddTeacher = new javax.swing.JButton();
         txtSearchTeachers = new javax.swing.JTextField();
         btnSearchTeachers = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        spnlTeachers = new javax.swing.JScrollPane();
-        tblTeachers = new javax.swing.JTable();
+        cbxTurma = new javax.swing.JComboBox<>();
+        spnlProfessores = new javax.swing.JScrollPane();
+        tblProfessores = new javax.swing.JTable();
         pnlAlunos = new javax.swing.JPanel();
         pnlMainBarStudents = new javax.swing.JPanel();
         btnAddStudent = new javax.swing.JButton();
         txtSearchStudent = new javax.swing.JTextField();
         btnSearchStudent = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        spnlStudents = new javax.swing.JScrollPane();
-        tblStudents = new javax.swing.JTable();
+        spnlAlunos = new javax.swing.JScrollPane();
+        tblAlunos = new javax.swing.JTable();
         pnlCursos = new javax.swing.JPanel();
         pnlMainBarClassCouncil3 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -452,8 +493,8 @@ public class HomeScreen extends javax.swing.JFrame {
             pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainBarClassCouncilLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(txtSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -522,74 +563,40 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlMainBarSubjectsLayout.setHorizontalGroup(
             pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addGap(109, 109, 109)
                 .addComponent(btnAddSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addContainerGap())
         );
         pnlMainBarSubjectsLayout.setVerticalGroup(
             pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarSubjectsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainBarSubjectsLayout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
-                        .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(22, 22, 22))
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
-        tblSubjects.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
-        tblSubjects.setModel(new javax.swing.table.DefaultTableModel(
+        tblDisciplinas.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        tblDisciplinas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Nome", "Professor", "Matriculados"
+                "Nome", "Professor", "Matriculados", "Editar", "Excluir"
             }
         ));
-        spnlSubjects.setViewportView(tblSubjects);
-        if (tblSubjects.getColumnModel().getColumnCount() > 0) {
-            tblSubjects.getColumnModel().getColumn(1).setResizable(false);
+        spnlSubjects.setViewportView(tblDisciplinas);
+        if (tblDisciplinas.getColumnModel().getColumnCount() > 0) {
+            tblDisciplinas.getColumnModel().getColumn(1).setResizable(false);
         }
 
         javax.swing.GroupLayout pnlDisciplinasLayout = new javax.swing.GroupLayout(pnlDisciplinas);
@@ -632,81 +639,52 @@ public class HomeScreen extends javax.swing.JFrame {
 
         btnSearchTeachers.setText("Buscar");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turma 1", "Turma 2", "Turma 3", "Turma 4" }));
+        cbxTurma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turma 1", "Turma 2", "Turma 3", "Turma 4" }));
+        cbxTurma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxTurmaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlMainBarTeachersLayout = new javax.swing.GroupLayout(pnlMainBarTeachers);
         pnlMainBarTeachers.setLayout(pnlMainBarTeachersLayout);
         pnlMainBarTeachersLayout.setHorizontalGroup(
             pnlMainBarTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainBarTeachersLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(cbxTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
+                .addGap(121, 121, 121)
                 .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addContainerGap())
         );
         pnlMainBarTeachersLayout.setVerticalGroup(
             pnlMainBarTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarTeachersLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlMainBarTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlMainBarTeachersLayout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
-                        .addGroup(pnlMainBarTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(22, 22, 22))
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addGroup(pnlMainBarTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
-        tblTeachers.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
-        tblTeachers.setModel(new javax.swing.table.DefaultTableModel(
+        tblProfessores.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        tblProfessores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Nome", "CPF", "Data de nascimento", "Cidade"
+                "Nome", "CPF", "Data de nascimento", "Cidade", "Editar", "Excluir"
             }
         ));
-        spnlTeachers.setViewportView(tblTeachers);
-        if (tblTeachers.getColumnModel().getColumnCount() > 0) {
-            tblTeachers.getColumnModel().getColumn(1).setResizable(false);
+        spnlProfessores.setViewportView(tblProfessores);
+        if (tblProfessores.getColumnModel().getColumnCount() > 0) {
+            tblProfessores.getColumnModel().getColumn(1).setResizable(false);
         }
 
         javax.swing.GroupLayout pnlProfessoresLayout = new javax.swing.GroupLayout(pnlProfessores);
@@ -716,7 +694,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addComponent(pnlMainBarTeachers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlProfessoresLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spnlTeachers, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                .addComponent(spnlProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlProfessoresLayout.setVerticalGroup(
@@ -724,7 +702,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(pnlProfessoresLayout.createSequentialGroup()
                 .addComponent(pnlMainBarTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spnlTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spnlProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -788,26 +766,26 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
-        tblStudents.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
-        tblStudents.setModel(new javax.swing.table.DefaultTableModel(
+        tblAlunos.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        tblAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nome", "Sobrenome", "Matricula"
+                "Nome", "Sobrenome", "Matricula", "Editar", "Excluir"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        spnlStudents.setViewportView(tblStudents);
-        if (tblStudents.getColumnModel().getColumnCount() > 0) {
-            tblStudents.getColumnModel().getColumn(1).setResizable(false);
+        spnlAlunos.setViewportView(tblAlunos);
+        if (tblAlunos.getColumnModel().getColumnCount() > 0) {
+            tblAlunos.getColumnModel().getColumn(1).setResizable(false);
         }
 
         javax.swing.GroupLayout pnlAlunosLayout = new javax.swing.GroupLayout(pnlAlunos);
@@ -818,7 +796,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlAlunosLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(spnlStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                    .addComponent(spnlAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pnlAlunosLayout.setVerticalGroup(
@@ -829,7 +807,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlAlunosLayout.createSequentialGroup()
                     .addGap(76, 76, 76)
-                    .addComponent(spnlStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnlAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -1084,6 +1062,8 @@ public class HomeScreen extends javax.swing.JFrame {
         tabCoordenadores.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
+        
+        atualizaListaProfessores();
     }//GEN-LAST:event_tabProfessoresMouseClicked
 
     private void tabDisciplinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabDisciplinasMouseClicked
@@ -1104,6 +1084,8 @@ public class HomeScreen extends javax.swing.JFrame {
         tabCoordenadores.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
+        
+        atualizaListaDisciplinas();
     }//GEN-LAST:event_tabDisciplinasMouseClicked
 
     private void tabConselhosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabConselhosMouseClicked
@@ -1127,20 +1109,20 @@ public class HomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_tabConselhosMouseClicked
 
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
-        this.dispose();
+       this.dispose();
        CadastrarAluno tela1 = new CadastrarAluno();
        tela1.setVisible(true);
     }//GEN-LAST:event_btnAddStudentActionPerformed
 
     private void btnAddTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTeacherActionPerformed
        CadastrarProfessor tela = new CadastrarProfessor();
-       //HomeScreen aq = new HomeScreen();
-       //tela1.dispose();
+       this.dispose();
        tela.setVisible(true);
     }//GEN-LAST:event_btnAddTeacherActionPerformed
 
     private void btnAddSubjectsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSubjectsActionPerformed
         CadastrarDisciplina tela = new CadastrarDisciplina();
+        this.dispose();
         tela.setVisible(true);
 
     }//GEN-LAST:event_btnAddSubjectsActionPerformed
@@ -1238,6 +1220,10 @@ public class HomeScreen extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnSearchStudentActionPerformed
 
+    private void cbxTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTurmaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxTurmaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1285,8 +1271,8 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchStudent;
     private javax.swing.JButton btnSearchSubjects;
     private javax.swing.JButton btnSearchTeachers;
+    private javax.swing.JComboBox<String> cbxTurma;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
@@ -1323,9 +1309,9 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel pnlProfessores;
     private javax.swing.JPanel pnlResponsaveis;
     private javax.swing.JPanel pnlTelas;
-    private javax.swing.JScrollPane spnlStudents;
+    private javax.swing.JScrollPane spnlAlunos;
+    private javax.swing.JScrollPane spnlProfessores;
     private javax.swing.JScrollPane spnlSubjects;
-    private javax.swing.JScrollPane spnlTeachers;
     private javax.swing.JPanel tabAlunos;
     private javax.swing.JPanel tabConselhos;
     private javax.swing.JPanel tabCoordenadores;
@@ -1334,9 +1320,9 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel tabInicio;
     private javax.swing.JPanel tabProfessores;
     private javax.swing.JPanel tabResponsaveis;
-    private javax.swing.JTable tblStudents;
-    private javax.swing.JTable tblSubjects;
-    private javax.swing.JTable tblTeachers;
+    private javax.swing.JTable tblAlunos;
+    private javax.swing.JTable tblDisciplinas;
+    private javax.swing.JTable tblProfessores;
     private javax.swing.JTextField txtSearchClassCouncil;
     private javax.swing.JTextField txtSearchStudent;
     private javax.swing.JTextField txtSearchSubjects;

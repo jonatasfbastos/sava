@@ -6,16 +6,13 @@
 package br.com.ifba.sava.turma.model;
 
 import br.com.ifba.sava.aluno.model.Aluno;
-import br.com.ifba.sava.curso.model.Curso;
-import br.com.ifba.sava.disciplina.model.Disciplina;
-import br.com.ifba.sava.infrastructure.exception.BusinessException;
+//import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
-import br.com.ifba.sava.turma.dao.DaoTurma;
-import br.com.ifba.sava.turma.dao.IDaoTurma;
-import static br.com.ifba.sava.turma.service.ServiceTurma.TURMA_NAO_EXISTE;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -28,43 +25,32 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "TURMA")
 public class Turma extends PersistenceEntity{
-    /* 
-        adicionar os tipos de relação usando fetch e cascade -> ver exemplo em etapa
+    
+    /*@OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private AvaliacaoTurma avaliacaoTurma;
     */
-    //@OneToOne(/*mappedBy = "CURSO"*/)
-    //private Curso curso;
-    
-    //private List<Aluno> listAlunos;
-    
-    //private List<Disciplina> listDisciplinas;
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Aluno> listAlunos;
     
     private String nome;
     private int numero;
-/*
+    /*
+    public void setAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma){
+        this.avaliacaoTurma = avaliacaoTurma;
+    }
+   
+    public AvaliacaoTurma getAvaliacaoTurma(){
+        return avaliacaoTurma;
+    }
+    */
     public List<Aluno> getListAlunos() {
-        //return listAlunos;
+        return listAlunos;
     }
 
     public void setListAlunos(List<Aluno> listAlunos) {
-        //this.listAlunos = listAlunos;
+        this.listAlunos = listAlunos;
     }
-
-    public List<Disciplina> getListDisciplinas() {
-        return listDisciplinas;
-    }
-
-    public void setListDisciplinas(List<Disciplina> listDisciplinas) {
-       // this.listDisciplinas = listDisciplinas;
-    }
-
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-    */
+     
     public void setNome(String nome){
         this.nome = nome;
     }

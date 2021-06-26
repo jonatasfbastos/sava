@@ -14,8 +14,4 @@ import br.com.ifba.sava.infrastructure.dao.IBaseDao;
  */
 public interface IDaoCurso extends IBaseDao<Curso>{
     
-    public abstract boolean saveCurso (Curso curso);//salvar curso
-    
-    public abstract boolean deleteCurso (Curso curso);//deletar curso
-    
 }

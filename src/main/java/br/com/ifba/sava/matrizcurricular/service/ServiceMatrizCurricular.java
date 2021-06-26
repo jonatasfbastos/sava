@@ -57,7 +57,7 @@ public class ServiceMatrizCurricular implements IServiceMatrizCurricular{
         }
     }
    
-    public void removeMatrizCurricular(MatrizCurricular matrizCurricular) {
+    public void deleteMatrizCurricular(MatrizCurricular matrizCurricular) {
         if(matrizCurricular == null) {
             throw new BusinessException(MATRIZCURRICULAR_NULL);
         } else if(daoMatrizCurricular.findById(matrizCurricular.getId()) == null) {

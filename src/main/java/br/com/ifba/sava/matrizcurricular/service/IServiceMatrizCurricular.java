@@ -17,6 +17,6 @@ public interface IServiceMatrizCurricular {
    public abstract MatrizCurricular saveMatrizCurricular(MatrizCurricular matrizCurricular);
     public List<MatrizCurricular> getAllMatrizCurricular();
     public MatrizCurricular updateMatrizCurricular(MatrizCurricular matrizCurricular);
-    public abstract void removeMatrizCurricular(MatrizCurricular matrizCurricular);
+    public abstract void deleteMatrizCurricular(MatrizCurricular matrizCurricular);
     
 }

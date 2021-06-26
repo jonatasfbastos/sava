@@ -7,6 +7,7 @@ package br.com.ifba.sava.matrizcurricular.model;
 
 import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,9 +22,17 @@ public class MatrizCurricular extends PersistenceEntity{
     
     private String nome;
     private String codigo;
+
+    public List<Etapa> getEtapa() {
+        return etapa;
+    }
+
+    public void setEtapa(List<Etapa> etapa) {
+        this.etapa = etapa;
+    }
     
    
-    private Etapa etapa;
+    private List<Etapa> etapa;
 
     public String getNome() {
         return nome;
@@ -33,6 +42,8 @@ public class MatrizCurricular extends PersistenceEntity{
         this.nome = nome;
     }
 
+        
+    @OneToMany (fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) 
     public String getCodigo() {
         return codigo;
     }
@@ -40,15 +51,7 @@ public class MatrizCurricular extends PersistenceEntity{
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    
-    @OneToMany (fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) 
-    public Etapa getEtapa() {
-        return etapa;
-    }
 
-    public void setEtapa(Etapa etapa) {
-        this.etapa = etapa;
-    }
     
 
     

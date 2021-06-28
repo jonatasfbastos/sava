@@ -149,6 +149,12 @@ public class Facade implements IFacade {
     //-------------------- TURMA -------------------------//
    private final IServiceTurma serviceTurma = new ServiceTurma();
 
+   
+    @Override
+    public Turma saveTurma(Turma turma){
+        return serviceTurma.saveTurma(turma);
+    }
+    
     @Override
     public Turma updateTurma(Turma turma){
         return serviceTurma.updateTurma(turma);

@@ -7,6 +7,7 @@ package br.com.ifba.sava.curso.dao;
 
 import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.infrastructure.dao.IBaseDao;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,6 @@ import br.com.ifba.sava.infrastructure.dao.IBaseDao;
  */
 public interface IDaoCurso extends IBaseDao<Curso>{
     
+    public abstract List<Curso> findByName(String name);
+
 }

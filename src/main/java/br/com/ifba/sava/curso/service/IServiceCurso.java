@@ -6,6 +6,8 @@
 package br.com.ifba.sava.curso.service;
 
 import br.com.ifba.sava.curso.model.Curso;
+import br.com.ifba.sava.turma.model.Turma;
+import java.util.List;
 
 /**
  *
@@ -16,5 +18,7 @@ public interface IServiceCurso {
     public abstract Curso saveCurso (Curso curso);//salvar curso
     public abstract void deleteCurso (Curso curso);//deletar curso
     public abstract Curso updateCurso(Curso curso);//atualizar curso
-    public abstract Curso findCurso(Curso curso);//uscar curso
+    public abstract Curso findCurso(Curso curso);//buscar curso
+    public abstract List<Curso> getAllCurso();//listar todos os cursos
+    public abstract List<Curso> findByName(String name);// Busca por nome
 }

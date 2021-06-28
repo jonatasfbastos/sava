@@ -9,6 +9,7 @@ import br.com.ifba.sava.curso.dao.DaoCurso;
 import br.com.ifba.sava.curso.dao.IDaoCurso;
 import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.infrastructure.exception.BusinessException;
+import java.util.List;
 
 /**
  *
@@ -71,6 +72,22 @@ public class ServiceCurso implements IServiceCurso{
             throw new BusinessException(CURSO_NAO_EXISTE);
         } else {
             return daoCurso.findById(curso.getId());
+        }
+    }
+    
+    @Override
+    public List<Curso> getAllCurso() {
+        return this.daoCurso.findAll();
+    }
+
+    @Override
+    public List<Curso> findByName(String name) {
+        if(name == null) {
+            throw new BusinessException("Nome null");
+        } else if(name.isEmpty()) {
+            throw new BusinessException("Nome vazio");
+        } else {
+            return daoCurso.findByName(name);
         }
     }
 }

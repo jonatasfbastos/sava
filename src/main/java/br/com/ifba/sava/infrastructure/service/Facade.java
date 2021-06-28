@@ -9,6 +9,9 @@ import br.com.ifba.sava.aluno.service.ServiceAluno;
 import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
 import br.com.ifba.sava.avaliacaoturma.service.IServiceAvaliacaoTurma;
 import br.com.ifba.sava.avaliacaoturma.service.ServiceAvaliacaoTurma;
+import br.com.ifba.sava.curso.model.Curso;
+import br.com.ifba.sava.curso.service.IServiceCurso;
+import br.com.ifba.sava.curso.service.ServiceCurso;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.service.IServiceDisciplina;
 import br.com.ifba.sava.disciplina.service.ServiceDisciplina;
@@ -72,7 +75,34 @@ public class Facade implements IFacade {
     public void deleteUsuario(final Usuario usuario){
         this.serviceUsuario.deleteUsuario(usuario);
     }    
+   
+    //------------------ CURSO --------------------------//
+    private final IServiceCurso serviceCurso = new ServiceCurso();
     
+    @Override
+    public Curso saveCurso (Curso curso){
+        return this.serviceCurso.saveCurso(curso);
+    }//salvar curso
+    
+    @Override
+    public void deleteCurso (Curso curso){
+        this.serviceCurso.deleteCurso(curso);
+    }//deletar curso
+    
+    @Override
+    public Curso updateCurso(Curso curso){
+        return this.serviceCurso.updateCurso(curso);
+    }//atualizar curso
+    
+    @Override
+    public Curso findCurso(Curso curso){
+        return this.serviceCurso.findCurso(curso);
+    }//buscar curso
+    
+    @Override
+    public List<Curso> getAllCurso(){
+        return this.serviceCurso.getAllCurso();
+    }//listar todos os cursos
     
     //------------------ DISCIPLINA --------------------------//
     private final IServiceDisciplina serviceDisciplina = new ServiceDisciplina();

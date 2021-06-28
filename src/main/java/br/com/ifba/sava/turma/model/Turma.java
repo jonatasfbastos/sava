@@ -6,13 +6,14 @@
 package br.com.ifba.sava.turma.model;
 
 import br.com.ifba.sava.aluno.model.Aluno;
-//import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
+import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,15 +27,15 @@ import javax.persistence.Table;
 @Table (name = "TURMA")
 public class Turma extends PersistenceEntity{
     
-    /*@OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private AvaliacaoTurma avaliacaoTurma;
-    */
+    
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Aluno> listAlunos;
     
     private String nome;
     private int numero;
-    /*
+    
     public void setAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma){
         this.avaliacaoTurma = avaliacaoTurma;
     }
@@ -42,7 +43,7 @@ public class Turma extends PersistenceEntity{
     public AvaliacaoTurma getAvaliacaoTurma(){
         return avaliacaoTurma;
     }
-    */
+    
     public List<Aluno> getListAlunos() {
         return listAlunos;
     }

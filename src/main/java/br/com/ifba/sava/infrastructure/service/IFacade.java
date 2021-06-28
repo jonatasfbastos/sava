@@ -2,6 +2,7 @@ package br.com.ifba.sava.infrastructure.service;
 
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
+import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.login.usuario.model.Usuario;
@@ -19,6 +20,12 @@ public interface IFacade {
     public List<Aluno> getAllAlunos();
     public List<Aluno> findByName(String name);
     
+    //--------------------CURSO-------------------------------//
+    public abstract Curso saveCurso (Curso curso);//salvar curso
+    public abstract void deleteCurso (Curso curso);//deletar curso
+    public abstract Curso updateCurso(Curso curso);//atualizar curso
+    public abstract Curso findCurso(Curso curso);//uscar curso
+    public abstract List<Curso> getAllCurso();//listar todos os cursos
            
     //------------------- USUÁRIO ----------------------------//
     public List<Usuario> getAllUsuario();

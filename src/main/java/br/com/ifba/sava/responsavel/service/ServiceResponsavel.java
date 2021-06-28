@@ -9,6 +9,7 @@ import br.com.ifba.sava.responsavel.dao.DaoResponsavel;
 import br.com.ifba.sava.responsavel.dao.IDaoResponsavel;
 import br.com.ifba.sava.responsavel.model.Responsavel;
 import br.com.ifba.sava.infrastructure.exception.BusinessException;
+import java.util.List;
 
 
 /**
@@ -51,5 +52,19 @@ public class ServiceResponsavel implements IServiceResponsavel {
             return daoResponsavel.update(responsavel);
         }
     }
-
+    @Override
+    public List<Responsavel> getAllResponsavel() {
+        return daoResponsavel.findAll();
+    }
+    @Override
+    public void deleteResponsavel(Responsavel responsavel) {
+        if(responsavel == null) {
+            throw new BusinessException(RESPONSAVEL_NULL);
+        } else if(daoResponsavel.findById(responsavel.getId()) == null) {
+            throw new BusinessException(RESPONSAVEL_NAO_EXISTE);
+        } else {
+            daoResponsavel.delete(responsavel);
+        }
+    }
+     
 }

@@ -6,6 +6,7 @@
 package br.com.ifba.sava.responsavel.service;
 
 import br.com.ifba.sava.responsavel.model.Responsavel;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,6 @@ import br.com.ifba.sava.responsavel.model.Responsavel;
 public interface IServiceResponsavel {
     public abstract Responsavel saveResponsavel(Responsavel responsavel);
     public Responsavel updateResponsavel(Responsavel responsavel);  
+    public List<Responsavel> getAllResponsavel();
+    public void deleteResponsavel(Responsavel responsavel);
 }

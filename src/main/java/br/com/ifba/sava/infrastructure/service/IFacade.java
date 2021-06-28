@@ -64,6 +64,8 @@ public interface IFacade {
     //----------------RESPONSÁVEL --------------------//
     public abstract Responsavel saveResponsavel(Responsavel responsavel);
     public Responsavel updateResponsavel(Responsavel responsavel);
+    public List<Responsavel> getAllResponsavel();
+    public void deleteResponsavel(Responsavel responsavel);
     
     //----------------TECNICO ADMINISTRATIVO --------------------//
     public abstract TecnicoAdm saveTecnicoAdm(TecnicoAdm tecnicoAdm);

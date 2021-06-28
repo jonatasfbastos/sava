@@ -226,6 +226,14 @@ public class Facade implements IFacade {
     public Responsavel updateResponsavel(Responsavel responsavel){
         return serviceResponsavel.updateResponsavel(responsavel);
     }
+    @Override
+    public List<Responsavel> getAllResponsavel(){
+        return serviceResponsavel.getAllResponsavel();
+    }
+    @Override
+    public void deleteResponsavel(Responsavel responsavel) {
+        serviceResponsavel.deleteResponsavel(responsavel);
+    }
     
     //------------------- TECNICO ADMINISTRATIVO -----------------------//
     private final IServiceTecnicoAdm serviceTecnicoAdm = new ServiceTecnicoAdm();

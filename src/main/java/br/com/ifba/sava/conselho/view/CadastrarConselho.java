@@ -308,8 +308,6 @@ public class CadastrarConselho extends javax.swing.JFrame {
        //conselho1.setCodigoAta(txtCodigoAta.getText());
        
        //FacadeInstance.getInstance().saveConselho(conselho1);
-
-
     }//GEN-LAST:event_btnCadastrarConselhoActionPerformed
 
     private void txtTrimestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTrimestreActionPerformed

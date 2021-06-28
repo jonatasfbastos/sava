@@ -45,6 +45,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         pnlNomeProfessor = new javax.swing.JPanel();
         lblNomeProfessor = new javax.swing.JLabel();
         txtNomeProfessor = new javax.swing.JTextField();
+        btnVoltarConselho = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -236,6 +237,15 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                 .addGap(43, 43, 43))
         );
 
+        btnVoltarConselho.setBackground(new java.awt.Color(255, 255, 255));
+        btnVoltarConselho.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        btnVoltarConselho.setText("voltar");
+        btnVoltarConselho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarConselhoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMainContainerLayout = new javax.swing.GroupLayout(pnlMainContainer);
         pnlMainContainer.setLayout(pnlMainContainerLayout);
         pnlMainContainerLayout.setHorizontalGroup(
@@ -244,11 +254,17 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                 .addContainerGap(351, Short.MAX_VALUE)
                 .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(307, 307, 307))
+            .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(btnVoltarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlMainContainerLayout.setVerticalGroup(
             pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainContainerLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addGap(25, 25, 25)
+                .addComponent(btnVoltarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(122, Short.MAX_VALUE))
         );
@@ -284,9 +300,6 @@ public class CadastrarProfessor extends javax.swing.JFrame {
        //professor1.setEmail(txtEmailProfessor.getText());
        
        //FacadeInstance.getInstance().saveProfessor(professor1);
-        this.dispose();
-        HomeScreen tela1 = new HomeScreen();
-        tela1.setVisible(true);
     }//GEN-LAST:event_btnCadastrarProfessorActionPerformed
 
     private void txtSobrenomeProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeProfessorActionPerformed
@@ -296,6 +309,12 @@ public class CadastrarProfessor extends javax.swing.JFrame {
     private void txtNomeProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeProfessorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeProfessorActionPerformed
+
+    private void btnVoltarConselhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarConselhoActionPerformed
+        this.dispose();
+        HomeScreen tela = new HomeScreen();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnVoltarConselhoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,6 +353,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarProfessor;
+    private javax.swing.JButton btnVoltarConselho;
     private javax.swing.JLabel lblEmailProfessor;
     private javax.swing.JLabel lblNomeProfessor;
     private javax.swing.JLabel lblSiape;

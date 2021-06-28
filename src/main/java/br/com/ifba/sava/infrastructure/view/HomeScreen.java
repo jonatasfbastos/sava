@@ -7,12 +7,15 @@ package br.com.ifba.sava.infrastructure.view;
 
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.aluno.view.CadastrarAluno;
+import br.com.ifba.sava.conselho.view.CadastrarConselho;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.view.CadastrarDisciplina;
 import br.com.ifba.sava.infrastructure.service.Facade;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.professor.view.CadastrarProfessor;
+import br.com.ifba.sava.turma.view.CadastrarTurma;
+import br.com.ifba.sava.turma.view.MenuTurma;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JFrame;
@@ -138,12 +141,14 @@ public class HomeScreen extends javax.swing.JFrame {
         txtSearchClassCouncil = new javax.swing.JTextField();
         btnSearchClassCouncil = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
+        btnMenuTurmaConselhos = new javax.swing.JButton();
         pnlDisciplinas = new javax.swing.JPanel();
         pnlMainBarSubjects = new javax.swing.JPanel();
         btnAddSubjects = new javax.swing.JButton();
         txtSearchSubjects = new javax.swing.JTextField();
         btnSearchSubjects = new javax.swing.JButton();
         jComboBox3 = new javax.swing.JComboBox<>();
+        btnMenuTurmaDisciplinas = new javax.swing.JButton();
         spnlSubjects = new javax.swing.JScrollPane();
         tblDisciplinas = new javax.swing.JTable();
         pnlProfessores = new javax.swing.JPanel();
@@ -152,6 +157,7 @@ public class HomeScreen extends javax.swing.JFrame {
         txtSearchTeachers = new javax.swing.JTextField();
         btnSearchTeachers = new javax.swing.JButton();
         cbxTurma = new javax.swing.JComboBox<>();
+        btnMenuTurmaProfessores = new javax.swing.JButton();
         spnlProfessores = new javax.swing.JScrollPane();
         tblProfessores = new javax.swing.JTable();
         pnlAlunos = new javax.swing.JPanel();
@@ -160,6 +166,7 @@ public class HomeScreen extends javax.swing.JFrame {
         txtSearchStudent = new javax.swing.JTextField();
         btnSearchStudent = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        btnMenuTurmaAlunos = new javax.swing.JButton();
         spnlAlunos = new javax.swing.JScrollPane();
         tblAlunos = new javax.swing.JTable();
         pnlCursos = new javax.swing.JPanel();
@@ -476,6 +483,11 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlMainBarClassCouncil.setBackground(new java.awt.Color(72, 71, 97));
 
         btnAddClassCouncil.setText("Adicionar Conselho");
+        btnAddClassCouncil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddClassCouncilActionPerformed(evt);
+            }
+        });
 
         txtSearchClassCouncil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -487,6 +499,13 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turma 1", "Turma 2", "Turma 3", "Turma 4" }));
 
+        btnMenuTurmaConselhos.setText("+");
+        btnMenuTurmaConselhos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuTurmaConselhosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMainBarClassCouncilLayout = new javax.swing.GroupLayout(pnlMainBarClassCouncil);
         pnlMainBarClassCouncil.setLayout(pnlMainBarClassCouncilLayout);
         pnlMainBarClassCouncilLayout.setHorizontalGroup(
@@ -494,9 +513,11 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(pnlMainBarClassCouncilLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMenuTurmaConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(txtSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86)
                 .addComponent(btnAddClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -507,13 +528,15 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarClassCouncilLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMenuTurmaConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainBarClassCouncilLayout.createSequentialGroup()
                         .addGap(0, 1, Short.MAX_VALUE)
                         .addGroup(pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnAddClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(22, 22, 22))
         );
 
@@ -556,7 +579,19 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turma1", "Turma2", "Turma3", "Turma4" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+
+        btnMenuTurmaDisciplinas.setText("+");
+        btnMenuTurmaDisciplinas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuTurmaDisciplinasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlMainBarSubjectsLayout = new javax.swing.GroupLayout(pnlMainBarSubjects);
         pnlMainBarSubjects.setLayout(pnlMainBarSubjectsLayout);
@@ -564,24 +599,27 @@ public class HomeScreen extends javax.swing.JFrame {
             pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMenuTurmaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109)
+                .addGap(97, 97, 97)
                 .addComponent(btnAddSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pnlMainBarSubjectsLayout.setVerticalGroup(
             pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarSubjectsLayout.createSequentialGroup()
+            .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMenuTurmaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -646,6 +684,13 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        btnMenuTurmaProfessores.setText("+");
+        btnMenuTurmaProfessores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuTurmaProfessoresActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMainBarTeachersLayout = new javax.swing.GroupLayout(pnlMainBarTeachers);
         pnlMainBarTeachers.setLayout(pnlMainBarTeachersLayout);
         pnlMainBarTeachersLayout.setHorizontalGroup(
@@ -653,6 +698,8 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(pnlMainBarTeachersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cbxTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMenuTurmaProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -663,13 +710,14 @@ public class HomeScreen extends javax.swing.JFrame {
         );
         pnlMainBarTeachersLayout.setVerticalGroup(
             pnlMainBarTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarTeachersLayout.createSequentialGroup()
+            .addGroup(pnlMainBarTeachersLayout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(pnlMainBarTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMenuTurmaProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -739,6 +787,13 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        btnMenuTurmaAlunos.setText("+");
+        btnMenuTurmaAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuTurmaAlunosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMainBarStudentsLayout = new javax.swing.GroupLayout(pnlMainBarStudents);
         pnlMainBarStudents.setLayout(pnlMainBarStudentsLayout);
         pnlMainBarStudentsLayout.setHorizontalGroup(
@@ -746,7 +801,9 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(pnlMainBarStudentsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMenuTurmaAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(txtSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -756,14 +813,19 @@ public class HomeScreen extends javax.swing.JFrame {
         );
         pnlMainBarStudentsLayout.setVerticalGroup(
             pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMainBarStudentsLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarStudentsLayout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlMainBarStudentsLayout.createSequentialGroup()
+                        .addComponent(btnMenuTurmaAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarStudentsLayout.createSequentialGroup()
+                        .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22))))
         );
 
         tblAlunos.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
@@ -792,7 +854,10 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlAlunos.setLayout(pnlAlunosLayout);
         pnlAlunosLayout.setHorizontalGroup(
             pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMainBarStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAlunosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlMainBarStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlAlunosLayout.createSequentialGroup()
                     .addContainerGap()
@@ -802,8 +867,9 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlAlunosLayout.setVerticalGroup(
             pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAlunosLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(pnlMainBarStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 542, Short.MAX_VALUE))
+                .addContainerGap(531, Short.MAX_VALUE))
             .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlAlunosLayout.createSequentialGroup()
                     .addGap(76, 76, 76)
@@ -1217,12 +1283,48 @@ public class HomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_tabInicioMouseClicked
 
     private void btnSearchStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchStudentActionPerformed
-        
+       
     }//GEN-LAST:event_btnSearchStudentActionPerformed
 
     private void cbxTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTurmaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxTurmaActionPerformed
+
+    private void btnMenuTurmaAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaAlunosActionPerformed
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_btnMenuTurmaAlunosActionPerformed
+
+    private void btnAddClassCouncilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClassCouncilActionPerformed
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_btnAddClassCouncilActionPerformed
+
+    private void btnMenuTurmaDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaDisciplinasActionPerformed
+         MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_btnMenuTurmaDisciplinasActionPerformed
+
+    private void btnMenuTurmaProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaProfessoresActionPerformed
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_btnMenuTurmaProfessoresActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void btnMenuTurmaConselhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaConselhosActionPerformed
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_btnMenuTurmaConselhosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1267,6 +1369,10 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnAddSubjects;
     private javax.swing.JButton btnAddTeacher;
+    private javax.swing.JButton btnMenuTurmaAlunos;
+    private javax.swing.JButton btnMenuTurmaConselhos;
+    private javax.swing.JButton btnMenuTurmaDisciplinas;
+    private javax.swing.JButton btnMenuTurmaProfessores;
     private javax.swing.JButton btnSearchClassCouncil;
     private javax.swing.JButton btnSearchStudent;
     private javax.swing.JButton btnSearchSubjects;

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface IServiceTecnicoAdm {
     // Salva tecnico na base de dados
-    public abstract TecnicoAdm saveTecnico(TecnicoAdm tecnicoAdm);
+    public abstract TecnicoAdm saveTecnicoAdm(TecnicoAdm tecnicoAdm);
     // Deleta o tecnico da base de dados
     public abstract void deleteTecnicoAdm(TecnicoAdm tecnicoAdm);
     // Metodo que atualiza um tecnico que já existe na base de dados

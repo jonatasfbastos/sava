@@ -28,7 +28,7 @@ public class ServiceTecnicoAdm implements IServiceTecnicoAdm {
     private final IDaoTecnicoAdm daoTecnicoAdm = new DaoTecnicoAdm();
 
     @Override
-    public TecnicoAdm saveTecnico(TecnicoAdm tecnicoAdm) {
+    public TecnicoAdm saveTecnicoAdm(TecnicoAdm tecnicoAdm) {
         if(tecnicoAdm == null){
             // Tratamento de exceção
             throw new BusinessException(TECNICOADM_NULL);

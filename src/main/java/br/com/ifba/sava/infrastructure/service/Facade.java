@@ -24,6 +24,9 @@ import br.com.ifba.sava.professor.service.ServiceProfessor;
 import br.com.ifba.sava.responsavel.model.Responsavel;
 import br.com.ifba.sava.responsavel.service.IServiceResponsavel;
 import br.com.ifba.sava.responsavel.service.ServiceResponsavel;
+import br.com.ifba.sava.tecnicoadministrativo.model.TecnicoAdm;
+import br.com.ifba.sava.tecnicoadministrativo.service.IServiceTecnicoAdm;
+import br.com.ifba.sava.tecnicoadministrativo.service.ServiceTecnicoAdm;
 import br.com.ifba.sava.turma.model.Turma;
 import br.com.ifba.sava.turma.service.IServiceTurma;
 import br.com.ifba.sava.turma.service.ServiceTurma;
@@ -223,4 +226,34 @@ public class Facade implements IFacade {
     public Responsavel updateResponsavel(Responsavel responsavel){
         return serviceResponsavel.updateResponsavel(responsavel);
     }
+    
+    //------------------- TECNICO ADMINISTRATIVO -----------------------//
+    private final IServiceTecnicoAdm serviceTecnicoAdm = new ServiceTecnicoAdm();
+
+    @Override
+    public TecnicoAdm saveTecnicoAdm(TecnicoAdm tecnicoAdm) {
+       return serviceTecnicoAdm.saveTecnicoAdm(tecnicoAdm);
+    }
+    @Override
+    public void deleteTecnicoAdm(TecnicoAdm tecnicoAdm) {
+        this.serviceTecnicoAdm.deleteTecnicoAdm(tecnicoAdm);
+    }
+    @Override
+    public TecnicoAdm updateTecnicoAdm(TecnicoAdm tecnicoAdm) {
+        return serviceTecnicoAdm.updateTecnicoAdm(tecnicoAdm);
+    }
+    @Override
+    public List<TecnicoAdm> getAllTecnicoAdm() {
+        return serviceTecnicoAdm.getAllTecnicoAdm();
+    }
+    @Override
+    public TecnicoAdm getByIdTecnicoAdm(Long id) {
+        return serviceTecnicoAdm.getByIdTecnicoAdm(id);
+    }
+    @Override
+    public List<TecnicoAdm> findByTecnicoAdm(String tecnicoAdm) {
+        return serviceTecnicoAdm.findByTecnicoAdm(tecnicoAdm);
+    }
+    
+    
 }

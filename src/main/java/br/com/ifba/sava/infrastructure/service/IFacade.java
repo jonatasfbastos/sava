@@ -8,6 +8,7 @@ import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.login.usuario.model.Usuario;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.responsavel.model.Responsavel;
+import br.com.ifba.sava.tecnicoadministrativo.model.TecnicoAdm;
 import br.com.ifba.sava.turma.model.Turma;
 import java.util.List;
 
@@ -63,6 +64,14 @@ public interface IFacade {
     //----------------RESPONSÁVEL --------------------//
     public abstract Responsavel saveResponsavel(Responsavel responsavel);
     public Responsavel updateResponsavel(Responsavel responsavel);
+    
+    //----------------TECNICO ADMINISTRATIVO --------------------//
+    public abstract TecnicoAdm saveTecnicoAdm(TecnicoAdm tecnicoAdm);
+    public abstract void deleteTecnicoAdm(TecnicoAdm tecnicoAdm);
+    public abstract TecnicoAdm  updateTecnicoAdm (TecnicoAdm tecnicoAdm);
+    public abstract List<TecnicoAdm> getAllTecnicoAdm ();
+    public abstract TecnicoAdm  getByIdTecnicoAdm (Long id);
+    public abstract List<TecnicoAdm> findByTecnicoAdm (String tecnicoAdm);
     
     
  }

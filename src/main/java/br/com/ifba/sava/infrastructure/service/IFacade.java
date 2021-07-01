@@ -2,6 +2,7 @@ package br.com.ifba.sava.infrastructure.service;
 
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
+import br.com.ifba.sava.conselho.model.Conselho;
 import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.etapa.model.Etapa;
@@ -75,5 +76,9 @@ public interface IFacade {
     public abstract TecnicoAdm  getByIdTecnicoAdm (Long id);
     public abstract List<TecnicoAdm> findByTecnicoAdm (String tecnicoAdm);
     
-    
+    //------------------ CONSELHO --------------------------//
+    public abstract Conselho saveConselho(Conselho conselho);
+    public List<Conselho> getAllConselho();
+    public abstract Conselho updateConselho(Conselho conselho);
+    public abstract void removeConselho(Conselho conselho);
  }

@@ -9,6 +9,9 @@ import br.com.ifba.sava.aluno.service.ServiceAluno;
 import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
 import br.com.ifba.sava.avaliacaoturma.service.IServiceAvaliacaoTurma;
 import br.com.ifba.sava.avaliacaoturma.service.ServiceAvaliacaoTurma;
+import br.com.ifba.sava.conselho.model.Conselho;
+import br.com.ifba.sava.conselho.service.IServiceConselho;
+import br.com.ifba.sava.conselho.service.ServiceConselho;
 import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.curso.service.IServiceCurso;
 import br.com.ifba.sava.curso.service.ServiceCurso;
@@ -263,5 +266,28 @@ public class Facade implements IFacade {
         return serviceTecnicoAdm.findByTecnicoAdm(tecnicoAdm);
     }
     
+    //-------------------- CONSELHO ------------------------//
+    private final IServiceConselho serviceConselho = new ServiceConselho();
+    
+    @Override
+    public Conselho saveConselho(Conselho conselho) {
+        return serviceConselho.saveConselho(conselho);
+    }
+    
+    @Override
+    public List<Conselho> getAllConselho(){
+        return serviceConselho.getAllConselho();
+    }
+    
+    @Override
+    public Conselho updateConselho(Conselho conselho){
+        return serviceConselho.updateConselho(conselho);
+    }
+
+    @Override
+    public void removeConselho(Conselho conselho) {
+        serviceConselho.removeConselho(conselho);
+    }
+
     
 }

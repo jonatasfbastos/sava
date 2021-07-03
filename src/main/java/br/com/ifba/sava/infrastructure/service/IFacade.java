@@ -6,6 +6,7 @@ import br.com.ifba.sava.conselho.model.Conselho;
 import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.etapa.model.Etapa;
+import br.com.ifba.sava.itemavaliativoindividual.model.ItemAvaliativoIndividual;
 import br.com.ifba.sava.login.usuario.model.Usuario;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.responsavel.model.Responsavel;
@@ -81,4 +82,10 @@ public interface IFacade {
     public List<Conselho> getAllConselho();
     public abstract Conselho updateConselho(Conselho conselho);
     public abstract void removeConselho(Conselho conselho);
+    
+    //------------------ ITEM AVALIATIVO INDIVIDUAL --------------------//
+    public abstract ItemAvaliativoIndividual saveItemAvaliativo(ItemAvaliativoIndividual itemAvaliativo);
+    public abstract void removeItemAvaliativo(ItemAvaliativoIndividual itemAvaliativo);
+    public abstract ItemAvaliativoIndividual updateItemAvaliativo(ItemAvaliativoIndividual itemAvaliativo);
+    public abstract ItemAvaliativoIndividual findItemAvaliativo(ItemAvaliativoIndividual itemAvaliativo);
  }

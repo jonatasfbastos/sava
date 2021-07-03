@@ -21,6 +21,9 @@ import br.com.ifba.sava.disciplina.service.ServiceDisciplina;
 import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.etapa.service.IServiceEtapa;
 import br.com.ifba.sava.etapa.service.ServiceEtapa;
+import br.com.ifba.sava.itemavaliativoindividual.model.ItemAvaliativoIndividual;
+import br.com.ifba.sava.itemavaliativoindividual.service.IServiceItemAvaliativoIndividual;
+import br.com.ifba.sava.itemavaliativoindividual.service.ServiceItemAvaliativoIndividual;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.professor.service.IServiceProfessor;
 import br.com.ifba.sava.professor.service.ServiceProfessor;
@@ -287,6 +290,29 @@ public class Facade implements IFacade {
     @Override
     public void removeConselho(Conselho conselho) {
         serviceConselho.removeConselho(conselho);
+    }
+    
+    //----------------------- ITEM AVALIATIVO INDIVIDUAL -----------------------
+    private final IServiceItemAvaliativoIndividual serviceItemAvaliativoIndividual = new ServiceItemAvaliativoIndividual();
+    
+    @Override
+    public ItemAvaliativoIndividual saveItemAvaliativo(ItemAvaliativoIndividual itemAvaliativo) {
+        return serviceItemAvaliativoIndividual.saveItemAvaliativo(itemAvaliativo);
+    }
+
+    @Override
+    public void removeItemAvaliativo(ItemAvaliativoIndividual itemAvaliativo) {
+        serviceItemAvaliativoIndividual.removeItemAvaliativo(itemAvaliativo);
+    }
+
+    @Override
+    public ItemAvaliativoIndividual updateItemAvaliativo(ItemAvaliativoIndividual itemAvaliativo) {
+        return serviceItemAvaliativoIndividual.updateItemAvaliativo(itemAvaliativo);
+    }
+
+    @Override
+    public ItemAvaliativoIndividual findItemAvaliativo(ItemAvaliativoIndividual itemAvaliativo) {
+        return serviceItemAvaliativoIndividual.findItemAvaliativo(itemAvaliativo);
     }
 
     

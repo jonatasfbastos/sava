@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.sava.turma.view;
+package br.com.ifba.sava.curso.view;
 
+import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
 import br.com.ifba.sava.infrastructure.view.HomeScreen;
-import br.com.ifba.sava.turma.model.Turma;
 
 /**
  *
  * @author sheor
  */
-public class CadastrarTurma extends javax.swing.JFrame {
+public class CadastrarCurso extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastrarTurma
      */
-    public CadastrarTurma() {
+    public CadastrarCurso() {
         initComponents();
     }
 
@@ -37,7 +37,7 @@ public class CadastrarTurma extends javax.swing.JFrame {
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
-        btnVoltarConselho = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(72, 71, 97));
@@ -82,7 +82,7 @@ public class CadastrarTurma extends javax.swing.JFrame {
         btnCadastrar.setBackground(new java.awt.Color(72, 71, 97));
         btnCadastrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrar.setText("Cadastrar Turma");
+        btnCadastrar.setText("Cadastrar Curso");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
@@ -113,12 +113,12 @@ public class CadastrarTurma extends javax.swing.JFrame {
                 .addGap(37, 37, 37))
         );
 
-        btnVoltarConselho.setBackground(new java.awt.Color(255, 255, 255));
-        btnVoltarConselho.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        btnVoltarConselho.setText("voltar");
-        btnVoltarConselho.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        btnVoltar.setText("voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarConselhoActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -132,14 +132,14 @@ public class CadastrarTurma extends javax.swing.JFrame {
                 .addGap(337, 337, 337))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(btnVoltarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(btnVoltarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(172, 172, 172))
@@ -164,21 +164,21 @@ public class CadastrarTurma extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        Turma turma = new Turma();
+        Curso curso = new Curso();
 
-        turma.setNome(txtNome.getText());
+        curso.setNome(txtNome.getText());
         
         txtNome.setText("");
 
-        FacadeInstance.getInstance().saveTurma(turma);
+        FacadeInstance.getInstance().saveCurso(curso);
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void btnVoltarConselhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarConselhoActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
         HomeScreen tela = new HomeScreen();
         tela.setVisible(true);
-    }//GEN-LAST:event_btnVoltarConselhoActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,27 +197,30 @@ public class CadastrarTurma extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarTurma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarTurma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarTurma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarTurma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastrarTurma().setVisible(true);
+                new CadastrarCurso().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnVoltarConselho;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblNome;

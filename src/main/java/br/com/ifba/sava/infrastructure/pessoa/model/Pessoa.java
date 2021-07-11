@@ -6,11 +6,15 @@
 package br.com.ifba.sava.infrastructure.pessoa.model;
 
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
+import br.com.ifba.sava.login.usuario.model.Usuario;
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 /**
  *
@@ -18,6 +22,7 @@ import javax.persistence.InheritanceType;
  */
 //@Entity
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public class Pessoa extends PersistenceEntity{
     
     @Column(name = "NOME", length=100, nullable=false)
@@ -31,6 +36,22 @@ public class Pessoa extends PersistenceEntity{
     private String email;
     
     private String telefone;
+    
+    @OneToOne
+    @JoinColumn(name = "usuario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    
+    
 
     public String getTelefone() {
         return telefone;

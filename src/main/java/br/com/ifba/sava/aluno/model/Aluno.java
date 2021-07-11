@@ -19,16 +19,6 @@ public class Aluno extends Pessoa{
     
     private String matricula;
     
-    private String senha;
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public String getMatricula() {
         return matricula;
     }

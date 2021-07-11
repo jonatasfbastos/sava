@@ -346,7 +346,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
         aluno1.setSobrenome(txtSobrenome.getText());
         aluno1.setMatricula(txtNumeroMatricula.getText());
         aluno1.setCpf(txtEmail2.getText());
-        aluno1.setSenha(txtEmail2.getText()+"."+txtNumeroMatricula.getText());
+       // aluno1.setSenha(txtEmail2.getText()+"."+txtNumeroMatricula.getText());
         
         txtEmail.setText("");
         txtNome.setText("");

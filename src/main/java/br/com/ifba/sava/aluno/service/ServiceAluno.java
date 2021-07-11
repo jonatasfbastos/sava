@@ -41,7 +41,7 @@ public class ServiceAluno implements IServiceAluno{
         } else if(daoAluno.findById(aluno.getId()) != null) {
             throw new BusinessException(ALUNO_EXISTE);
         } else {
-            aluno.setSenha("ifba." + aluno.getCpf());
+         //   aluno.setSenha("ifba." + aluno.getCpf());
             return daoAluno.save(aluno);
         }  
     }

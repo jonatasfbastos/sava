@@ -5,7 +5,7 @@
  */
 package br.com.ifba.sava.professor.model;
 
-import br.com.ifba.sava.infrastructure.pessoa.model.Pessoa;
+import br.com.ifba.sava.infrastructure.servidor.model.Servidor;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 /**
@@ -15,14 +15,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PROFESSOR")
-public class Professor extends Pessoa{
-    private String siape;
+public class Professor extends Servidor{
 
-    public String getSiape(){
-        return siape;
-    }
-
-    public void setSiape(){
-        this.siape = siape;
-    }
 }

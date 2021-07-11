@@ -53,7 +53,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabDisciplinas.setBackground(new Color(204,204,255));
         tabProfessores.setBackground(new Color(204,204,255));
         tabConselhos.setBackground(new Color(204,204,255));
-        tabCoordenadores.setBackground(new Color(204,204,255));
+        tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
         
@@ -154,7 +154,7 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         tabAlunos = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        tabCoordenadores = new javax.swing.JPanel();
+        tabTecAdm = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         tabCursos = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -178,6 +178,8 @@ public class HomeScreen extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pnlDisciplinas = new javax.swing.JPanel();
         pnlMainBarSubjects = new javax.swing.JPanel();
         btnAddSubjects = new javax.swing.JButton();
@@ -217,6 +219,9 @@ public class HomeScreen extends javax.swing.JFrame {
         btnMenuTurma_Alunos = new javax.swing.JButton();
         spnlAlunos = new javax.swing.JScrollPane();
         tblAlunos = new javax.swing.JTable();
+        btnAtualizar = new javax.swing.JButton();
+        txtAtualizar = new javax.swing.JTextField();
+        btnDeletar = new javax.swing.JButton();
         pnlCursos = new javax.swing.JPanel();
         pnlMainBarClassCouncil3 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -326,29 +331,29 @@ public class HomeScreen extends javax.swing.JFrame {
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        tabCoordenadores.setBackground(new java.awt.Color(255, 255, 255));
-        tabCoordenadores.setPreferredSize(new java.awt.Dimension(216, 50));
-        tabCoordenadores.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabTecAdm.setBackground(new java.awt.Color(255, 255, 255));
+        tabTecAdm.setPreferredSize(new java.awt.Dimension(216, 50));
+        tabTecAdm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabCoordenadoresMouseClicked(evt);
+                tabTecAdmMouseClicked(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(72, 71, 97));
-        jLabel5.setText("Coordenadores");
+        jLabel5.setText("Tec Administrativo");
 
-        javax.swing.GroupLayout tabCoordenadoresLayout = new javax.swing.GroupLayout(tabCoordenadores);
-        tabCoordenadores.setLayout(tabCoordenadoresLayout);
-        tabCoordenadoresLayout.setHorizontalGroup(
-            tabCoordenadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabCoordenadoresLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout tabTecAdmLayout = new javax.swing.GroupLayout(tabTecAdm);
+        tabTecAdm.setLayout(tabTecAdmLayout);
+        tabTecAdmLayout.setHorizontalGroup(
+            tabTecAdmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabTecAdmLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addComponent(jLabel5)
-                .addGap(51, 51, 51))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        tabCoordenadoresLayout.setVerticalGroup(
-            tabCoordenadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        tabTecAdmLayout.setVerticalGroup(
+            tabTecAdmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
@@ -394,10 +399,10 @@ public class HomeScreen extends javax.swing.JFrame {
         tabResponsaveis.setLayout(tabResponsaveisLayout);
         tabResponsaveisLayout.setHorizontalGroup(
             tabResponsaveisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabResponsaveisLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(tabResponsaveisLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
                 .addComponent(lblResponsaveis, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tabResponsaveisLayout.setVerticalGroup(
             tabResponsaveisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,19 +439,19 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlNavBar.setLayout(pnlNavBarLayout);
         pnlNavBarLayout.setHorizontalGroup(
             pnlNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabDisciplinas, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addComponent(tabDisciplinas, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
             .addComponent(tabProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tabCoordenadores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-            .addComponent(tabCursos, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-            .addComponent(tabResponsaveis, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addComponent(tabCursos, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+            .addComponent(tabResponsaveis, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
             .addComponent(tabConselhos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tabAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addComponent(tabAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
             .addComponent(tabInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tabTecAdm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
         );
         pnlNavBarLayout.setVerticalGroup(
             pnlNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNavBarLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tabInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -457,7 +462,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabCoordenadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabTecAdm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -499,16 +504,16 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlMainBarClassCouncil1Layout.setHorizontalGroup(
             pnlMainBarClassCouncil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarClassCouncil1Layout.createSequentialGroup()
-                .addContainerGap(305, Short.MAX_VALUE)
+                .addContainerGap(278, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(244, 244, 244))
+                .addContainerGap(296, Short.MAX_VALUE))
         );
         pnlMainBarClassCouncil1Layout.setVerticalGroup(
             pnlMainBarClassCouncil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarClassCouncil1Layout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
+                .addContainerGap(206, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlInicioLayout = new javax.swing.GroupLayout(pnlInicio);
@@ -519,9 +524,7 @@ public class HomeScreen extends javax.swing.JFrame {
         );
         pnlInicioLayout.setVerticalGroup(
             pnlInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlInicioLayout.createSequentialGroup()
-                .addComponent(pnlMainBarClassCouncil1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 121, Short.MAX_VALUE))
+            .addComponent(pnlMainBarClassCouncil1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnlTelas.add(pnlInicio);
@@ -624,17 +627,36 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout pnlConselhosLayout = new javax.swing.GroupLayout(pnlConselhos);
         pnlConselhos.setLayout(pnlConselhosLayout);
         pnlConselhosLayout.setHorizontalGroup(
             pnlConselhosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlMainBarClassCouncil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlConselhosLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlConselhosLayout.setVerticalGroup(
             pnlConselhosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConselhosLayout.createSequentialGroup()
                 .addComponent(pnlMainBarClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 519, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 104, Short.MAX_VALUE))
         );
 
         pnlTelas.add(pnlConselhos);
@@ -702,7 +724,6 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarSubjectsLayout.createSequentialGroup()
                         .addComponent(ComboBoxDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
                         .addComponent(btnMenuTurmaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -757,7 +778,7 @@ public class HomeScreen extends javax.swing.JFrame {
             pnlDisciplinasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDisciplinasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spnlSubjects, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                .addComponent(spnlSubjects, javax.swing.GroupLayout.DEFAULT_SIZE, 919, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(pnlMainBarSubjects, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -895,7 +916,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(pnlMainBarTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spnlProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pnlTelas.add(pnlProfessores);
@@ -1003,11 +1024,11 @@ public class HomeScreen extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Sobrenome", "Matricula", "Editar", "Excluir"
+                "Nome", "Sobrenome", "Matricula"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, true
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1015,35 +1036,48 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
         spnlAlunos.setViewportView(tblAlunos);
-        if (tblAlunos.getColumnModel().getColumnCount() > 0) {
-            tblAlunos.getColumnModel().getColumn(1).setResizable(false);
-        }
+
+        btnAtualizar.setText("Atualizar");
+
+        btnDeletar.setText("Deletar");
 
         javax.swing.GroupLayout pnlAlunosLayout = new javax.swing.GroupLayout(pnlAlunos);
         pnlAlunos.setLayout(pnlAlunosLayout);
         pnlAlunosLayout.setHorizontalGroup(
             pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAlunosLayout.createSequentialGroup()
+            .addGroup(pnlAlunosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlMainBarStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlAlunosLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(spnlAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, 919, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(pnlAlunosLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlAlunosLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(txtAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91))
+            .addGroup(pnlAlunosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(spnlAlunos)
+                .addContainerGap())
         );
         pnlAlunosLayout.setVerticalGroup(
             pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAlunosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlMainBarStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(513, Short.MAX_VALUE))
-            .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlAlunosLayout.createSequentialGroup()
-                    .addGap(93, 93, 93)
-                    .addComponent(spnlAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(spnlAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
 
         pnlTelas.add(pnlAlunos);
@@ -1101,7 +1135,7 @@ public class HomeScreen extends javax.swing.JFrame {
             pnlCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCursosLayout.createSequentialGroup()
                 .addComponent(pnlMainBarClassCouncil3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 121, Short.MAX_VALUE))
+                .addGap(0, 141, Short.MAX_VALUE))
         );
 
         pnlTelas.add(pnlCursos);
@@ -1159,7 +1193,7 @@ public class HomeScreen extends javax.swing.JFrame {
             pnlCoordenadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCoordenadoresLayout.createSequentialGroup()
                 .addComponent(pnlMainBarClassCouncil2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 121, Short.MAX_VALUE))
+                .addGap(0, 141, Short.MAX_VALUE))
         );
 
         pnlTelas.add(pnlCoordenadores);
@@ -1217,7 +1251,7 @@ public class HomeScreen extends javax.swing.JFrame {
             pnlResponsaveisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlResponsaveisLayout.createSequentialGroup()
                 .addComponent(pnlMainBarClassCouncil4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 121, Short.MAX_VALUE))
+                .addGap(0, 141, Short.MAX_VALUE))
         );
 
         pnlTelas.add(pnlResponsaveis);
@@ -1272,7 +1306,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabDisciplinas.setBackground(new Color(204,204,255));
         tabProfessores.setBackground(new Color(204,204,255));
         tabConselhos.setBackground(new Color(204,204,255));
-        tabCoordenadores.setBackground(new Color(204,204,255));
+        tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
         
@@ -1294,7 +1328,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabDisciplinas.setBackground(new Color(204,204,255));
         tabAlunos.setBackground(new Color(204,204,255));
         tabConselhos.setBackground(new Color(204,204,255));
-        tabCoordenadores.setBackground(new Color(204,204,255));
+        tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
         
@@ -1316,7 +1350,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabProfessores.setBackground(new Color(204,204,255));
         tabAlunos.setBackground(new Color(204,204,255));
         tabConselhos.setBackground(new Color(204,204,255));
-        tabCoordenadores.setBackground(new Color(204,204,255));
+        tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
         
@@ -1338,7 +1372,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabInicio.setBackground(new Color(204,204,255));
         tabProfessores.setBackground(new Color(204,204,255));
         tabAlunos.setBackground(new Color(204,204,255));
-        tabCoordenadores.setBackground(new Color(204,204,255));
+        tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
     }//GEN-LAST:event_tabConselhosMouseClicked
@@ -1366,7 +1400,7 @@ public class HomeScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSearchSubjectsActionPerformed
 
-    private void tabCoordenadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabCoordenadoresMouseClicked
+    private void tabTecAdmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabTecAdmMouseClicked
         pnlCoordenadores.setVisible(true);
         pnlConselhos.setVisible(false);
         pnlDisciplinas.setVisible(false);
@@ -1376,7 +1410,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlResponsaveis.setVisible(false);
         pnlCursos.setVisible(false);
         
-        tabCoordenadores.setBackground(new Color(255,255,255));
+        tabTecAdm.setBackground(new Color(255,255,255));
         tabConselhos.setBackground(new Color(204,204,255));
         tabDisciplinas.setBackground(new Color(204,204,255));
         tabInicio.setBackground(new Color(204,204,255));
@@ -1384,7 +1418,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabAlunos.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
-    }//GEN-LAST:event_tabCoordenadoresMouseClicked
+    }//GEN-LAST:event_tabTecAdmMouseClicked
 
     private void tabCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabCursosMouseClicked
         pnlCursos.setVisible(true);
@@ -1397,7 +1431,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlResponsaveis.setVisible(false);
 
         tabCursos.setBackground(new Color(255,255,255));
-        tabCoordenadores.setBackground(new Color(204,204,255));
+        tabTecAdm.setBackground(new Color(204,204,255));
         tabConselhos.setBackground(new Color(204,204,255));
         tabDisciplinas.setBackground(new Color(204,204,255));
         tabInicio.setBackground(new Color(204,204,255));
@@ -1417,7 +1451,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlInicio.setVisible(false);
 
         tabResponsaveis.setBackground(new Color(255,255,255));
-        tabCoordenadores.setBackground(new Color(204,204,255));
+        tabTecAdm.setBackground(new Color(204,204,255));
         tabConselhos.setBackground(new Color(204,204,255));
         tabDisciplinas.setBackground(new Color(204,204,255));
         tabInicio.setBackground(new Color(204,204,255));
@@ -1438,7 +1472,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlResponsaveis.setVisible(false);
         
         tabInicio.setBackground(new Color(255,255,255));
-        tabCoordenadores.setBackground(new Color(204,204,255));
+        tabTecAdm.setBackground(new Color(204,204,255));
         tabConselhos.setBackground(new Color(204,204,255));
         tabDisciplinas.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
@@ -1555,6 +1589,8 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnAddSubjects;
     private javax.swing.JButton btnAddTeacher;
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnMenuCursosConselhos;
     private javax.swing.JButton btnMenuTurmaAlunos;
     private javax.swing.JButton btnMenuTurmaDisciplinas;
@@ -1594,6 +1630,8 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblConselho;
     private javax.swing.JLabel lblInicio;
     private javax.swing.JLabel lblResponsaveis;
@@ -1621,15 +1659,16 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane spnlSubjects;
     private javax.swing.JPanel tabAlunos;
     private javax.swing.JPanel tabConselhos;
-    private javax.swing.JPanel tabCoordenadores;
     private javax.swing.JPanel tabCursos;
     private javax.swing.JPanel tabDisciplinas;
     private javax.swing.JPanel tabInicio;
     private javax.swing.JPanel tabProfessores;
     private javax.swing.JPanel tabResponsaveis;
+    private javax.swing.JPanel tabTecAdm;
     private javax.swing.JTable tblAlunos;
     private javax.swing.JTable tblDisciplinas;
     private javax.swing.JTable tblProfessores;
+    private javax.swing.JTextField txtAtualizar;
     private javax.swing.JTextField txtSearchClassCouncil;
     private javax.swing.JTextField txtSearchStudent;
     private javax.swing.JTextField txtSearchSubjects;

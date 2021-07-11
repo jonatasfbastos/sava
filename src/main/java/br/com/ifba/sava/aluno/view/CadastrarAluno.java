@@ -8,7 +8,6 @@ package br.com.ifba.sava.aluno.view;
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.infrastructure.view.HomeScreen;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
-import java.util.List;
 
 /**
  *
@@ -343,7 +342,6 @@ public class CadastrarAluno extends javax.swing.JFrame {
         Aluno aluno1 = new Aluno();
         
         aluno1.setNome(txtNome.getText());
-        aluno1.setSobrenome(txtSobrenome.getText());
         aluno1.setMatricula(txtNumeroMatricula.getText());
         aluno1.setCpf(txtEmail2.getText());
        // aluno1.setSenha(txtEmail2.getText()+"."+txtNumeroMatricula.getText());

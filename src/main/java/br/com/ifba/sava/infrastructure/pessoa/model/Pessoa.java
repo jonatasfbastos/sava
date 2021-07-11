@@ -7,10 +7,8 @@ package br.com.ifba.sava.infrastructure.pessoa.model;
 
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
 import br.com.ifba.sava.login.usuario.model.Usuario;
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.OnDelete;
@@ -25,11 +23,8 @@ import org.hibernate.annotations.OnDeleteAction;
 @MappedSuperclass
 public class Pessoa extends PersistenceEntity{
     
-    @Column(name = "NOME", length=100, nullable=false)
+    @Column(name = "nome", length=100, nullable=false)
     private String nome;
-    
-    @Column(name = "SOBRENOME", length=100, nullable=false)
-    private String sobrenome;
     
     private String cpf;
     
@@ -49,9 +44,6 @@ public class Pessoa extends PersistenceEntity{
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-    
-    
 
     public String getTelefone() {
         return telefone;
@@ -69,8 +61,6 @@ public class Pessoa extends PersistenceEntity{
         this.cpf = cpf;
     }
 
-    
-
     public String getEmail() {
         return email;
     }
@@ -78,7 +68,6 @@ public class Pessoa extends PersistenceEntity{
     public void setEmail(String email) {
         this.email = email;
     }
-    
 
     public String getNome() {
         return nome;
@@ -86,14 +75,6 @@ public class Pessoa extends PersistenceEntity{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
    
 }

@@ -68,7 +68,6 @@ public class HomeScreen extends javax.swing.JFrame {
         for(int i = 0;i<aluno.size();i++){
             Object[] dados = {
                 aluno.get(i).getNome(),
-                aluno.get(i).getSobrenome(),
                 aluno.get(i).getMatricula(),
             };
             
@@ -629,15 +628,20 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "CodigoConselho", "Trimeste", "AnoLetivo", "CodigoAta"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout pnlConselhosLayout = new javax.swing.GroupLayout(pnlConselhos);
@@ -764,13 +768,18 @@ public class HomeScreen extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Professor", "Matriculados", "Editar", "Excluir"
+                "Nome", "Professor", "Etapa", "Codigo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         spnlSubjects.setViewportView(tblDisciplinas);
-        if (tblDisciplinas.getColumnModel().getColumnCount() > 0) {
-            tblDisciplinas.getColumnModel().getColumn(1).setResizable(false);
-        }
 
         javax.swing.GroupLayout pnlDisciplinasLayout = new javax.swing.GroupLayout(pnlDisciplinas);
         pnlDisciplinas.setLayout(pnlDisciplinasLayout);
@@ -892,13 +901,18 @@ public class HomeScreen extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "CPF", "Data de nascimento", "Cidade", "Editar", "Excluir"
+                "Nome", "CPF", "Tefelefone", "Email", "Login", "Senha", "Siap", "TipoUsuario"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         spnlProfessores.setViewportView(tblProfessores);
-        if (tblProfessores.getColumnModel().getColumnCount() > 0) {
-            tblProfessores.getColumnModel().getColumn(1).setResizable(false);
-        }
 
         javax.swing.GroupLayout pnlProfessoresLayout = new javax.swing.GroupLayout(pnlProfessores);
         pnlProfessores.setLayout(pnlProfessoresLayout);
@@ -907,7 +921,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addComponent(pnlMainBarTeachers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlProfessoresLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spnlProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                .addComponent(spnlProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, 919, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlProfessoresLayout.setVerticalGroup(
@@ -1024,11 +1038,11 @@ public class HomeScreen extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Sobrenome", "Matricula"
+                "Nome", "Telefone", "Email", "Cpf", "Login", "Senha", "TipoUsuario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

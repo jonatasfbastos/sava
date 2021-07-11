@@ -43,8 +43,8 @@ public class ServiceTurma implements IServiceTurma{
     public Turma saveTurma(Turma turma) {
         if(turma == null){
             throw new BusinessException(TURMA_NULL);
-        }else if(daoTurma.findById(turma.getId()) == null){
-            throw new BusinessException(TURMA_NAO_EXISTE);
+        }else if(daoTurma.findById(turma.getId()) != null){
+            throw new BusinessException(TURMA_EXISTE);
         }
         else{
             return daoTurma.save(turma);

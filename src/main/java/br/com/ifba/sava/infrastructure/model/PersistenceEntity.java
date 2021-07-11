@@ -7,6 +7,7 @@ package br.com.ifba.sava.infrastructure.model;
 
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -19,10 +20,10 @@ import javax.persistence.MappedSuperclass;
 
 //Classe que as entidades irão herdar
 @MappedSuperclass
-public class PersistenceEntity implements Serializable{
+public class PersistenceEntity{
         
     @Id 
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
         
     

@@ -16,9 +16,9 @@ import javax.persistence.InheritanceType;
  *
  * @author jhinr
  */
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Pessoa extends PersistenceEntity implements Serializable{
+//@Entity
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Pessoa extends PersistenceEntity{
     
     @Column(name = "NOME", length=100, nullable=false)
     private String nome;

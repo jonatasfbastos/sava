@@ -6,11 +6,13 @@
 package br.com.ifba.sava.itemavaliativoindividual.model;
 
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Alírio Rios
  */
+@Entity
 public class ItemAvaliativoIndividual extends PersistenceEntity{
     
     private String nome;

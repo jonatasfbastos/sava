@@ -7,11 +7,13 @@ package br.com.ifba.sava.turma.model;
 
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
+import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -33,8 +35,20 @@ public class Turma extends PersistenceEntity{
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Aluno> listAlunos;
     
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Curso curso;
+    
     private String nome;
-    private int numero;
+    private int AnoLetivo;
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+    
     
     public void setAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma){
         this.avaliacaoTurma = avaliacaoTurma;
@@ -59,12 +73,14 @@ public class Turma extends PersistenceEntity{
     public String getNome(){
         return nome;
     }
-    
-    public void setNumero(int numero){
-        this.numero = numero;
+
+    public int getAnoLetivo() {
+        return AnoLetivo;
+    }
+
+    public void setAnoLetivo(int AnoLetivo) {
+        this.AnoLetivo = AnoLetivo;
     }
     
-    public int getNumero(){
-        return numero;
-    }
+ 
 }

@@ -168,7 +168,7 @@ public class CadastrarCurso extends javax.swing.JFrame {
 
         curso.setNome(txtNome.getText());
         
-        txtNome.setText("");
+        //txtNome.setText("");
 
         FacadeInstance.getInstance().saveCurso(curso);
 

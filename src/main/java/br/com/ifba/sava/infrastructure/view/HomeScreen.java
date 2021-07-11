@@ -8,6 +8,7 @@ package br.com.ifba.sava.infrastructure.view;
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.aluno.view.CadastrarAluno;
 import br.com.ifba.sava.conselho.view.CadastrarConselho;
+import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.curso.view.MenuCurso;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.view.CadastrarDisciplina;
@@ -18,16 +19,19 @@ import br.com.ifba.sava.professor.view.CadastrarProfessor;
 import br.com.ifba.sava.turma.view.CadastrarTurma;
 import br.com.ifba.sava.turma.view.MenuTurma;
 import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JComboBox;
 
 /**
  *
  * @author sheor
  */
 public class HomeScreen extends javax.swing.JFrame {
-    
+   JComboBox<String> combo = new JComboBox<String>();
     /**
      * Creates new form HomeScreen
      */
@@ -41,6 +45,8 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlResponsaveis.setVisible(false);
         pnlCoordenadores.setVisible(false);
         pnlCursos.setVisible(false);
+        ComboBoxCurso ();
+        
         
         tabInicio.setBackground(new Color(255,255,255));
         tabAlunos.setBackground(new Color(204,204,255));
@@ -72,6 +78,31 @@ public class HomeScreen extends javax.swing.JFrame {
         }
         //this.selecionado = this.jtPesquisador.getSelectedRow();
     }
+    
+
+    
+     private void ComboBoxCurso (){
+
+      List<Curso> curso = FacadeInstance.getInstance().getAllCurso();
+      for(int i=0; i<curso.size(); i++)
+      ComboBoxDisciplina.addItem(curso.get(i).getNome());
+      
+      
+      System.out.println(ComboBoxDisciplina.getSelectedItem()); //printf que seleciona o primeiro valor pq sempre seleciona o primeiro 
+      
+      ComboBoxDisciplina.addActionListener((ActionEvent e) -> {
+       System.out.println(ComboBoxDisciplina.getSelectedItem());
+      });
+         
+    //       
+    
+             //JComboBox<String> combo = new JComboBox<String>();
+            // for(int i=0; i<curso.size(); i++)
+             //combo.addItem(curso.get(i).getNome());
+    //        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item"}));
+ 
+    }
+     
     
     void atualizaListaProfessores() {
         /*DefaultTableModel valoresProfessor = (DefaultTableModel) tblProfessores.getModel();
@@ -152,12 +183,12 @@ public class HomeScreen extends javax.swing.JFrame {
         btnAddSubjects = new javax.swing.JButton();
         txtSearchSubjects = new javax.swing.JTextField();
         btnSearchSubjects = new javax.swing.JButton();
-        jComboBox3 = new javax.swing.JComboBox<>();
         btnMenuTurmaDisciplinas = new javax.swing.JButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
+        ComboBoxDisciplina = new javax.swing.JComboBox<>();
         spnlSubjects = new javax.swing.JScrollPane();
         tblDisciplinas = new javax.swing.JTable();
         pnlProfessores = new javax.swing.JPanel();
@@ -632,13 +663,6 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Curso 1", "Curso 2", "Curso 3" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
-            }
-        });
-
         btnMenuTurmaDisciplinas.setText("+");
         btnMenuTurmaDisciplinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -670,12 +694,14 @@ public class HomeScreen extends javax.swing.JFrame {
             pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
                         .addComponent(jRadioButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton5))
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarSubjectsLayout.createSequentialGroup()
+                        .addComponent(ComboBoxDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
@@ -700,9 +726,9 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMenuTurmaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboBoxDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton4)
@@ -898,13 +924,6 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Curso 1", "Curso 2", "Curso 3" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
         btnMenuTurmaAlunos.setText("+");
         btnMenuTurmaAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -944,7 +963,7 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addComponent(jRadioButton12)))
                 .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarStudentsLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addComponent(txtSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1011,7 +1030,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlAlunosLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(spnlAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                    .addComponent(spnlAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, 919, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pnlAlunosLayout.setVerticalGroup(
@@ -1019,7 +1038,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(pnlAlunosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlMainBarStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(508, Short.MAX_VALUE))
+                .addContainerGap(513, Short.MAX_VALUE))
             .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlAlunosLayout.createSequentialGroup()
                     .addGap(93, 93, 93)
@@ -1343,10 +1362,6 @@ public class HomeScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAddSubjectsActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
     private void btnSearchSubjectsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSubjectsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSearchSubjectsActionPerformed
@@ -1440,12 +1455,6 @@ public class HomeScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxTurmaActionPerformed
 
-    private void btnMenuTurmaAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaAlunosActionPerformed
-        MenuTurma telaTurma = new MenuTurma();
-        this.dispose();
-        telaTurma.setVisible(true);
-    }//GEN-LAST:event_btnMenuTurmaAlunosActionPerformed
-
     private void btnAddClassCouncilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClassCouncilActionPerformed
         MenuTurma telaTurma = new MenuTurma();
         this.dispose();
@@ -1453,7 +1462,7 @@ public class HomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddClassCouncilActionPerformed
 
     private void btnMenuTurmaDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaDisciplinasActionPerformed
-         MenuTurma telaTurma = new MenuTurma();
+        MenuTurma telaTurma = new MenuTurma();
         this.dispose();
         telaTurma.setVisible(true);
     }//GEN-LAST:event_btnMenuTurmaDisciplinasActionPerformed
@@ -1463,12 +1472,6 @@ public class HomeScreen extends javax.swing.JFrame {
         this.dispose();
         telaTurma.setVisible(true);
     }//GEN-LAST:event_btnMenuTurmaProfessoresActionPerformed
-
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-        MenuTurma telaTurma = new MenuTurma();
-        this.dispose();
-        telaTurma.setVisible(true);
-    }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void btnMenuCursosConselhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCursosConselhosActionPerformed
         MenuCurso telaCurso = new MenuCurso();
@@ -1501,6 +1504,12 @@ public class HomeScreen extends javax.swing.JFrame {
     private void btnMenuTurma_AlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurma_AlunosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMenuTurma_AlunosActionPerformed
+
+    private void btnMenuTurmaAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaAlunosActionPerformed
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_btnMenuTurmaAlunosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1541,6 +1550,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBoxDisciplina;
     private javax.swing.JButton btnAddClassCouncil;
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnAddSubjects;
@@ -1559,7 +1569,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

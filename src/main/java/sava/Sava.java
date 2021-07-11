@@ -5,9 +5,14 @@
  */
 package sava;
 
+import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.infrastructure.dao.BaseDao;
+import br.com.ifba.sava.infrastructure.service.FacadeInstance;
 import br.com.ifba.sava.login.usuario.dao.DaoUsuario;
 import br.com.ifba.sava.login.usuario.model.Usuario;
+import br.com.ifba.sava.turma.model.Turma;
+import br.com.ifba.sava.turma.service.ServiceTurma;
+import java.util.List;
 
 /**
  *
@@ -20,11 +25,21 @@ public class Sava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Usuario usuario = new Usuario();
-        //BaseDao baseDao = new BaseDao();//classe pessoa nao esta indo e nao da p fazer o resto e salva
-        usuario.setLogin("rafael");
-        usuario.setSenha("123456");
-       // baseDao.save(usuario);
+
+        Turma turma = new Turma();
+        Curso curso = new Curso();
+        //List<Curso> curso = (List<Curso>) new Curso();
+       
+        turma.setNome("Barbosa");
+        turma.setAnoLetivo(1);
+        
+        
+        curso.setId(1l);
+        turma.setCurso(FacadeInstance.getInstance().findCurso(curso));
+        
+       // turma.setCurso(curso);
+        
+        FacadeInstance.getInstance().saveTurma(turma);
         
     }
     

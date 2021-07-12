@@ -12,6 +12,7 @@ import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.curso.view.MenuCurso;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.view.CadastrarDisciplina;
+import br.com.ifba.sava.etapa.view.CadastrarEtapa;
 import br.com.ifba.sava.infrastructure.service.Facade;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
 import br.com.ifba.sava.professor.model.Professor;
@@ -56,6 +57,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(204,204,255));
         
     }
     void atualizaListaAlunos() {
@@ -161,6 +163,8 @@ public class HomeScreen extends javax.swing.JFrame {
         lblResponsaveis = new javax.swing.JLabel();
         tabInicio = new javax.swing.JPanel();
         lblInicio = new javax.swing.JLabel();
+        tabEtapas = new javax.swing.JPanel();
+        lblEtapas = new javax.swing.JLabel();
         pnlTelas = new javax.swing.JPanel();
         pnlInicio = new javax.swing.JPanel();
         pnlMainBarClassCouncil1 = new javax.swing.JPanel();
@@ -233,6 +237,19 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlMainBarClassCouncil4 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        pnlEtapas = new javax.swing.JPanel();
+        pnlMainBarClassEtapas = new javax.swing.JPanel();
+        btnAddClassEtapas = new javax.swing.JButton();
+        txtSearchClassEtapas = new javax.swing.JTextField();
+        btnSearchClassEtapas = new javax.swing.JButton();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        btnMenuTurmaEtapas = new javax.swing.JButton();
+        jRadioButton13 = new javax.swing.JRadioButton();
+        jRadioButton14 = new javax.swing.JRadioButton();
+        jRadioButton15 = new javax.swing.JRadioButton();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -434,18 +451,35 @@ public class HomeScreen extends javax.swing.JFrame {
             .addComponent(lblInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
+        tabEtapas.setBackground(new java.awt.Color(255, 255, 255));
+        tabEtapas.setPreferredSize(new java.awt.Dimension(216, 50));
+        tabEtapas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabEtapasMouseClicked(evt);
+            }
+        });
+        tabEtapas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEtapas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEtapas.setForeground(new java.awt.Color(72, 71, 97));
+        lblEtapas.setText("Etapas");
+        tabEtapas.add(lblEtapas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, 50));
+
         javax.swing.GroupLayout pnlNavBarLayout = new javax.swing.GroupLayout(pnlNavBar);
         pnlNavBar.setLayout(pnlNavBarLayout);
         pnlNavBarLayout.setHorizontalGroup(
             pnlNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabDisciplinas, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+            .addComponent(tabDisciplinas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(tabProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tabCursos, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-            .addComponent(tabResponsaveis, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+            .addComponent(tabCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tabResponsaveis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(tabConselhos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tabAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+            .addComponent(tabAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(tabInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tabTecAdm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+            .addComponent(tabTecAdm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlNavBarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tabEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlNavBarLayout.setVerticalGroup(
             pnlNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,6 +500,8 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(tabCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabResponsaveis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tabEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -643,6 +679,10 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(2).setHeaderValue("AnoLetivo");
+            jTable1.getColumnModel().getColumn(3).setHeaderValue("CodigoAta");
+        }
 
         javax.swing.GroupLayout pnlConselhosLayout = new javax.swing.GroupLayout(pnlConselhos);
         pnlConselhos.setLayout(pnlConselhosLayout);
@@ -1270,6 +1310,143 @@ public class HomeScreen extends javax.swing.JFrame {
 
         pnlTelas.add(pnlResponsaveis);
 
+        pnlEtapas.setBackground(new java.awt.Color(72, 71, 97));
+
+        pnlMainBarClassEtapas.setBackground(new java.awt.Color(72, 71, 97));
+
+        btnAddClassEtapas.setText("Adicionar Etapa");
+        btnAddClassEtapas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddClassEtapasActionPerformed(evt);
+            }
+        });
+
+        txtSearchClassEtapas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchClassEtapasActionPerformed(evt);
+            }
+        });
+
+        btnSearchClassEtapas.setText("Buscar");
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Curso 1", "Curso 2", "Curso 3" }));
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
+
+        btnMenuTurmaEtapas.setText("+");
+        btnMenuTurmaEtapas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuTurmaEtapasActionPerformed(evt);
+            }
+        });
+
+        jRadioButton13.setText("Turma1");
+
+        jRadioButton14.setText("Turma2");
+
+        jRadioButton15.setText("Turma3");
+
+        jButton3.setText("+");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlMainBarClassEtapasLayout = new javax.swing.GroupLayout(pnlMainBarClassEtapas);
+        pnlMainBarClassEtapas.setLayout(pnlMainBarClassEtapasLayout);
+        pnlMainBarClassEtapasLayout.setHorizontalGroup(
+            pnlMainBarClassEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainBarClassEtapasLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(pnlMainBarClassEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pnlMainBarClassEtapasLayout.createSequentialGroup()
+                        .addComponent(jRadioButton13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton14))
+                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlMainBarClassEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlMainBarClassEtapasLayout.createSequentialGroup()
+                        .addComponent(btnMenuTurmaEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                        .addComponent(txtSearchClassEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearchClassEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addComponent(btnAddClassEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(pnlMainBarClassEtapasLayout.createSequentialGroup()
+                        .addComponent(jRadioButton15)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        pnlMainBarClassEtapasLayout.setVerticalGroup(
+            pnlMainBarClassEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarClassEtapasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMainBarClassEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainBarClassEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMenuTurmaEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainBarClassEtapasLayout.createSequentialGroup()
+                        .addGap(0, 1, Short.MAX_VALUE)
+                        .addGroup(pnlMainBarClassEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSearchClassEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddClassEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSearchClassEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlMainBarClassEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton13)
+                    .addComponent(jRadioButton14)
+                    .addComponent(jRadioButton15)
+                    .addComponent(jButton3))
+                .addContainerGap())
+        );
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Código"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        javax.swing.GroupLayout pnlEtapasLayout = new javax.swing.GroupLayout(pnlEtapas);
+        pnlEtapas.setLayout(pnlEtapasLayout);
+        pnlEtapasLayout.setHorizontalGroup(
+            pnlEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlMainBarClassEtapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlEtapasLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlEtapasLayout.setVerticalGroup(
+            pnlEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEtapasLayout.createSequentialGroup()
+                .addComponent(pnlMainBarClassEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 104, Short.MAX_VALUE))
+        );
+
+        pnlTelas.add(pnlEtapas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1323,6 +1500,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(204,204,255));
         
         atualizaListaAlunos();
     }//GEN-LAST:event_tabAlunosMouseClicked
@@ -1345,6 +1523,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(204,204,255));
         
         atualizaListaProfessores();
     }//GEN-LAST:event_tabProfessoresMouseClicked
@@ -1367,6 +1546,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(204,204,255));
         
         atualizaListaDisciplinas();
     }//GEN-LAST:event_tabDisciplinasMouseClicked
@@ -1389,6 +1569,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabTecAdm.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(204,204,255));
     }//GEN-LAST:event_tabConselhosMouseClicked
 
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
@@ -1432,6 +1613,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabAlunos.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(204,204,255));
     }//GEN-LAST:event_tabTecAdmMouseClicked
 
     private void tabCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabCursosMouseClicked
@@ -1452,6 +1634,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabProfessores.setBackground(new Color(204,204,255));
         tabAlunos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(204,204,255));
     }//GEN-LAST:event_tabCursosMouseClicked
 
     private void tabResponsaveisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabResponsaveisMouseClicked
@@ -1472,6 +1655,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabProfessores.setBackground(new Color(204,204,255));
         tabAlunos.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(204,204,255));
     }//GEN-LAST:event_tabResponsaveisMouseClicked
 
     private void tabInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabInicioMouseClicked
@@ -1493,6 +1677,7 @@ public class HomeScreen extends javax.swing.JFrame {
         tabProfessores.setBackground(new Color(204,204,255));
         tabAlunos.setBackground(new Color(204,204,255));
         tabCursos.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(204,204,255));
     }//GEN-LAST:event_tabInicioMouseClicked
 
     private void btnSearchStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchStudentActionPerformed
@@ -1559,6 +1744,51 @@ public class HomeScreen extends javax.swing.JFrame {
         telaTurma.setVisible(true);
     }//GEN-LAST:event_btnMenuTurmaAlunosActionPerformed
 
+    private void tabEtapasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabEtapasMouseClicked
+        pnlEtapas.setVisible(true);
+        pnlInicio.setVisible(false);
+        pnlResponsaveis.setVisible(false);
+        pnlCursos.setVisible(false);
+        pnlCoordenadores.setVisible(false);
+        pnlConselhos.setVisible(false);
+        pnlDisciplinas.setVisible(false);
+        pnlProfessores.setVisible(false);
+        pnlAlunos.setVisible(false);
+        pnlResponsaveis.setVisible(false);
+        
+        tabInicio.setBackground(new Color(204,204,255));
+        tabTecAdm.setBackground(new Color(204,204,255));
+        tabConselhos.setBackground(new Color(204,204,255));
+        tabDisciplinas.setBackground(new Color(204,204,255));
+        tabResponsaveis.setBackground(new Color(204,204,255));
+        tabProfessores.setBackground(new Color(204,204,255));
+        tabAlunos.setBackground(new Color(204,204,255));
+        tabCursos.setBackground(new Color(204,204,255));
+        tabEtapas.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_tabEtapasMouseClicked
+
+    private void btnAddClassEtapasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClassEtapasActionPerformed
+        CadastrarEtapa tela = new CadastrarEtapa();
+        this.dispose();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnAddClassEtapasActionPerformed
+
+    private void txtSearchClassEtapasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchClassEtapasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchClassEtapasActionPerformed
+
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox5ActionPerformed
+
+    private void btnMenuTurmaEtapasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaEtapasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuTurmaEtapasActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1600,6 +1830,7 @@ public class HomeScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxDisciplina;
     private javax.swing.JButton btnAddClassCouncil;
+    private javax.swing.JButton btnAddClassEtapas;
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnAddSubjects;
     private javax.swing.JButton btnAddTeacher;
@@ -1608,18 +1839,22 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnMenuCursosConselhos;
     private javax.swing.JButton btnMenuTurmaAlunos;
     private javax.swing.JButton btnMenuTurmaDisciplinas;
+    private javax.swing.JButton btnMenuTurmaEtapas;
     private javax.swing.JButton btnMenuTurmaProfessores;
     private javax.swing.JButton btnMenuTurma_Alunos;
     private javax.swing.JButton btnMenuTurma_Professores;
     private javax.swing.JButton btnSearchClassCouncil;
+    private javax.swing.JButton btnSearchClassEtapas;
     private javax.swing.JButton btnSearchStudent;
     private javax.swing.JButton btnSearchSubjects;
     private javax.swing.JButton btnSearchTeachers;
     private javax.swing.JComboBox<String> cbxTurma;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1636,6 +1871,9 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton11;
     private javax.swing.JRadioButton jRadioButton12;
+    private javax.swing.JRadioButton jRadioButton13;
+    private javax.swing.JRadioButton jRadioButton14;
+    private javax.swing.JRadioButton jRadioButton15;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
@@ -1645,8 +1883,11 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblConselho;
+    private javax.swing.JLabel lblEtapas;
     private javax.swing.JLabel lblInicio;
     private javax.swing.JLabel lblResponsaveis;
     private javax.swing.JLabel lblSubjects;
@@ -1655,12 +1896,14 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel pnlCoordenadores;
     private javax.swing.JPanel pnlCursos;
     private javax.swing.JPanel pnlDisciplinas;
+    private javax.swing.JPanel pnlEtapas;
     private javax.swing.JPanel pnlInicio;
     private javax.swing.JPanel pnlMainBarClassCouncil;
     private javax.swing.JPanel pnlMainBarClassCouncil1;
     private javax.swing.JPanel pnlMainBarClassCouncil2;
     private javax.swing.JPanel pnlMainBarClassCouncil3;
     private javax.swing.JPanel pnlMainBarClassCouncil4;
+    private javax.swing.JPanel pnlMainBarClassEtapas;
     private javax.swing.JPanel pnlMainBarStudents;
     private javax.swing.JPanel pnlMainBarSubjects;
     private javax.swing.JPanel pnlMainBarTeachers;
@@ -1675,6 +1918,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel tabConselhos;
     private javax.swing.JPanel tabCursos;
     private javax.swing.JPanel tabDisciplinas;
+    private javax.swing.JPanel tabEtapas;
     private javax.swing.JPanel tabInicio;
     private javax.swing.JPanel tabProfessores;
     private javax.swing.JPanel tabResponsaveis;
@@ -1684,6 +1928,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JTable tblProfessores;
     private javax.swing.JTextField txtAtualizar;
     private javax.swing.JTextField txtSearchClassCouncil;
+    private javax.swing.JTextField txtSearchClassEtapas;
     private javax.swing.JTextField txtSearchStudent;
     private javax.swing.JTextField txtSearchSubjects;
     private javax.swing.JTextField txtSearchTeachers;

@@ -45,8 +45,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlCoordenadores.setVisible(false);
         pnlCursos.setVisible(false);
         pnlEtapas.setVisible(false);
-        ComboBoxCurso ();
-        
+       
         
         tabInicio.setBackground(new Color(255,255,255));
         tabAlunos.setBackground(new Color(204,204,255));
@@ -57,13 +56,75 @@ public class HomeScreen extends javax.swing.JFrame {
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
         tabEtapas.setBackground(new Color(204,204,255));
-        
+                    
     }
 
     public HomeScreen(String text) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    public void moque() {
+        Professor prof = new Professor();
+        prof.setNome("Jubileu");
+        
+        List<Professor> listProfessors = new ArrayList<>();
+        listProfessors.add(prof);
+        
+        Disciplina disciplina = new Disciplina();
+        disciplina.setNome("Matematica");
+        disciplina.setProfessores(listProfessors);
+        FacadeInstance.getInstance().saveDisciplina(disciplina);
+        
+        Disciplina disciplina2 = new Disciplina();
+        disciplina2.setNome("Protugues");
+        FacadeInstance.getInstance().saveDisciplina(disciplina2);
+        
+        Etapa etapa = new Etapa();
+        etapa.setNome("etapa 1");
+        etapa.setListDisciplinas(FacadeInstance.getInstance().getAllDisciplinas());
+        FacadeInstance.getInstance().saveEtapa(etapa);
+        
+        Etapa etapa2 = new Etapa();
+        etapa2.setNome("etapa 2");
+        etapa2.setListDisciplinas(FacadeInstance.getInstance().getAllDisciplinas());
+        FacadeInstance.getInstance().saveEtapa(etapa2);
+        
+        Etapa etapa3 = new Etapa();
+        etapa3.setNome("etapa 3");
+        etapa3.setListDisciplinas(FacadeInstance.getInstance().getAllDisciplinas());
+        FacadeInstance.getInstance().saveEtapa(etapa3);
+        
+        MatrizCurricular matrizCurricular = new MatrizCurricular();
+        matrizCurricular.setNome("matrizCurricular 1");
+        matrizCurricular.setEtapa(FacadeInstance.getInstance().findEtapaByName(etapa));
+        FacadeInstance.getInstance().saveMatrizCurricular(matrizCurricular);
+        
+        MatrizCurricular matrizCurricular2 = new MatrizCurricular();
+        matrizCurricular2.setNome("matrizCurricular 2");
+        matrizCurricular2.setEtapa(FacadeInstance.getInstance().findEtapaByName(etapa2));
+        FacadeInstance.getInstance().saveMatrizCurricular(matrizCurricular2);
+        
+        MatrizCurricular matrizCurricular3 = new MatrizCurricular();
+        matrizCurricular3.setNome("matrizCurricular 3");
+        matrizCurricular3.setEtapa(FacadeInstance.getInstance().findEtapaByName(etapa3));
+        FacadeInstance.getInstance().saveMatrizCurricular(matrizCurricular3);
+        
+        Curso teste = new Curso();
+        teste.setNome("Biocombustíveis");
+        teste.setMatrizCurricular(matrizCurricular);
+        FacadeInstance.getInstance().saveCurso(teste);
+        
+        Curso teste2 = new Curso();
+        teste2.setNome("Informática");
+        teste2.setMatrizCurricular(matrizCurricular2);
+        FacadeInstance.getInstance().saveCurso(teste2); 
+        
+        Curso teste3 = new Curso();
+        teste3.setNome("Eletromecânica");
+        teste3.setMatrizCurricular(matrizCurricular3);
+        FacadeInstance.getInstance().saveCurso(teste3);
+    }
 
     void atualizaListaAlunos() {
         DefaultTableModel dadosAlunos = (DefaultTableModel) tblAlunos.getModel();
@@ -86,54 +147,34 @@ public class HomeScreen extends javax.swing.JFrame {
     }
     
 
+    private void ComboBoxCursoProfessor() {
+        moque();
+        List<Curso> cursos = FacadeInstance.getInstance().getAllCurso();
+        
+        for(int i = 0; i < cursos.size(); i++) {
+            cmbCursosProfessores.addItem(cursos.get(i).getNome());
+        }
+        
+        cmbCursosProfessores.addActionListener((ActionEvent e) -> {
+            String selected = (String)cmbCursosProfessores.getSelectedItem();
+            
+            if(selected == "Biocombustíveis") {
+                buscarProfessor("Biocombustíveis");
+            } else if(selected == "Informática") {
+                buscarProfessor("Informática"); 
+            } else if(selected == "Eletromecânica") {
+                buscarProfessor("Eletromecânica"); 
+            } else {               
+            }
+            
+        });
+    }
     
      private void ComboBoxCurso (){
   
-        Disciplina disciplina = new Disciplina();
-        disciplina.setNome("Matematica");
-        FacadeInstance.getInstance().saveDisciplina(disciplina);
         
-        Disciplina disciplina2 = new Disciplina();
-        disciplina2.setNome("Protugues");
-        FacadeInstance.getInstance().saveDisciplina(disciplina2);
-        
-        Etapa etapa = new Etapa();
-        etapa.setNome("etapa 1");
-        etapa.setListDisciplinas(FacadeInstance.getInstance().getAllDisciplinas());
-        FacadeInstance.getInstance().saveEtapa(etapa);
-        
-        Etapa etapa2 = new Etapa();
-        etapa2.setNome("etapa 2");
-        etapa2.setListDisciplinas(FacadeInstance.getInstance().getAllDisciplinas());
-        FacadeInstance.getInstance().saveEtapa(etapa2);
-        
-        MatrizCurricular matrizCurricular = new MatrizCurricular();
-        matrizCurricular.setNome("matrizCurricular 1");
-        matrizCurricular.setEtapa(FacadeInstance.getInstance().findEtapaByName(etapa));
-        FacadeInstance.getInstance().saveMatrizCurricular(matrizCurricular);
-        
-        MatrizCurricular matrizCurricular2 = new MatrizCurricular();
-        matrizCurricular2.setNome("matrizCurricular 2");
-        matrizCurricular2.setEtapa(FacadeInstance.getInstance().findEtapaByName(etapa2));
-        FacadeInstance.getInstance().saveMatrizCurricular(matrizCurricular2);
-        
-        Curso teste = new Curso();
-        teste.setNome("Biocombustíveis");
-        teste.setMatrizCurricular(matrizCurricular);
-        FacadeInstance.getInstance().saveCurso(teste);
-        
-        Curso teste2 = new Curso();
-        teste2.setNome("Informática");
-        teste2.setMatrizCurricular(matrizCurricular2);
-        FacadeInstance.getInstance().saveCurso(teste2); 
-        
-        /*Curso teste3 = new Curso();
-        teste3.setNome("Eletromecânica");
-        teste.setMatrizCurricular(matrizCurricular2);
-        FacadeInstance.getInstance().saveCurso(teste3); */
-        
+         moque();
         List<Curso> cursos = FacadeInstance.getInstance().getAllCurso();
-        
         for(int i = 0; i < cursos.size(); i++) {
             cmbCursosDisciplinas.addItem(cursos.get(i).getNome());
         }
@@ -178,43 +219,44 @@ public class HomeScreen extends javax.swing.JFrame {
         List<Etapa> etapas = cursoBio.get(0).getMatrizCurricular().getEtapa();
         
         List<Disciplina> disciplinas = new ArrayList<>();
-
+        List<Professor> professores = new ArrayList<>();
+        
         for(int i = 0; i < etapas.size(); i++) {
 
             for(int j = 0; j < etapas.get(i).getListDisciplinas().size(); j++) {
                 disciplinas.add(etapas.get(i).getListDisciplinas().get(j));
+                
+                etapas.get(i).getListDisciplinas().get(j).getProfessores().forEach(action -> professores.add(action));     
             }
         }
         
-        List<Professor> professores = new ArrayList<>();
+        List<Professor> professoresFinal = new ArrayList<>();
         
-        for (int i = 0; i < ; i++) {
-            Object object = arr[i];
-            
-        }
-        atualizaListaDisciplinas(disciplinas);
+        professores.stream()
+        .distinct()
+        .forEach(e -> professoresFinal.add(e));
+        
+        atualizaListaProfessores(professores);
     }
     
     
      
-    void atualizaListaProfessores() {
-        /*DefaultTableModel valoresProfessor = (DefaultTableModel) tblProfessores.getModel();
+    void atualizaListaProfessores(List<Professor> professores) {
+        DefaultTableModel valoresProfessor = (DefaultTableModel) tblProfessores.getModel();
         while (tblProfessores.getModel().getRowCount() > 0) {  
            ((DefaultTableModel) tblProfessores.getModel()).removeRow(0);  
         } 
 
-        //List<Professor> professor = FacadeInstance.getInstance().getAllProfessor();
-        for(int i = 0;i<professor.size();i++){
+        for(int i = 0; i< professores.size(); i++){
             Object[] dados = {
-                professor.get(i).getNome(),
-                professor.get(i).getSobrenome(),
+                professores.get(i).getNome(),
+                professores.get(i).getCpf(),
+                professores.get(i).getTelefone(),
+                professores.get(i).getEmail()             
             };
             
-            System.out.println("*********************************************");
-            System.out.println("matricula aq: " + aluno.get(i).getMatricula());
             valoresProfessor.addRow(dados);
-        }*/
-        //this.selecionado = this.jtPesquisador.getSelectedRow();
+        }
     }
     
     void atualizaListaDisciplinas(List<Disciplina> disciplinas) {
@@ -230,7 +272,6 @@ public class HomeScreen extends javax.swing.JFrame {
             
             dadosDisciplina.addRow(dados);
         }
-        //this.selecionado = this.jtPesquisador.getSelectedRow();
     }
 
     @SuppressWarnings("unchecked")
@@ -1698,6 +1739,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlCursos.setVisible(false);
         pnlEtapas.setVisible(false);
         
+        ComboBoxCursoProfessor();
         tabProfessores.setBackground(new Color(255,255,255));
         tabInicio.setBackground(new Color(204,204,255));
         tabDisciplinas.setBackground(new Color(204,204,255));
@@ -1708,7 +1750,6 @@ public class HomeScreen extends javax.swing.JFrame {
         tabResponsaveis.setBackground(new Color(204,204,255));
         tabEtapas.setBackground(new Color(204,204,255));
         
-        atualizaListaProfessores();
     }//GEN-LAST:event_tabProfessoresMouseClicked
 
     private void tabDisciplinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabDisciplinasMouseClicked
@@ -1721,6 +1762,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlCoordenadores.setVisible(false);
         pnlCursos.setVisible(false);
         pnlEtapas.setVisible(false);
+        ComboBoxCurso();
 
         tabDisciplinas.setBackground(new Color(255,255,255));
         tabInicio.setBackground(new Color(204,204,255));

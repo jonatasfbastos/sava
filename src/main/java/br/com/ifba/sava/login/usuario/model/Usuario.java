@@ -24,11 +24,19 @@ public class Usuario extends PersistenceEntity implements Serializable{
 	
     @Column(name="SENHA", length=100, nullable=false)
     private String senha;
-	
-   // @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-   // @JoinColumn(name="tipousuario_id")
-   // private TipoUsuario tipoUsuario;
+    
+    private String TipoUsuario;
 
+    public String getTipoUsuario() {
+        return TipoUsuario;
+    }
+
+    public void setTipoUsuario(String TipoUsuario) {
+        this.TipoUsuario = TipoUsuario;
+    }
+	
+
+    
     public String getLogin() {
         return login;
     }

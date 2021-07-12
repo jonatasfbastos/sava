@@ -5,7 +5,11 @@
  */
 package br.com.ifba.sava.login.view;
 
+import br.com.ifba.sava.infrastructure.service.FacadeInstance;
 import br.com.ifba.sava.infrastructure.view.HomeScreen;
+import br.com.ifba.sava.login.usuario.model.Usuario;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -248,9 +252,20 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnAccessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccessActionPerformed
-        this.dispose();
-        HomeScreen tela1 = new HomeScreen();
-        tela1.setVisible(true);
+        Usuario usuario = new Usuario();
+        usuario.setLogin(txtUser.getText());
+        usuario.setSenha(txtPassword.getText());
+        List<Usuario> lista = FacadeInstance.getInstance().findByLoginSenha(usuario);
+        
+        if( lista.size() > 0 ){
+            HomeScreen tela1 = new HomeScreen();
+            tela1.setVisible(true);
+            this.dispose();
+        }else{
+           JOptionPane.showMessageDialog(null, "Usuario ou senha incorreto!", "ERRO", JOptionPane.WARNING_MESSAGE); 
+        }
+        
+ 
     }//GEN-LAST:event_btnAccessActionPerformed
 
     /**

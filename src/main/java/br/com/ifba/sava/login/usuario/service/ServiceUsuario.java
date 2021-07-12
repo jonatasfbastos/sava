@@ -5,7 +5,9 @@
  */
 package br.com.ifba.sava.login.usuario.service;
 
+import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.infrastructure.exception.BusinessException;
+import br.com.ifba.sava.infrastructure.servidor.model.Servidor;
 import br.com.ifba.sava.login.usuario.dao.DaoUsuario;
 import br.com.ifba.sava.login.usuario.dao.IDaoUsuario;
 import br.com.ifba.sava.login.usuario.model.Usuario;
@@ -47,6 +49,21 @@ public class ServiceUsuario implements IServiceUsuario{
             return this.daoUsuario.findAll();
        }
        
+       
+       
+    //------------------- Salva Usuário --------------------------   
+        @Override
+        public Usuario saveUsuario(Usuario usuario) {
+            if(usuario == null){
+                //Tratamento de exceção; se o professor for NULL/Vazio
+                throw new BusinessException(USUARIO_NULL);
+            } else if(daoUsuario.findById(usuario.getId()) != null) {
+                throw new BusinessException(USUARIO_EXIST);
+            } else {
+                return daoUsuario.save(usuario);
+            }
+        }
+       
     //------------------- Deleta Usuário --------------------------   
         @Override
         public void deleteUsuario(final Usuario usuario) {
@@ -79,6 +96,17 @@ public class ServiceUsuario implements IServiceUsuario{
                }
                return daoUsuario.update(usuario);
        }
+       
+      //-------------------- verificar login e senha--------------------
+      public List<Usuario> findByLoginSenha(Usuario usuario){
+        List<Usuario> lista = daoUsuario.findByLoginSenha(usuario);
+        if(lista.size()<1){
+           throw new BusinessException(USUARIO_NULL); 
+        }
+        return lista;
+    }
+      
+      
         
     //------------------- Verificar Usuário --------------------------   
         @Override

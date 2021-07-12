@@ -62,6 +62,12 @@ public class HomeScreen extends javax.swing.JFrame {
         tabEtapas.setBackground(new Color(204,204,255));
         
     }
+
+    public HomeScreen(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
     void atualizaListaAlunos() {
         DefaultTableModel dadosAlunos = (DefaultTableModel) tblAlunos.getModel();
         while (tblAlunos.getModel().getRowCount() > 0) {  
@@ -90,24 +96,18 @@ public class HomeScreen extends javax.swing.JFrame {
       List<Turma> turma = FacadeInstance.getInstance().getAllTurma();
       
       for(int i=0; i<curso.size(); i++) {
-        cmbCursosDisciplinas.addItem(curso.get(i).getNome());
-        cmbCursosAlunos.addItem(curso.get(i).getNome());
-        cmbCursosProfessores.addItem(curso.get(i).getNome());
-        if(cmbCursosDisciplinas.getSelectedItem() == curso.get(i).getNome()) {
-            for(int j = 0; j < turma.size(); j++) {
-                System.out.println("********8aq*****" + turma.get(j).getNome());
-                //System.out.println("id:" + curso.get(i).getId() ==  turma.get(j).getCurso().getId());
-                System.out.println("cursp" + turma.get(j).getCurso());
-                
-            }
-        }
+       // cmbCursosDisciplinas.addItem(curso.get(i).getNome());
+        //cmbCursosAlunos.addItem(curso.get(i).getNome());
+       // cmbCursosProfessores.addItem(curso.get(i).getNome());
+        
+        
       }
 
       System.out.println(cmbCursosDisciplinas.getSelectedItem()); //printf que seleciona o primeiro valor pq sempre seleciona o primeiro 
       
-      cmbCursosDisciplinas.addActionListener((ActionEvent e) -> {
+     cmbCursosDisciplinas.addActionListener((ActionEvent e) -> {
        System.out.println(cmbCursosDisciplinas.getSelectedItem());
-      });
+     });
       
       /*cmbCursosAlunos.addActionListener((ActionEvent e) -> {
           

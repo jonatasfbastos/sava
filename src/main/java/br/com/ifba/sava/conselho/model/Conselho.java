@@ -68,14 +68,6 @@ public class Conselho extends PersistenceEntity{
     public void setTecnicoAdm(List<TecnicoAdm> tecnicoAdm) {
         this.tecnicoAdm = tecnicoAdm;
     }
-    
-    
-    
-    
-    
-    
-    
-    
 
     public String getCodigoConselho() {
         return codigoConselho;

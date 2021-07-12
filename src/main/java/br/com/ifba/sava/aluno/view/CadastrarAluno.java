@@ -8,6 +8,7 @@ package br.com.ifba.sava.aluno.view;
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.infrastructure.view.HomeScreen;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
+import br.com.ifba.sava.login.usuario.model.Usuario;
 
 /**
  *
@@ -36,19 +37,13 @@ public class CadastrarAluno extends javax.swing.JFrame {
         pnlNumeroMatricula = new javax.swing.JPanel();
         lblNumeroMatricula = new javax.swing.JLabel();
         txtNumeroMatricula = new javax.swing.JTextField();
-        pnlEmail = new javax.swing.JPanel();
-        lblEmail = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
-        pnlSobrenome = new javax.swing.JPanel();
-        lblSobrenome = new javax.swing.JLabel();
-        txtSobrenome = new javax.swing.JTextField();
         pnlNome = new javax.swing.JPanel();
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         pnlCPF = new javax.swing.JPanel();
         lblEmail2 = new javax.swing.JLabel();
-        txtEmail2 = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,11 +63,6 @@ public class CadastrarAluno extends javax.swing.JFrame {
         txtNumeroMatricula.setForeground(new java.awt.Color(255, 255, 255));
         txtNumeroMatricula.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtNumeroMatricula.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtNumeroMatricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroMatriculaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnlNumeroMatriculaLayout = new javax.swing.GroupLayout(pnlNumeroMatricula);
         pnlNumeroMatricula.setLayout(pnlNumeroMatriculaLayout);
@@ -94,42 +84,6 @@ public class CadastrarAluno extends javax.swing.JFrame {
             .addComponent(txtNumeroMatricula)
         );
 
-        pnlEmail.setBackground(new java.awt.Color(102, 101, 120));
-
-        lblEmail.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmail.setText("E-mail:");
-
-        txtEmail.setBackground(new java.awt.Color(102, 101, 120));
-        txtEmail.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        txtEmail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtEmail.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlEmailLayout = new javax.swing.GroupLayout(pnlEmail);
-        pnlEmail.setLayout(pnlEmailLayout);
-        pnlEmailLayout.setHorizontalGroup(
-            pnlEmailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlEmailLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblEmail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
-        );
-        pnlEmailLayout.setVerticalGroup(
-            pnlEmailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlEmailLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblEmail)
-                .addGap(11, 11, 11))
-            .addComponent(txtEmail)
-        );
-
         btnCadastrar.setBackground(new java.awt.Color(72, 71, 97));
         btnCadastrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,39 +93,6 @@ public class CadastrarAluno extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-
-        pnlSobrenome.setBackground(new java.awt.Color(102, 101, 120));
-
-        lblSobrenome.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        lblSobrenome.setForeground(new java.awt.Color(255, 255, 255));
-        lblSobrenome.setText("Sobrenome: ");
-
-        txtSobrenome.setBackground(new java.awt.Color(102, 101, 120));
-        txtSobrenome.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
-        txtSobrenome.setForeground(new java.awt.Color(255, 255, 255));
-        txtSobrenome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtSobrenome.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtSobrenome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSobrenomeActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlSobrenomeLayout = new javax.swing.GroupLayout(pnlSobrenome);
-        pnlSobrenome.setLayout(pnlSobrenomeLayout);
-        pnlSobrenomeLayout.setHorizontalGroup(
-            pnlSobrenomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSobrenomeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSobrenome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSobrenome, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
-        );
-        pnlSobrenomeLayout.setVerticalGroup(
-            pnlSobrenomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblSobrenome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(txtSobrenome, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-        );
 
         pnlNome.setBackground(new java.awt.Color(102, 101, 120));
 
@@ -184,11 +105,6 @@ public class CadastrarAluno extends javax.swing.JFrame {
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
         txtNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtNome.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnlNomeLayout = new javax.swing.GroupLayout(pnlNome);
         pnlNome.setLayout(pnlNomeLayout);
@@ -214,16 +130,11 @@ public class CadastrarAluno extends javax.swing.JFrame {
         lblEmail2.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail2.setText("CPF:");
 
-        txtEmail2.setBackground(new java.awt.Color(102, 101, 120));
-        txtEmail2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
-        txtEmail2.setForeground(new java.awt.Color(255, 255, 255));
-        txtEmail2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtEmail2.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtEmail2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmail2ActionPerformed(evt);
-            }
-        });
+        txtCpf.setBackground(new java.awt.Color(102, 101, 120));
+        txtCpf.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        txtCpf.setForeground(new java.awt.Color(255, 255, 255));
+        txtCpf.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtCpf.setCaretColor(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pnlCPFLayout = new javax.swing.GroupLayout(pnlCPF);
         pnlCPF.setLayout(pnlCPFLayout);
@@ -233,7 +144,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblEmail2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEmail2))
+                .addComponent(txtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
         );
         pnlCPFLayout.setVerticalGroup(
             pnlCPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,44 +152,36 @@ public class CadastrarAluno extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblEmail2)
                 .addGap(11, 11, 11))
-            .addComponent(txtEmail2)
+            .addComponent(txtCpf)
         );
 
         javax.swing.GroupLayout pnlRegisterContainerLayout = new javax.swing.GroupLayout(pnlRegisterContainer);
         pnlRegisterContainer.setLayout(pnlRegisterContainerLayout);
         pnlRegisterContainerLayout.setHorizontalGroup(
             pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRegisterContainerLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pnlEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegisterContainerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(208, 208, 208))
+                .addContainerGap(187, Short.MAX_VALUE)
+                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegisterContainerLayout.createSequentialGroup()
+                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(208, 208, 208))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegisterContainerLayout.createSequentialGroup()
+                        .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(158, 158, 158))))
         );
         pnlRegisterContainerLayout.setVerticalGroup(
             pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRegisterContainerLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addComponent(pnlNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlRegisterContainerLayout.createSequentialGroup()
-                        .addComponent(pnlSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(pnlEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pnlCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addComponent(pnlCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
         );
@@ -299,21 +202,21 @@ public class CadastrarAluno extends javax.swing.JFrame {
             .addGroup(pnlMainContainerLayout.createSequentialGroup()
                 .addGroup(pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainContainerLayout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlMainContainerLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(275, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlMainContainerLayout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(351, Short.MAX_VALUE))
         );
         pnlMainContainerLayout.setVerticalGroup(
             pnlMainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainContainerLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addGap(72, 72, 72)
                 .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -326,59 +229,32 @@ public class CadastrarAluno extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlMainContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlMainContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNumeroMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroMatriculaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroMatriculaActionPerformed
-
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        Aluno aluno1 = new Aluno();
-        
-        aluno1.setNome(txtNome.getText());
-        aluno1.setMatricula(txtNumeroMatricula.getText());
-        aluno1.setCpf(txtEmail2.getText());
-       // aluno1.setSenha(txtEmail2.getText()+"."+txtNumeroMatricula.getText());
-        
-        txtEmail.setText("");
-        txtNome.setText("");
-        txtSobrenome.setText("");
-        txtEmail2.setText("");
-        txtNumeroMatricula.setText("");
-        
-        FacadeInstance.getInstance().saveAluno(aluno1);
-
-        //FacadeInstance.getInstance().saveAluno(aluno2);
-        
-        /*List<Aluno> listAlunos = FacadeInstance.getInstance().findByName("Pedro");
-        for (Aluno listAluno : listAlunos) {
-            System.out.println(listAluno.getNome());
-            System.out.println(listAluno.getEmail());
-        }*/
+       Usuario usuario = new Usuario();
+       Aluno aluno = new Aluno();
+       
+       aluno.setNome(txtNome.getText());
+       aluno.setMatricula(txtNumeroMatricula.getText());
+       aluno.setCpf(txtCpf.getText());
+       
+       
+       usuario.setLogin(aluno.getMatricula());
+       usuario.setSenha(aluno.getCpf() + "." + aluno.getMatricula());
+       usuario.setTipoUsuario("Aluno");
+       
+       FacadeInstance.getInstance().saveUsuario(usuario);
+       aluno.setUsuario(usuario);
+       FacadeInstance.getInstance().saveAluno(aluno);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
-
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void txtEmail2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmail2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmail2ActionPerformed
-
-    private void txtSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSobrenomeActionPerformed
-
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        this.dispose();
         HomeScreen tela1 = new HomeScreen();
@@ -424,22 +300,16 @@ public class CadastrarAluno extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmail2;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNumeroMatricula;
-    private javax.swing.JLabel lblSobrenome;
     private javax.swing.JPanel pnlCPF;
-    private javax.swing.JPanel pnlEmail;
     private javax.swing.JPanel pnlMainContainer;
     private javax.swing.JPanel pnlNome;
     private javax.swing.JPanel pnlNumeroMatricula;
     private javax.swing.JPanel pnlRegisterContainer;
-    private javax.swing.JPanel pnlSobrenome;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEmail2;
+    private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumeroMatricula;
-    private javax.swing.JTextField txtSobrenome;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,6 +12,7 @@ import java.util.List;
 /**
  *
  * @author jhinr
+ * Edited by Rafael
  */
 public interface IDaoUsuario extends IBaseDao<Usuario>{
     public List<Usuario> findByNome(Usuario usuario);

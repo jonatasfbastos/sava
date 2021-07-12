@@ -8,6 +8,7 @@ import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.itemavaliativoindividual.model.ItemAvaliativoIndividual;
 import br.com.ifba.sava.login.usuario.model.Usuario;
+import br.com.ifba.sava.matrizcurricular.model.MatrizCurricular;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.responsavel.model.Responsavel;
 import br.com.ifba.sava.tecnicoadministrativo.model.TecnicoAdm;
@@ -23,6 +24,12 @@ public interface IFacade {
     public List<Aluno> getAllAlunos();
     public List<Aluno> findByName(String name);
     
+    //------------------- Matriz Curricular -------------------------------//
+    public abstract MatrizCurricular saveMatrizCurricular(MatrizCurricular matrizCurricular);
+    public abstract MatrizCurricular updateMatrizCurricular(MatrizCurricular matrizCurricular);
+     public List<MatrizCurricular> getAllMatrizCurricular();
+    public abstract void deleteMatrizCurricular (MatrizCurricular matrizCurricular);//deletar curso
+    
     //--------------------CURSO-------------------------------//
     public abstract Curso saveCurso (Curso curso);//salvar curso
     public abstract void deleteCurso (Curso curso);//deletar curso
@@ -31,9 +38,11 @@ public interface IFacade {
     public abstract List<Curso> getAllCurso();//listar todos os cursos
            
     //------------------- USUÁRIO ----------------------------//
-    public List<Usuario> getAllUsuario();
-    //deleta um usuário
-    public void deleteUsuario(final Usuario usuario);
+    public abstract Usuario saveUsuario (Usuario usuario);//salvar usuario
+    public abstract void deleteUsuario (Usuario usuario);//salvar usuario
+    public List<Usuario> getAllUsuario();//listar todos os usuario
+    public abstract Usuario updateUsuario(Usuario usuario);//deleta um usuário
+    public List<Usuario> findByLoginSenha(Usuario usuario);//deleta um usuário
     
     //------------------ DISCIPLINA --------------------------//
     public abstract Disciplina saveDisciplina(Disciplina disciplina);

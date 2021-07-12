@@ -24,6 +24,9 @@ import br.com.ifba.sava.etapa.service.ServiceEtapa;
 import br.com.ifba.sava.itemavaliativoindividual.model.ItemAvaliativoIndividual;
 import br.com.ifba.sava.itemavaliativoindividual.service.IServiceItemAvaliativoIndividual;
 import br.com.ifba.sava.itemavaliativoindividual.service.ServiceItemAvaliativoIndividual;
+import br.com.ifba.sava.matrizcurricular.model.MatrizCurricular;
+import br.com.ifba.sava.matrizcurricular.service.IServiceMatrizCurricular;
+import br.com.ifba.sava.matrizcurricular.service.ServiceMatrizCurricular;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.professor.service.IServiceProfessor;
 import br.com.ifba.sava.professor.service.ServiceProfessor;
@@ -70,9 +73,14 @@ public class Facade implements IFacade {
         return serviceAluno.findByName(name);
     }
        
-    
+    //Edited by Rafael
     //------------------- USUÁRIO ----------------------------//
     private final IServiceUsuario serviceUsuario = new ServiceUsuario();
+    
+    @Override
+    public Usuario saveUsuario(Usuario usuario){
+        return serviceUsuario.saveUsuario(usuario);
+    }
     
     // Constroi lista com todos os usuários cadastrados
     @Override
@@ -81,9 +89,45 @@ public class Facade implements IFacade {
     }
     //deleta um usuário
     @Override
-    public void deleteUsuario(final Usuario usuario){
+    public void deleteUsuario(Usuario usuario){
         this.serviceUsuario.deleteUsuario(usuario);
-    }    
+    } 
+    //atualiza um usuario
+    @Override
+    public Usuario updateUsuario(Usuario usuario){
+        return this.serviceUsuario.updateUsuario(usuario);
+    }
+    
+    @Override
+    public List<Usuario> findByLoginSenha(Usuario usuario){
+        return serviceUsuario.findByLoginSenha(usuario);
+    }
+    
+    
+     //------------------- Matriz Curricular ----------------------------//
+    private final IServiceMatrizCurricular serviceMatrizCurricular = new ServiceMatrizCurricular();
+    
+    @Override
+    public MatrizCurricular saveMatrizCurricular(MatrizCurricular  matrizCurricular){
+        return serviceMatrizCurricular.saveMatrizCurricular (matrizCurricular);
+    }
+    
+    // Constroi lista com todos os usuários cadastrados
+    @Override
+    public List<MatrizCurricular> getAllMatrizCurricular (){
+        return this.serviceMatrizCurricular.getAllMatrizCurricular ();
+    }
+    //deleta um usuário
+    @Override
+    public void deleteMatrizCurricular(MatrizCurricular  matrizCurricular){
+        this.serviceMatrizCurricular.deleteMatrizCurricular (matrizCurricular);
+    } 
+    //atualiza um usuario
+    @Override
+    public MatrizCurricular updateMatrizCurricular(MatrizCurricular  matrizCurricular){
+        return this.serviceMatrizCurricular.updateMatrizCurricular (matrizCurricular);
+    }
+    
    
     //------------------ CURSO --------------------------//
     private final IServiceCurso serviceCurso = new ServiceCurso();

@@ -14,6 +14,7 @@ import javax.persistence.TypedQuery;
 /**
  *
  * @author jhinr
+ * Edited by Rafael
  */
 public class DaoUsuario extends BaseDao<Usuario> implements IDaoUsuario{
     
@@ -30,12 +31,13 @@ public class DaoUsuario extends BaseDao<Usuario> implements IDaoUsuario{
 	}
 
     @Override 
-   public List<Usuario> findByLoginSenha(Usuario usuario) {
-            String jpql = "SELECT u FROM Usuario AS u WHERE u.login=:login AND u.senha=:senha";
-        // inserindo comando na querry e inserindo os dados
-        TypedQuery<Usuario> typedQuery = this.getEntityManager().createQuery(jpql, Usuario.class);
-        typedQuery.setParameter("login", usuario.getLogin());
-        typedQuery.setParameter("senha", usuario.getSenha());
-        return typedQuery.getResultList();
-	} 
+        public List<Usuario> findByLoginSenha(Usuario usuario) {
+            String q = ("SELECT u FROM Usuario AS u WHERE u.login=:login AND u.senha=:senha");
+             // inserindo comando na querry e inserindo os dados
+             Query query = entityManager.createQuery(q);
+             query.setParameter("login", usuario.getLogin());
+             query.setParameter("senha", usuario.getSenha());
+             List<Usuario> resultado = query.getResultList();
+             return resultado;
+        }
 }

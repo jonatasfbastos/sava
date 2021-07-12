@@ -18,4 +18,5 @@ public interface IServiceEtapa {
     public List<Etapa> getAllEtapa();
     public Etapa updateEtapa(Etapa etapa);
     public abstract void removeEtapa(Etapa etapa);
+    public List<Etapa> findEtapaByName(Etapa etapa);
 }

@@ -7,6 +7,7 @@ package br.com.ifba.sava.etapa.dao;
 
 import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.infrastructure.dao.IBaseDao;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,5 @@ import br.com.ifba.sava.infrastructure.dao.IBaseDao;
  */
 public interface IDaoEtapa extends IBaseDao<Etapa>{
     
+    public List<Etapa> findEtapaByName(Etapa etapa);
 }

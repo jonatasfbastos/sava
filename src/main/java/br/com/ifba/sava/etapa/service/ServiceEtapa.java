@@ -68,4 +68,13 @@ public class ServiceEtapa implements IServiceEtapa{
             daoEtapa.delete(etapa);
         }
     }
+    
+    @Override
+    public List<Etapa> findEtapaByName(Etapa etapa) {
+       List<Etapa> lista = daoEtapa.findEtapaByName(etapa);
+        if(lista.size()<1){
+           throw new BusinessException(ETAPA_NULL); 
+        }
+        return lista;
+    }
 }

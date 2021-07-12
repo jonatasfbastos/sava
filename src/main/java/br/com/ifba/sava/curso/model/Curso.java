@@ -43,7 +43,8 @@ public class Curso extends PersistenceEntity{
      public void setMatrizCurricular(MatrizCurricular matrizCurricular) {
         this.matrizCurricular = matrizCurricular;
     }
-    public MatrizCurricular MatrizCurricular() {
+     
+    public MatrizCurricular getMatrizCurricular() {
         return matrizCurricular;
     }
     

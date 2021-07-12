@@ -65,6 +65,7 @@ public interface IFacade {
     public List<Etapa> getAllEtapa();
     public abstract Etapa updateEtapa(Etapa etapa);
     public abstract void removeEtapa(Etapa etapa);
+    public List<Etapa> findEtapaByName(Etapa etapa);
     
     //---------------AVALIAÇÃO TURMA ------------------//
     public abstract AvaliacaoTurma saveAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma);

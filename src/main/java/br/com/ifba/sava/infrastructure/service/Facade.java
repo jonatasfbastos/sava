@@ -239,6 +239,10 @@ public class Facade implements IFacade {
     public void removeEtapa(Etapa etapa) {
         serviceEtapa.removeEtapa(etapa);
     }
+    
+    public List<Etapa> findEtapaByName(Etapa etapa) {
+        return serviceEtapa.findEtapaByName(etapa);
+    }
 
     
     //--------------AVALIAÇÃO TURMA -----------------------//

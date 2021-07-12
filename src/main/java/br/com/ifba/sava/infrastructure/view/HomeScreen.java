@@ -7,24 +7,21 @@ package br.com.ifba.sava.infrastructure.view;
 
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.aluno.view.CadastrarAluno;
-import br.com.ifba.sava.conselho.view.CadastrarConselho;
 import br.com.ifba.sava.curso.model.Curso;
 import br.com.ifba.sava.curso.view.MenuCurso;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.disciplina.view.CadastrarDisciplina;
+import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.etapa.view.CadastrarEtapa;
-import br.com.ifba.sava.infrastructure.service.Facade;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
+import br.com.ifba.sava.matrizcurricular.model.MatrizCurricular;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.professor.view.CadastrarProfessor;
-import br.com.ifba.sava.turma.model.Turma;
-import br.com.ifba.sava.turma.view.CadastrarTurma;
 import br.com.ifba.sava.turma.view.MenuTurma;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
 
@@ -91,38 +88,115 @@ public class HomeScreen extends javax.swing.JFrame {
 
     
      private void ComboBoxCurso (){
-
-      List<Curso> curso = FacadeInstance.getInstance().getAllCurso();
-      List<Turma> turma = FacadeInstance.getInstance().getAllTurma();
-      
-      for(int i=0; i<curso.size(); i++) {
-       // cmbCursosDisciplinas.addItem(curso.get(i).getNome());
-        //cmbCursosAlunos.addItem(curso.get(i).getNome());
-       // cmbCursosProfessores.addItem(curso.get(i).getNome());
+  
+        Disciplina disciplina = new Disciplina();
+        disciplina.setNome("Matematica");
+        FacadeInstance.getInstance().saveDisciplina(disciplina);
         
+        Disciplina disciplina2 = new Disciplina();
+        disciplina2.setNome("Protugues");
+        FacadeInstance.getInstance().saveDisciplina(disciplina2);
         
-      }
-
-      System.out.println(cmbCursosDisciplinas.getSelectedItem()); //printf que seleciona o primeiro valor pq sempre seleciona o primeiro 
-      
-     cmbCursosDisciplinas.addActionListener((ActionEvent e) -> {
-       System.out.println(cmbCursosDisciplinas.getSelectedItem());
-     });
-      
-      /*cmbCursosAlunos.addActionListener((ActionEvent e) -> {
-          
-      });*/
-         
-    //       
-    
-             //JComboBox<String> combo = new JComboBox<String>();
-            // for(int i=0; i<curso.size(); i++)
-             //combo.addItem(curso.get(i).getNome());
-    //        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item"}));
- 
+        Etapa etapa = new Etapa();
+        etapa.setNome("etapa 1");
+        etapa.setListDisciplinas(FacadeInstance.getInstance().getAllDisciplinas());
+        FacadeInstance.getInstance().saveEtapa(etapa);
+        
+        Etapa etapa2 = new Etapa();
+        etapa2.setNome("etapa 2");
+        etapa2.setListDisciplinas(FacadeInstance.getInstance().getAllDisciplinas());
+        FacadeInstance.getInstance().saveEtapa(etapa2);
+        
+        MatrizCurricular matrizCurricular = new MatrizCurricular();
+        matrizCurricular.setNome("matrizCurricular 1");
+        matrizCurricular.setEtapa(FacadeInstance.getInstance().findEtapaByName(etapa));
+        FacadeInstance.getInstance().saveMatrizCurricular(matrizCurricular);
+        
+        MatrizCurricular matrizCurricular2 = new MatrizCurricular();
+        matrizCurricular2.setNome("matrizCurricular 2");
+        matrizCurricular2.setEtapa(FacadeInstance.getInstance().findEtapaByName(etapa2));
+        FacadeInstance.getInstance().saveMatrizCurricular(matrizCurricular2);
+        
+        Curso teste = new Curso();
+        teste.setNome("Biocombustíveis");
+        teste.setMatrizCurricular(matrizCurricular);
+        FacadeInstance.getInstance().saveCurso(teste);
+        
+        Curso teste2 = new Curso();
+        teste2.setNome("Informática");
+        teste2.setMatrizCurricular(matrizCurricular2);
+        FacadeInstance.getInstance().saveCurso(teste2); 
+        
+        /*Curso teste3 = new Curso();
+        teste3.setNome("Eletromecânica");
+        teste.setMatrizCurricular(matrizCurricular2);
+        FacadeInstance.getInstance().saveCurso(teste3); */
+        
+        List<Curso> cursos = FacadeInstance.getInstance().getAllCurso();
+        
+        for(int i = 0; i < cursos.size(); i++) {
+            cmbCursosDisciplinas.addItem(cursos.get(i).getNome());
+        }
+        
+        cmbCursosDisciplinas.addActionListener((ActionEvent e) -> {
+            
+            String selected = (String)cmbCursosDisciplinas.getSelectedItem();
+            
+            if(selected == "Biocombustíveis") {
+                buscarDisciplinas("Biocombustíveis");
+            } else if(selected == "Informática") {
+                buscarDisciplinas("Informática"); 
+            } else if(selected == "Eletromecânica") {
+                buscarDisciplinas("Eletromecânica"); 
+            } else {               
+            }
+      }); 
     }
      
+    void buscarDisciplinas(String curso) {
+        Curso busca = new Curso();
+        busca.setNome(curso);
+        List<Curso> cursoBio = FacadeInstance.getInstance().findCursoByName(busca);
+        //Não pode ter dois cursos com o mesmo nome, sempre vai ser lista na posição zero
+        List<Etapa> etapas = cursoBio.get(0).getMatrizCurricular().getEtapa();
+        List<Disciplina> disciplinas = new ArrayList<>();
+
+        for(int i = 0; i < etapas.size(); i++) {
+
+            for(int j = 0; j < etapas.get(i).getListDisciplinas().size(); j++) {
+                disciplinas.add(etapas.get(i).getListDisciplinas().get(j));
+            }
+        }
+        atualizaListaDisciplinas(disciplinas);
+    }
     
+    void buscarProfessor(String curso) {
+        Curso busca = new Curso();
+        busca.setNome(curso);
+        List<Curso> cursoBio = FacadeInstance.getInstance().findCursoByName(busca);
+        //Não pode ter dois cursos com o mesmo nome, sempre vai ser lista na posição zero
+        List<Etapa> etapas = cursoBio.get(0).getMatrizCurricular().getEtapa();
+        
+        List<Disciplina> disciplinas = new ArrayList<>();
+
+        for(int i = 0; i < etapas.size(); i++) {
+
+            for(int j = 0; j < etapas.get(i).getListDisciplinas().size(); j++) {
+                disciplinas.add(etapas.get(i).getListDisciplinas().get(j));
+            }
+        }
+        
+        List<Professor> professores = new ArrayList<>();
+        
+        for (int i = 0; i < ; i++) {
+            Object object = arr[i];
+            
+        }
+        atualizaListaDisciplinas(disciplinas);
+    }
+    
+    
+     
     void atualizaListaProfessores() {
         /*DefaultTableModel valoresProfessor = (DefaultTableModel) tblProfessores.getModel();
         while (tblProfessores.getModel().getRowCount() > 0) {  
@@ -143,16 +217,15 @@ public class HomeScreen extends javax.swing.JFrame {
         //this.selecionado = this.jtPesquisador.getSelectedRow();
     }
     
-    void atualizaListaDisciplinas() {
+    void atualizaListaDisciplinas(List<Disciplina> disciplinas) {
         DefaultTableModel dadosDisciplina = (DefaultTableModel) tblDisciplinas.getModel();
         while (tblDisciplinas.getModel().getRowCount() > 0) {  
            ((DefaultTableModel) tblDisciplinas.getModel()).removeRow(0);  
         } 
-
-        List<Disciplina> disciplina = FacadeInstance.getInstance().getAllDisciplinas();
-        for(int i = 0;i<disciplina.size();i++){
+        
+        for(int i = 0; i <disciplinas.size(); i++){
             Object[] dados = {
-                disciplina.get(i).getNome(),
+                disciplinas.get(i).getNome()
             };
             
             dadosDisciplina.addRow(dados);
@@ -1659,7 +1732,6 @@ public class HomeScreen extends javax.swing.JFrame {
         tabResponsaveis.setBackground(new Color(204,204,255));
         tabEtapas.setBackground(new Color(204,204,255));
         
-        atualizaListaDisciplinas();
     }//GEN-LAST:event_tabDisciplinasMouseClicked
 
     private void tabConselhosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabConselhosMouseClicked

@@ -194,13 +194,16 @@ public class HomeScreen extends javax.swing.JFrame {
         txtSearchClassCouncil = new javax.swing.JTextField();
         btnSearchClassCouncil = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
-        cmbCursosConselhos = new javax.swing.JButton();
+        btnCursosConselhos = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        btnTurmaConselhos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        txtEditarConselho = new javax.swing.JTextField();
+        btnEditarConselho = new javax.swing.JButton();
+        btnDeletarConselho = new javax.swing.JButton();
         pnlDisciplinas = new javax.swing.JPanel();
         pnlMainBarSubjects = new javax.swing.JPanel();
         btnAddSubjects = new javax.swing.JButton();
@@ -210,10 +213,13 @@ public class HomeScreen extends javax.swing.JFrame {
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
+        btnMenuTurmasDisciplinas = new javax.swing.JButton();
         cmbCursosDisciplinas = new javax.swing.JComboBox<>();
         spnlSubjects = new javax.swing.JScrollPane();
         tblDisciplinas = new javax.swing.JTable();
+        txtEditarDisciplina = new javax.swing.JTextField();
+        btnEditarDisciplina = new javax.swing.JButton();
+        btnDeletarDisciplinas = new javax.swing.JButton();
         pnlProfessores = new javax.swing.JPanel();
         pnlMainBarTeachers = new javax.swing.JPanel();
         btnAddTeacher = new javax.swing.JButton();
@@ -224,9 +230,12 @@ public class HomeScreen extends javax.swing.JFrame {
         jRadioButton7 = new javax.swing.JRadioButton();
         jRadioButton8 = new javax.swing.JRadioButton();
         jRadioButton9 = new javax.swing.JRadioButton();
-        btnMenuTurma_Professores = new javax.swing.JButton();
+        btnMenuTurmasProfessores = new javax.swing.JButton();
         spnlProfessores = new javax.swing.JScrollPane();
         tblProfessores = new javax.swing.JTable();
+        txtEditarProfessor = new javax.swing.JTextField();
+        btnEditarProfessor = new javax.swing.JButton();
+        btnDeletarProfessor = new javax.swing.JButton();
         pnlAlunos = new javax.swing.JPanel();
         pnlMainBarStudents = new javax.swing.JPanel();
         btnAddStudent = new javax.swing.JButton();
@@ -237,12 +246,12 @@ public class HomeScreen extends javax.swing.JFrame {
         rbtnTurma1 = new javax.swing.JRadioButton();
         rbtnTurma2 = new javax.swing.JRadioButton();
         rbtnTurma3 = new javax.swing.JRadioButton();
-        btnMenuTurma_Alunos = new javax.swing.JButton();
+        btnMenuTurmaAlunos = new javax.swing.JButton();
         spnlAlunos = new javax.swing.JScrollPane();
         tblAlunos = new javax.swing.JTable();
-        btnAtualizar = new javax.swing.JButton();
-        txtAtualizar = new javax.swing.JTextField();
-        btnDeletar = new javax.swing.JButton();
+        btnEditarAluno = new javax.swing.JButton();
+        txtEditarAluno = new javax.swing.JTextField();
+        btnDeletarAluno = new javax.swing.JButton();
         pnlCursos = new javax.swing.JPanel();
         pnlMainBarClassCouncil3 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -268,6 +277,9 @@ public class HomeScreen extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        txtEditarEtapa = new javax.swing.JTextField();
+        btnEditarEtapa = new javax.swing.JButton();
+        btnDeletarEtapa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -608,10 +620,10 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        cmbCursosConselhos.setText("+");
-        cmbCursosConselhos.addActionListener(new java.awt.event.ActionListener() {
+        btnCursosConselhos.setText("+");
+        btnCursosConselhos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCursosConselhosActionPerformed(evt);
+                btnCursosConselhosActionPerformed(evt);
             }
         });
 
@@ -621,10 +633,10 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jRadioButton3.setText("Turma3");
 
-        jButton1.setText("+");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnTurmaConselhos.setText("+");
+        btnTurmaConselhos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnTurmaConselhosActionPerformed(evt);
             }
         });
 
@@ -643,8 +655,8 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarClassCouncilLayout.createSequentialGroup()
-                        .addComponent(cmbCursosConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                        .addComponent(btnCursosConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                         .addComponent(txtSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -654,7 +666,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addGroup(pnlMainBarClassCouncilLayout.createSequentialGroup()
                         .addComponent(jRadioButton3)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTurmaConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlMainBarClassCouncilLayout.setVerticalGroup(
@@ -664,7 +676,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbCursosConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnCursosConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainBarClassCouncilLayout.createSequentialGroup()
                         .addGap(0, 1, Short.MAX_VALUE)
                         .addGroup(pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -676,7 +688,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2)
                     .addComponent(jRadioButton3)
-                    .addComponent(jButton1))
+                    .addComponent(btnTurmaConselhos))
                 .addContainerGap())
         );
 
@@ -702,23 +714,43 @@ public class HomeScreen extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(3).setHeaderValue("CodigoAta");
         }
 
+        btnEditarConselho.setText("Editar");
+
+        btnDeletarConselho.setText("Deletar");
+
         javax.swing.GroupLayout pnlConselhosLayout = new javax.swing.GroupLayout(pnlConselhos);
         pnlConselhos.setLayout(pnlConselhosLayout);
         pnlConselhosLayout.setHorizontalGroup(
             pnlConselhosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlMainBarClassCouncil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlConselhosLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
+                .addComponent(btnEditarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDeletarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
+            .addGroup(pnlConselhosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(pnlConselhosLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(txtEditarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlConselhosLayout.setVerticalGroup(
             pnlConselhosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConselhosLayout.createSequentialGroup()
                 .addComponent(pnlMainBarClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 104, Short.MAX_VALUE))
+                .addComponent(txtEditarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlConselhosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletarConselho, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pnlTelas.add(pnlConselhos);
@@ -765,10 +797,10 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jRadioButton6.setText("Turma3");
 
-        jButton2.setText("+");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuTurmasDisciplinas.setText("+");
+        btnMenuTurmasDisciplinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnMenuTurmasDisciplinasActionPerformed(evt);
             }
         });
 
@@ -789,7 +821,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
                         .addComponent(btnMenuCursosDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                         .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -798,7 +830,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
                         .addComponent(jRadioButton6)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMenuTurmasDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -817,7 +849,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jRadioButton4)
                     .addComponent(jRadioButton5)
                     .addComponent(jRadioButton6)
-                    .addComponent(jButton2)))
+                    .addComponent(btnMenuTurmasDisciplinas)))
         );
 
         tblDisciplinas.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
@@ -839,6 +871,10 @@ public class HomeScreen extends javax.swing.JFrame {
         });
         spnlSubjects.setViewportView(tblDisciplinas);
 
+        btnEditarDisciplina.setText("Editar");
+
+        btnDeletarDisciplinas.setText("Deletar");
+
         javax.swing.GroupLayout pnlDisciplinasLayout = new javax.swing.GroupLayout(pnlDisciplinas);
         pnlDisciplinas.setLayout(pnlDisciplinasLayout);
         pnlDisciplinasLayout.setHorizontalGroup(
@@ -848,14 +884,30 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(spnlSubjects, javax.swing.GroupLayout.DEFAULT_SIZE, 919, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(pnlMainBarSubjects, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlDisciplinasLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(btnEditarDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDeletarDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+            .addGroup(pnlDisciplinasLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(txtEditarDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDisciplinasLayout.setVerticalGroup(
             pnlDisciplinasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDisciplinasLayout.createSequentialGroup()
                 .addComponent(pnlMainBarSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spnlSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(spnlSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtEditarDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlDisciplinasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditarDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletarDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pnlTelas.add(pnlDisciplinas);
@@ -898,10 +950,10 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jRadioButton9.setText("Turma3");
 
-        btnMenuTurma_Professores.setText("+");
-        btnMenuTurma_Professores.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuTurmasProfessores.setText("+");
+        btnMenuTurmasProfessores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuTurma_ProfessoresActionPerformed(evt);
+                btnMenuTurmasProfessoresActionPerformed(evt);
             }
         });
 
@@ -919,13 +971,13 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(jRadioButton9)
                         .addGap(18, 18, 18)
-                        .addComponent(btnMenuTurma_Professores, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMenuTurmasProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlMainBarTeachersLayout.createSequentialGroup()
                         .addComponent(cmbCursosProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnMenuCursoProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                         .addComponent(txtSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -948,7 +1000,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(jRadioButton7)
                     .addComponent(jRadioButton8)
                     .addComponent(jRadioButton9)
-                    .addComponent(btnMenuTurma_Professores))
+                    .addComponent(btnMenuTurmasProfessores))
                 .addContainerGap())
         );
 
@@ -971,6 +1023,10 @@ public class HomeScreen extends javax.swing.JFrame {
         });
         spnlProfessores.setViewportView(tblProfessores);
 
+        btnEditarProfessor.setText("Editar");
+
+        btnDeletarProfessor.setText("Deletar");
+
         javax.swing.GroupLayout pnlProfessoresLayout = new javax.swing.GroupLayout(pnlProfessores);
         pnlProfessores.setLayout(pnlProfessoresLayout);
         pnlProfessoresLayout.setHorizontalGroup(
@@ -980,14 +1036,30 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(spnlProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, 919, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(pnlProfessoresLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(txtEditarProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlProfessoresLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(btnEditarProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDeletarProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
         );
         pnlProfessoresLayout.setVerticalGroup(
             pnlProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlProfessoresLayout.createSequentialGroup()
                 .addComponent(pnlMainBarTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spnlProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addComponent(spnlProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(txtEditarProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditarProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletarProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pnlTelas.add(pnlProfessores);
@@ -1029,10 +1101,10 @@ public class HomeScreen extends javax.swing.JFrame {
 
         rbtnTurma3.setText("Turma3");
 
-        btnMenuTurma_Alunos.setText("+");
-        btnMenuTurma_Alunos.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuTurmaAlunos.setText("+");
+        btnMenuTurmaAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuTurma_AlunosActionPerformed(evt);
+                btnMenuTurmaAlunosActionPerformed(evt);
             }
         });
 
@@ -1064,7 +1136,7 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addGap(35, 35, 35))
                     .addGroup(pnlMainBarStudentsLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(btnMenuTurma_Alunos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMenuTurmaAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlMainBarStudentsLayout.setVerticalGroup(
@@ -1085,7 +1157,7 @@ public class HomeScreen extends javax.swing.JFrame {
                             .addComponent(rbtnTurma1)
                             .addComponent(rbtnTurma2)
                             .addComponent(rbtnTurma3)
-                            .addComponent(btnMenuTurma_Alunos))))
+                            .addComponent(btnMenuTurmaAlunos))))
                 .addContainerGap())
         );
 
@@ -1108,9 +1180,9 @@ public class HomeScreen extends javax.swing.JFrame {
         });
         spnlAlunos.setViewportView(tblAlunos);
 
-        btnAtualizar.setText("Atualizar");
+        btnEditarAluno.setText("Editar");
 
-        btnDeletar.setText("Deletar");
+        btnDeletarAluno.setText("Deletar");
 
         javax.swing.GroupLayout pnlAlunosLayout = new javax.swing.GroupLayout(pnlAlunos);
         pnlAlunos.setLayout(pnlAlunosLayout);
@@ -1122,13 +1194,13 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(pnlAlunosLayout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlAlunosLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(txtAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEditarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeletarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91))
             .addGroup(pnlAlunosLayout.createSequentialGroup()
                 .addContainerGap()
@@ -1144,10 +1216,10 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(spnlAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(pnlAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEditarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
         );
 
@@ -1443,23 +1515,43 @@ public class HomeScreen extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
+        btnEditarEtapa.setText("Editar");
+
+        btnDeletarEtapa.setText("Deletar");
+
         javax.swing.GroupLayout pnlEtapasLayout = new javax.swing.GroupLayout(pnlEtapas);
         pnlEtapas.setLayout(pnlEtapasLayout);
         pnlEtapasLayout.setHorizontalGroup(
             pnlEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlMainBarClassEtapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlEtapasLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+            .addGroup(pnlEtapasLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(txtEditarEtapa, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlEtapasLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(btnEditarEtapa, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDeletarEtapa, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160))
         );
         pnlEtapasLayout.setVerticalGroup(
             pnlEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEtapasLayout.createSequentialGroup()
                 .addComponent(pnlMainBarClassEtapas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 104, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtEditarEtapa, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlEtapasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditarEtapa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletarEtapa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pnlTelas.add(pnlEtapas);
@@ -1719,20 +1811,22 @@ public class HomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddClassCouncilActionPerformed
 
     private void btnMenuCursosDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCursosDisciplinasActionPerformed
-         MenuCurso telaCurso = new MenuCurso();
+        MenuCurso telaCurso = new MenuCurso();
         this.dispose();
         telaCurso.setVisible(true);
     }//GEN-LAST:event_btnMenuCursosDisciplinasActionPerformed
 
     private void btnMenuCursoProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCursoProfessoresActionPerformed
-         MenuCurso telaCurso = new MenuCurso();
+        MenuCurso telaCurso = new MenuCurso();
         this.dispose();
         telaCurso.setVisible(true);
     }//GEN-LAST:event_btnMenuCursoProfessoresActionPerformed
 
-    private void cmbCursosConselhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCursosConselhosActionPerformed
-
-    }//GEN-LAST:event_cmbCursosConselhosActionPerformed
+    private void btnCursosConselhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCursosConselhosActionPerformed
+        MenuCurso telaCurso = new MenuCurso();
+        this.dispose();
+        telaCurso.setVisible(true);
+    }//GEN-LAST:event_btnCursosConselhosActionPerformed
 
     private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
         // TODO add your handling code here:
@@ -1742,23 +1836,32 @@ public class HomeScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnTurmaConselhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTurmaConselhosActionPerformed
         MenuTurma telaTurma = new MenuTurma();
         this.dispose();
         telaTurma.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnTurmaConselhosActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnMenuTurmasDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmasDisciplinasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_btnMenuTurmasDisciplinasActionPerformed
 
-    private void btnMenuTurma_ProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurma_ProfessoresActionPerformed
+    private void btnMenuTurmasProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmasProfessoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenuTurma_ProfessoresActionPerformed
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_btnMenuTurmasProfessoresActionPerformed
 
-    private void btnMenuTurma_AlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurma_AlunosActionPerformed
+    private void btnMenuTurmaAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaAlunosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenuTurma_AlunosActionPerformed
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
+    }//GEN-LAST:event_btnMenuTurmaAlunosActionPerformed
 
     private void btnMenuCursoAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCursoAlunosActionPerformed
         MenuCurso telaCurso = new MenuCurso();
@@ -1805,10 +1908,16 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void btnMenuTurmaEtapasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaEtapasActionPerformed
         // TODO add your handling code here:
+        MenuCurso telaCurso = new MenuCurso();
+        this.dispose();
+        telaCurso.setVisible(true);
     }//GEN-LAST:event_btnMenuTurmaEtapasActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        MenuTurma telaTurma = new MenuTurma();
+        this.dispose();
+        telaTurma.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -1855,25 +1964,33 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnAddSubjects;
     private javax.swing.JButton btnAddTeacher;
-    private javax.swing.JButton btnAtualizar;
-    private javax.swing.JButton btnDeletar;
+    private javax.swing.JButton btnCursosConselhos;
+    private javax.swing.JButton btnDeletarAluno;
+    private javax.swing.JButton btnDeletarConselho;
+    private javax.swing.JButton btnDeletarDisciplinas;
+    private javax.swing.JButton btnDeletarEtapa;
+    private javax.swing.JButton btnDeletarProfessor;
+    private javax.swing.JButton btnEditarAluno;
+    private javax.swing.JButton btnEditarConselho;
+    private javax.swing.JButton btnEditarDisciplina;
+    private javax.swing.JButton btnEditarEtapa;
+    private javax.swing.JButton btnEditarProfessor;
     private javax.swing.JButton btnMenuCursoAlunos;
     private javax.swing.JButton btnMenuCursoProfessores;
     private javax.swing.JButton btnMenuCursosDisciplinas;
+    private javax.swing.JButton btnMenuTurmaAlunos;
     private javax.swing.JButton btnMenuTurmaEtapas;
-    private javax.swing.JButton btnMenuTurma_Alunos;
-    private javax.swing.JButton btnMenuTurma_Professores;
+    private javax.swing.JButton btnMenuTurmasDisciplinas;
+    private javax.swing.JButton btnMenuTurmasProfessores;
     private javax.swing.JButton btnSearchClassCouncil;
     private javax.swing.JButton btnSearchClassEtapas;
     private javax.swing.JButton btnSearchStudent;
     private javax.swing.JButton btnSearchSubjects;
     private javax.swing.JButton btnSearchTeachers;
+    private javax.swing.JButton btnTurmaConselhos;
     private javax.swing.JComboBox<String> cmbCursosAlunos;
-    private javax.swing.JButton cmbCursosConselhos;
     private javax.swing.JComboBox<String> cmbCursosDisciplinas;
     private javax.swing.JComboBox<String> cmbCursosProfessores;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
@@ -1948,7 +2065,11 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JTable tblAlunos;
     private javax.swing.JTable tblDisciplinas;
     private javax.swing.JTable tblProfessores;
-    private javax.swing.JTextField txtAtualizar;
+    private javax.swing.JTextField txtEditarAluno;
+    private javax.swing.JTextField txtEditarConselho;
+    private javax.swing.JTextField txtEditarDisciplina;
+    private javax.swing.JTextField txtEditarEtapa;
+    private javax.swing.JTextField txtEditarProfessor;
     private javax.swing.JTextField txtSearchClassCouncil;
     private javax.swing.JTextField txtSearchClassEtapas;
     private javax.swing.JTextField txtSearchStudent;

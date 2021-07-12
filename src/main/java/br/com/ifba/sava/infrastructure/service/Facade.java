@@ -148,8 +148,8 @@ public class Facade implements IFacade {
     }//atualizar curso
     
     @Override
-    public Curso findCurso(Curso curso){
-        return this.serviceCurso.findCurso(curso);
+    public List<Curso> findCursoByName(Curso curso){
+        return this.serviceCurso.findCursoByName(curso);
     }//buscar curso
     
     @Override

@@ -32,7 +32,5 @@ public interface IServiceUsuario {
     //ACHA POR LOGIN E SENHA
     public List<Usuario> findByLoginSenha(Usuario usuario);
     
-    //VERIFICAR USUARIO
-    public  boolean usuarioExisting(Usuario usuario);
     
 }

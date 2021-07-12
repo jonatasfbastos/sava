@@ -34,7 +34,7 @@ public interface IFacade {
     public abstract Curso saveCurso (Curso curso);//salvar curso
     public abstract void deleteCurso (Curso curso);//deletar curso
     public abstract Curso updateCurso(Curso curso);//atualizar curso
-    public abstract Curso findCurso(Curso curso);//uscar curso
+    public abstract List<Curso> findCursoByName(Curso curso);//uscar curso
     public abstract List<Curso> getAllCurso();//listar todos os cursos
            
     //------------------- USUÁRIO ----------------------------//

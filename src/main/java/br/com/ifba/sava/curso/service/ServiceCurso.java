@@ -14,6 +14,7 @@ import java.util.List;
 /**
  *
  * @author Gusdb
+ * edited by Rafael
  */
 public class ServiceCurso implements IServiceCurso{
     
@@ -81,13 +82,11 @@ public class ServiceCurso implements IServiceCurso{
     }
 
     @Override
-    public List<Curso> findByName(String name) {
-        if(name == null) {
-            throw new BusinessException("Nome null");
-        } else if(name.isEmpty()) {
-            throw new BusinessException("Nome vazio");
-        } else {
-            return daoCurso.findByName(name);
+    public List<Curso> findCursoByName(Curso curso) {
+        List<Curso> lista = daoCurso.findCursoByName(curso);
+        if(lista.size()<1){
+           throw new BusinessException(CURSO_NULL); 
         }
+        return lista;
     }
 }

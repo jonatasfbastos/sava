@@ -20,5 +20,5 @@ public interface IServiceCurso {
     public abstract Curso updateCurso(Curso curso);//atualizar curso
     public abstract Curso findCurso(Curso curso);//buscar curso
     public abstract List<Curso> getAllCurso();//listar todos os cursos
-    public abstract List<Curso> findByName(String name);// Busca por nome
+    public abstract List<Curso> findCursoByName(Curso curso);// Busca por nome
 }

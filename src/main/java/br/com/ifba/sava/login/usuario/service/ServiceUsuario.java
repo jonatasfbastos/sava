@@ -5,15 +5,11 @@
  */
 package br.com.ifba.sava.login.usuario.service;
 
-import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.infrastructure.exception.BusinessException;
-import br.com.ifba.sava.infrastructure.servidor.model.Servidor;
 import br.com.ifba.sava.login.usuario.dao.DaoUsuario;
 import br.com.ifba.sava.login.usuario.dao.IDaoUsuario;
 import br.com.ifba.sava.login.usuario.model.Usuario;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  *
@@ -89,10 +85,8 @@ public class ServiceUsuario implements IServiceUsuario{
                if(usuario.getId() == null || usuario.getId() < 1){
                throw new BusinessException(ID_REQUIRED);
        }
-
-               if (this.usuarioExisting(usuario)==true){
+               if (usuario != null){
                        throw new BusinessException(USUARIO_EXIST);
-
                }
                return daoUsuario.update(usuario);
        }
@@ -109,22 +103,8 @@ public class ServiceUsuario implements IServiceUsuario{
       
         
     //------------------- Verificar Usuário --------------------------   
-        @Override
-       public boolean usuarioExisting(Usuario usuario) {
-            List<Usuario> usuarios = new ArrayList<Usuario>();
-            usuarios=getAllUsuario();		
-                 for (int i=0; i<usuarios.size(); i++){				
-                      if (usuario.getLogin().equals(usuarios.get(i).getLogin())){
-                            if (usuario.getId()!= null){
-                                if (Objects.equals(usuario.getId(), usuarios.get(i).getId()) ){
-                                    return true;
-                                }
-                            }
-                            throw new BusinessException(USUARIO_EXIST);						
-                      }
-                 }
-            return false;
-       }
+
+       
     //----------------------------------------------------------------
 
 }

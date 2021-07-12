@@ -12,9 +12,10 @@ import java.util.List;
 /**
  *
  * @author Gusdb
+ * edited by Rafael
  */
 public interface IDaoCurso extends IBaseDao<Curso>{
     
-    public abstract List<Curso> findByName(String name);
+    public abstract List<Curso> findCursoByName(Curso curso);
 
 }

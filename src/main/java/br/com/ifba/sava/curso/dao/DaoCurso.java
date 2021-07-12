@@ -13,15 +13,16 @@ import javax.persistence.Query;
 /**
  *
  * @author Gusdb
+ * edited by rafael
  */
 public class DaoCurso extends BaseDao<Curso> implements IDaoCurso{
     
     @Override
-    public List<Curso> findByName(String name) {
+    public List<Curso> findCursoByName(Curso curso) {
         String busca = "SELECT a FROM Curso AS a WHERE a.nome=:nome";
         // inserindo comando na querry e inserindo os dados
         Query query = entityManager.createQuery(busca);
-        query.setParameter("nome", name);
+        query.setParameter("nome", curso.getNome());
         return query.getResultList();
     }
 }

@@ -35,8 +35,6 @@ public class Usuario extends PersistenceEntity implements Serializable{
         this.TipoUsuario = TipoUsuario;
     }
 	
-
-    
     public String getLogin() {
         return login;
     }

@@ -42,6 +42,33 @@ public class Sava {
         FacadeInstance.getInstance().saveTurma(turma);*/
        
 
+       Disciplina disciplina = new Disciplina();
+       disciplina.setNome("disciplina 1");
+       FacadeInstance.getInstance().saveDisciplina(disciplina);
+       disciplina.setNome("disciplina 2");
+       FacadeInstance.getInstance().saveDisciplina(disciplina);
+       
+       //faco etapa
+       Etapa etapa = new Etapa();
+       etapa.setNome("etapa 1");
+       etapa.setListDisciplinas(FacadeInstance.getInstance().getAllDisciplinas());
+       FacadeInstance.getInstance().saveEtapa(etapa);
+       //
+       //faco MatriCurricular
+       MatrizCurricular matrizCurricular = new MatrizCurricular();
+       matrizCurricular.setNome("matrizCurricular 1");
+       matrizCurricular.setEtapa(FacadeInstance.getInstance().getAllEtapa());
+       FacadeInstance.getInstance().saveMatrizCurricular(matrizCurricular);
+       //
+       //faco MatriCurricular
+       Curso curso = new Curso();
+       curso.setNome("Curso 1");
+       curso.setMatrizCurricular(matrizCurricular);
+       FacadeInstance.getInstance().saveCurso(curso);
+       //
+       
+      
+        System.out.println(FacadeInstance.getInstance().getAllEtapa().get(0).getListDisciplinas().get(0).getNome()); 
        
        
        

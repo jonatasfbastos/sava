@@ -612,7 +612,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="btnMenuCursosConselhos" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="cmbCursosConselhos" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace pref="64" max="32767" attributes="0"/>
                                   <Component id="txtSearchClassCouncil" min="-2" pref="238" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -638,7 +638,7 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="jComboBox4" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="btnMenuCursosConselhos" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="cmbCursosConselhos" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
@@ -697,12 +697,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnMenuCursosConselhos">
+                <Component class="javax.swing.JButton" name="cmbCursosConselhos">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuCursosConselhosActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCursosConselhosActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton1">
@@ -829,13 +829,13 @@
                                   <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="ComboBoxDisciplina" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="cmbCursosDisciplinas" min="-2" pref="125" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="btnMenuTurmaDisciplinas" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="btnMenuCursosDisciplinas" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace pref="140" max="32767" attributes="0"/>
                                   <Component id="txtSearchSubjects" min="-2" pref="191" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -861,9 +861,9 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnSearchSubjects" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="btnAddSubjects" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="btnMenuTurmaDisciplinas" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="btnMenuCursosDisciplinas" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="txtSearchSubjects" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="ComboBoxDisciplina" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbCursosDisciplinas" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -898,12 +898,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchSubjectsActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnMenuTurmaDisciplinas">
+                <Component class="javax.swing.JButton" name="btnMenuCursosDisciplinas">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuTurmaDisciplinasActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuCursosDisciplinasActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton4">
@@ -932,7 +932,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="ComboBoxDisciplina">
+                <Component class="javax.swing.JComboBox" name="cmbCursosDisciplinas">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -1051,9 +1051,9 @@
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="cbxTurma" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Component id="cmbCursosProfessores" min="-2" pref="118" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="btnMenuTurmaProfessores" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="btnMenuCursoProfessores" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace pref="82" max="32767" attributes="0"/>
                                   <Component id="txtSearchTeachers" min="-2" pref="238" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -1073,8 +1073,8 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnSearchTeachers" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="btnAddTeacher" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="cbxTurma" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="btnMenuTurmaProfessores" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="cmbCursosProfessores" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="btnMenuCursoProfessores" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="txtSearchTeachers" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1108,29 +1108,25 @@
                     <Property name="text" type="java.lang.String" value="Buscar"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cbxTurma">
+                <Component class="javax.swing.JComboBox" name="cmbCursosProfessores">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Curso 1"/>
-                        <StringItem index="1" value="Curso 2"/>
-                        <StringItem index="2" value="Curso 3"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxTurmaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCursosProfessoresActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnMenuTurmaProfessores">
+                <Component class="javax.swing.JButton" name="btnMenuCursoProfessores">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuTurmaProfessoresActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuCursoProfessoresActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton7">
@@ -1303,16 +1299,16 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" min="-2" pref="142" max="-2" attributes="0"/>
+                                  <Component id="cmbCursosAlunos" min="-2" pref="142" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="btnMenuTurmaAlunos" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="btnMenuCursoAlunos" min="-2" pref="56" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jRadioButton10" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbtnTurma1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbtnTurma2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton12" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbtnTurma3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1340,8 +1336,8 @@
                           <EmptySpace pref="12" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="btnMenuTurmaAlunos" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="btnMenuCursoAlunos" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="cmbCursosAlunos" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1351,9 +1347,9 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jRadioButton10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbtnTurma1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbtnTurma2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbtnTurma3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnMenuTurma_Alunos" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1385,7 +1381,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchStudentActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox1">
+                <Component class="javax.swing.JComboBox" name="cmbCursosAlunos">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -1395,25 +1391,25 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnMenuTurmaAlunos">
+                <Component class="javax.swing.JButton" name="btnMenuCursoAlunos">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuTurmaAlunosActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuCursoAlunosActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton10">
+                <Component class="javax.swing.JRadioButton" name="rbtnTurma1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Turma1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton11">
+                <Component class="javax.swing.JRadioButton" name="rbtnTurma2">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Turma2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton12">
+                <Component class="javax.swing.JRadioButton" name="rbtnTurma3">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Turma3"/>
                   </Properties>

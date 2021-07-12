@@ -49,7 +49,6 @@ public class Turma extends PersistenceEntity{
         this.curso = curso;
     }
     
-    
     public void setAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma){
         this.avaliacaoTurma = avaliacaoTurma;
     }

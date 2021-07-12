@@ -17,6 +17,7 @@ import br.com.ifba.sava.infrastructure.service.Facade;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
 import br.com.ifba.sava.professor.model.Professor;
 import br.com.ifba.sava.professor.view.CadastrarProfessor;
+import br.com.ifba.sava.turma.model.Turma;
 import br.com.ifba.sava.turma.view.CadastrarTurma;
 import br.com.ifba.sava.turma.view.MenuTurma;
 import java.awt.Color;
@@ -46,6 +47,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlResponsaveis.setVisible(false);
         pnlCoordenadores.setVisible(false);
         pnlCursos.setVisible(false);
+        pnlEtapas.setVisible(false);
         ComboBoxCurso ();
         
         
@@ -85,15 +87,31 @@ public class HomeScreen extends javax.swing.JFrame {
      private void ComboBoxCurso (){
 
       List<Curso> curso = FacadeInstance.getInstance().getAllCurso();
-      for(int i=0; i<curso.size(); i++)
-      ComboBoxDisciplina.addItem(curso.get(i).getNome());
+      List<Turma> turma = FacadeInstance.getInstance().getAllTurma();
       
+      for(int i=0; i<curso.size(); i++) {
+        cmbCursosDisciplinas.addItem(curso.get(i).getNome());
+        cmbCursosAlunos.addItem(curso.get(i).getNome());
+        cmbCursosProfessores.addItem(curso.get(i).getNome());
+        if(cmbCursosDisciplinas.getSelectedItem() == curso.get(i).getNome()) {
+            for(int j = 0; j < turma.size(); j++) {
+                System.out.println("********8aq*****" + turma.get(j).getNome());
+                //System.out.println("id:" + curso.get(i).getId() ==  turma.get(j).getCurso().getId());
+                System.out.println("cursp" + turma.get(j).getCurso());
+                
+            }
+        }
+      }
+
+      System.out.println(cmbCursosDisciplinas.getSelectedItem()); //printf que seleciona o primeiro valor pq sempre seleciona o primeiro 
       
-      System.out.println(ComboBoxDisciplina.getSelectedItem()); //printf que seleciona o primeiro valor pq sempre seleciona o primeiro 
-      
-      ComboBoxDisciplina.addActionListener((ActionEvent e) -> {
-       System.out.println(ComboBoxDisciplina.getSelectedItem());
+      cmbCursosDisciplinas.addActionListener((ActionEvent e) -> {
+       System.out.println(cmbCursosDisciplinas.getSelectedItem());
       });
+      
+      /*cmbCursosAlunos.addActionListener((ActionEvent e) -> {
+          
+      });*/
          
     //       
     
@@ -176,7 +194,7 @@ public class HomeScreen extends javax.swing.JFrame {
         txtSearchClassCouncil = new javax.swing.JTextField();
         btnSearchClassCouncil = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
-        btnMenuCursosConselhos = new javax.swing.JButton();
+        cmbCursosConselhos = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
@@ -188,12 +206,12 @@ public class HomeScreen extends javax.swing.JFrame {
         btnAddSubjects = new javax.swing.JButton();
         txtSearchSubjects = new javax.swing.JTextField();
         btnSearchSubjects = new javax.swing.JButton();
-        btnMenuTurmaDisciplinas = new javax.swing.JButton();
+        btnMenuCursosDisciplinas = new javax.swing.JButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
-        ComboBoxDisciplina = new javax.swing.JComboBox<>();
+        cmbCursosDisciplinas = new javax.swing.JComboBox<>();
         spnlSubjects = new javax.swing.JScrollPane();
         tblDisciplinas = new javax.swing.JTable();
         pnlProfessores = new javax.swing.JPanel();
@@ -201,8 +219,8 @@ public class HomeScreen extends javax.swing.JFrame {
         btnAddTeacher = new javax.swing.JButton();
         txtSearchTeachers = new javax.swing.JTextField();
         btnSearchTeachers = new javax.swing.JButton();
-        cbxTurma = new javax.swing.JComboBox<>();
-        btnMenuTurmaProfessores = new javax.swing.JButton();
+        cmbCursosProfessores = new javax.swing.JComboBox<>();
+        btnMenuCursoProfessores = new javax.swing.JButton();
         jRadioButton7 = new javax.swing.JRadioButton();
         jRadioButton8 = new javax.swing.JRadioButton();
         jRadioButton9 = new javax.swing.JRadioButton();
@@ -214,11 +232,11 @@ public class HomeScreen extends javax.swing.JFrame {
         btnAddStudent = new javax.swing.JButton();
         txtSearchStudent = new javax.swing.JTextField();
         btnSearchStudent = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        btnMenuTurmaAlunos = new javax.swing.JButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
-        jRadioButton11 = new javax.swing.JRadioButton();
-        jRadioButton12 = new javax.swing.JRadioButton();
+        cmbCursosAlunos = new javax.swing.JComboBox<>();
+        btnMenuCursoAlunos = new javax.swing.JButton();
+        rbtnTurma1 = new javax.swing.JRadioButton();
+        rbtnTurma2 = new javax.swing.JRadioButton();
+        rbtnTurma3 = new javax.swing.JRadioButton();
         btnMenuTurma_Alunos = new javax.swing.JButton();
         spnlAlunos = new javax.swing.JScrollPane();
         tblAlunos = new javax.swing.JTable();
@@ -590,10 +608,10 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        btnMenuCursosConselhos.setText("+");
-        btnMenuCursosConselhos.addActionListener(new java.awt.event.ActionListener() {
+        cmbCursosConselhos.setText("+");
+        cmbCursosConselhos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuCursosConselhosActionPerformed(evt);
+                cmbCursosConselhosActionPerformed(evt);
             }
         });
 
@@ -625,7 +643,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarClassCouncilLayout.createSequentialGroup()
-                        .addComponent(btnMenuCursosConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbCursosConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addComponent(txtSearchClassCouncil, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -646,7 +664,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnMenuCursosConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbCursosConselhos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainBarClassCouncilLayout.createSequentialGroup()
                         .addGap(0, 1, Short.MAX_VALUE)
                         .addGroup(pnlMainBarClassCouncilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -729,10 +747,10 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        btnMenuTurmaDisciplinas.setText("+");
-        btnMenuTurmaDisciplinas.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuCursosDisciplinas.setText("+");
+        btnMenuCursosDisciplinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuTurmaDisciplinasActionPerformed(evt);
+                btnMenuCursosDisciplinasActionPerformed(evt);
             }
         });
 
@@ -766,11 +784,11 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton5))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarSubjectsLayout.createSequentialGroup()
-                        .addComponent(ComboBoxDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbCursosDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)))
                 .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarSubjectsLayout.createSequentialGroup()
-                        .addComponent(btnMenuTurmaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMenuCursosDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                         .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -791,9 +809,9 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMenuTurmaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMenuCursosDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearchSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBoxDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbCursosDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(pnlMainBarSubjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton4)
@@ -861,17 +879,16 @@ public class HomeScreen extends javax.swing.JFrame {
 
         btnSearchTeachers.setText("Buscar");
 
-        cbxTurma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Curso 1", "Curso 2", "Curso 3" }));
-        cbxTurma.addActionListener(new java.awt.event.ActionListener() {
+        cmbCursosProfessores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxTurmaActionPerformed(evt);
+                cmbCursosProfessoresActionPerformed(evt);
             }
         });
 
-        btnMenuTurmaProfessores.setText("+");
-        btnMenuTurmaProfessores.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuCursoProfessores.setText("+");
+        btnMenuCursoProfessores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuTurmaProfessoresActionPerformed(evt);
+                btnMenuCursoProfessoresActionPerformed(evt);
             }
         });
 
@@ -905,9 +922,9 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addComponent(btnMenuTurma_Professores, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlMainBarTeachersLayout.createSequentialGroup()
-                        .addComponent(cbxTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbCursosProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnMenuTurmaProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMenuCursoProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                         .addComponent(txtSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -923,8 +940,8 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(pnlMainBarTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMenuTurmaProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbCursosProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMenuCursoProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearchTeachers, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainBarTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -999,18 +1016,18 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        btnMenuTurmaAlunos.setText("+");
-        btnMenuTurmaAlunos.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuCursoAlunos.setText("+");
+        btnMenuCursoAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuTurmaAlunosActionPerformed(evt);
+                btnMenuCursoAlunosActionPerformed(evt);
             }
         });
 
-        jRadioButton10.setText("Turma1");
+        rbtnTurma1.setText("Turma1");
 
-        jRadioButton11.setText("Turma2");
+        rbtnTurma2.setText("Turma2");
 
-        jRadioButton12.setText("Turma3");
+        rbtnTurma3.setText("Turma3");
 
         btnMenuTurma_Alunos.setText("+");
         btnMenuTurma_Alunos.addActionListener(new java.awt.event.ActionListener() {
@@ -1027,15 +1044,15 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarStudentsLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbCursosAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnMenuTurmaAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnMenuCursoAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlMainBarStudentsLayout.createSequentialGroup()
-                        .addComponent(jRadioButton10)
+                        .addComponent(rbtnTurma1)
                         .addGap(10, 10, 10)
-                        .addComponent(jRadioButton11)
+                        .addComponent(rbtnTurma2)
                         .addGap(10, 10, 10)
-                        .addComponent(jRadioButton12)))
+                        .addComponent(rbtnTurma3)))
                 .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarStudentsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
@@ -1056,8 +1073,8 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnMenuTurmaAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnMenuCursoAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbCursosAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainBarStudentsLayout.createSequentialGroup()
                         .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1065,9 +1082,9 @@ public class HomeScreen extends javax.swing.JFrame {
                             .addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlMainBarStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton10)
-                            .addComponent(jRadioButton11)
-                            .addComponent(jRadioButton12)
+                            .addComponent(rbtnTurma1)
+                            .addComponent(rbtnTurma2)
+                            .addComponent(rbtnTurma3)
                             .addComponent(btnMenuTurma_Alunos))))
                 .addContainerGap())
         );
@@ -1489,8 +1506,8 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlResponsaveis.setVisible(false);
         pnlCoordenadores.setVisible(false);
         pnlAlunos.setVisible(true);
-        pnlCursos.setVisible(false);
-
+        pnlCursos.setVisible(false);        
+        pnlEtapas.setVisible(false);
 
         tabAlunos.setBackground(new Color(255,255,255));
         tabInicio.setBackground(new Color(204,204,255));
@@ -1514,6 +1531,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlResponsaveis.setVisible(false);
         pnlCoordenadores.setVisible(false);
         pnlCursos.setVisible(false);
+        pnlEtapas.setVisible(false);
         
         tabProfessores.setBackground(new Color(255,255,255));
         tabInicio.setBackground(new Color(204,204,255));
@@ -1537,6 +1555,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlResponsaveis.setVisible(false);
         pnlCoordenadores.setVisible(false);
         pnlCursos.setVisible(false);
+        pnlEtapas.setVisible(false);
 
         tabDisciplinas.setBackground(new Color(255,255,255));
         tabInicio.setBackground(new Color(204,204,255));
@@ -1560,6 +1579,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlResponsaveis.setVisible(false);
         pnlCoordenadores.setVisible(false);
         pnlCursos.setVisible(false);
+        pnlEtapas.setVisible(false);
 
         tabConselhos.setBackground(new Color(255,255,255));
         tabDisciplinas.setBackground(new Color(204,204,255));
@@ -1604,6 +1624,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlInicio.setVisible(false);
         pnlResponsaveis.setVisible(false);
         pnlCursos.setVisible(false);
+        pnlEtapas.setVisible(false);
         
         tabTecAdm.setBackground(new Color(255,255,255));
         tabConselhos.setBackground(new Color(204,204,255));
@@ -1625,6 +1646,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlAlunos.setVisible(false);
         pnlInicio.setVisible(false);
         pnlResponsaveis.setVisible(false);
+        pnlEtapas.setVisible(false);
 
         tabCursos.setBackground(new Color(255,255,255));
         tabTecAdm.setBackground(new Color(204,204,255));
@@ -1646,6 +1668,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlProfessores.setVisible(false);
         pnlAlunos.setVisible(false);
         pnlInicio.setVisible(false);
+        pnlEtapas.setVisible(false);
 
         tabResponsaveis.setBackground(new Color(255,255,255));
         tabTecAdm.setBackground(new Color(204,204,255));
@@ -1668,6 +1691,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlProfessores.setVisible(false);
         pnlAlunos.setVisible(false);
         pnlResponsaveis.setVisible(false);
+        pnlEtapas.setVisible(false);
         
         tabInicio.setBackground(new Color(255,255,255));
         tabTecAdm.setBackground(new Color(204,204,255));
@@ -1684,9 +1708,9 @@ public class HomeScreen extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnSearchStudentActionPerformed
 
-    private void cbxTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTurmaActionPerformed
+    private void cmbCursosProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCursosProfessoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxTurmaActionPerformed
+    }//GEN-LAST:event_cmbCursosProfessoresActionPerformed
 
     private void btnAddClassCouncilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClassCouncilActionPerformed
         MenuTurma telaTurma = new MenuTurma();
@@ -1694,23 +1718,21 @@ public class HomeScreen extends javax.swing.JFrame {
         telaTurma.setVisible(true);
     }//GEN-LAST:event_btnAddClassCouncilActionPerformed
 
-    private void btnMenuTurmaDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaDisciplinasActionPerformed
-        MenuTurma telaTurma = new MenuTurma();
-        this.dispose();
-        telaTurma.setVisible(true);
-    }//GEN-LAST:event_btnMenuTurmaDisciplinasActionPerformed
-
-    private void btnMenuTurmaProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaProfessoresActionPerformed
-        MenuTurma telaTurma = new MenuTurma();
-        this.dispose();
-        telaTurma.setVisible(true);
-    }//GEN-LAST:event_btnMenuTurmaProfessoresActionPerformed
-
-    private void btnMenuCursosConselhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCursosConselhosActionPerformed
-        MenuCurso telaCurso = new MenuCurso();
+    private void btnMenuCursosDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCursosDisciplinasActionPerformed
+         MenuCurso telaCurso = new MenuCurso();
         this.dispose();
         telaCurso.setVisible(true);
-    }//GEN-LAST:event_btnMenuCursosConselhosActionPerformed
+    }//GEN-LAST:event_btnMenuCursosDisciplinasActionPerformed
+
+    private void btnMenuCursoProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCursoProfessoresActionPerformed
+         MenuCurso telaCurso = new MenuCurso();
+        this.dispose();
+        telaCurso.setVisible(true);
+    }//GEN-LAST:event_btnMenuCursoProfessoresActionPerformed
+
+    private void cmbCursosConselhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCursosConselhosActionPerformed
+
+    }//GEN-LAST:event_cmbCursosConselhosActionPerformed
 
     private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
         // TODO add your handling code here:
@@ -1738,11 +1760,11 @@ public class HomeScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMenuTurma_AlunosActionPerformed
 
-    private void btnMenuTurmaAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTurmaAlunosActionPerformed
-        MenuTurma telaTurma = new MenuTurma();
+    private void btnMenuCursoAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCursoAlunosActionPerformed
+        MenuCurso telaCurso = new MenuCurso();
         this.dispose();
-        telaTurma.setVisible(true);
-    }//GEN-LAST:event_btnMenuTurmaAlunosActionPerformed
+        telaCurso.setVisible(true);
+    }//GEN-LAST:event_btnMenuCursoAlunosActionPerformed
 
     private void tabEtapasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabEtapasMouseClicked
         pnlEtapas.setVisible(true);
@@ -1828,7 +1850,6 @@ public class HomeScreen extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ComboBoxDisciplina;
     private javax.swing.JButton btnAddClassCouncil;
     private javax.swing.JButton btnAddClassEtapas;
     private javax.swing.JButton btnAddStudent;
@@ -1836,11 +1857,10 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnAddTeacher;
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnDeletar;
-    private javax.swing.JButton btnMenuCursosConselhos;
-    private javax.swing.JButton btnMenuTurmaAlunos;
-    private javax.swing.JButton btnMenuTurmaDisciplinas;
+    private javax.swing.JButton btnMenuCursoAlunos;
+    private javax.swing.JButton btnMenuCursoProfessores;
+    private javax.swing.JButton btnMenuCursosDisciplinas;
     private javax.swing.JButton btnMenuTurmaEtapas;
-    private javax.swing.JButton btnMenuTurmaProfessores;
     private javax.swing.JButton btnMenuTurma_Alunos;
     private javax.swing.JButton btnMenuTurma_Professores;
     private javax.swing.JButton btnSearchClassCouncil;
@@ -1848,11 +1868,13 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchStudent;
     private javax.swing.JButton btnSearchSubjects;
     private javax.swing.JButton btnSearchTeachers;
-    private javax.swing.JComboBox<String> cbxTurma;
+    private javax.swing.JComboBox<String> cmbCursosAlunos;
+    private javax.swing.JButton cmbCursosConselhos;
+    private javax.swing.JComboBox<String> cmbCursosDisciplinas;
+    private javax.swing.JComboBox<String> cmbCursosProfessores;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
@@ -1868,9 +1890,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
     private javax.swing.JRadioButton jRadioButton13;
     private javax.swing.JRadioButton jRadioButton14;
     private javax.swing.JRadioButton jRadioButton15;
@@ -1911,6 +1930,9 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel pnlProfessores;
     private javax.swing.JPanel pnlResponsaveis;
     private javax.swing.JPanel pnlTelas;
+    private javax.swing.JRadioButton rbtnTurma1;
+    private javax.swing.JRadioButton rbtnTurma2;
+    private javax.swing.JRadioButton rbtnTurma3;
     private javax.swing.JScrollPane spnlAlunos;
     private javax.swing.JScrollPane spnlProfessores;
     private javax.swing.JScrollPane spnlSubjects;

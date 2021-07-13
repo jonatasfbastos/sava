@@ -8,21 +8,34 @@ package br.com.ifba.sava.aluno.view;
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.infrastructure.view.HomeScreen;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
+import br.com.ifba.sava.infrastructure.support.StringUtil;
 import br.com.ifba.sava.login.usuario.model.Usuario;
+import br.com.ifba.sava.turma.model.Turma;
+import java.awt.Color;
+import java.util.List;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author sheor
  */
 public class CadastrarAluno extends javax.swing.JFrame {
-
     /**
      * Creates new form RegisterStudentScreen
      */
     public CadastrarAluno() {
         initComponents();
     }
-
+   
+    private void CmbBoxTurma() {
+        List<Turma> turma = FacadeInstance.getInstance().getAllTurma();
+        for(int i = 0; i < turma.size(); i++) {
+            cmbTurmaAluno.addItem(turma.get(i).getNome());
+        }
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,8 +55,9 @@ public class CadastrarAluno extends javax.swing.JFrame {
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         pnlCPF = new javax.swing.JPanel();
-        lblEmail2 = new javax.swing.JLabel();
+        lblCpf = new javax.swing.JLabel();
         txtCpf = new javax.swing.JTextField();
+        cmbTurmaAluno = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,9 +140,9 @@ public class CadastrarAluno extends javax.swing.JFrame {
 
         pnlCPF.setBackground(new java.awt.Color(102, 101, 120));
 
-        lblEmail2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        lblEmail2.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmail2.setText("CPF:");
+        lblCpf.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        lblCpf.setForeground(new java.awt.Color(255, 255, 255));
+        lblCpf.setText("CPF:");
 
         txtCpf.setBackground(new java.awt.Color(102, 101, 120));
         txtCpf.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
@@ -142,7 +156,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
             pnlCPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCPFLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblEmail2)
+                .addComponent(lblCpf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
         );
@@ -150,7 +164,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
             pnlCPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCPFLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblEmail2)
+                .addComponent(lblCpf)
                 .addGap(11, 11, 11))
             .addComponent(txtCpf)
         );
@@ -159,7 +173,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
         pnlRegisterContainer.setLayout(pnlRegisterContainerLayout);
         pnlRegisterContainerLayout.setHorizontalGroup(
             pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegisterContainerLayout.createSequentialGroup()
+            .addGroup(pnlRegisterContainerLayout.createSequentialGroup()
                 .addContainerGap(187, Short.MAX_VALUE)
                 .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegisterContainerLayout.createSequentialGroup()
@@ -170,14 +184,21 @@ public class CadastrarAluno extends javax.swing.JFrame {
                             .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pnlCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pnlNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(158, 158, 158))))
+                        .addGap(32, 32, 32)
+                        .addComponent(cmbTurmaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))))
         );
         pnlRegisterContainerLayout.setVerticalGroup(
             pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRegisterContainerLayout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(pnlNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlRegisterContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegisterContainerLayout.createSequentialGroup()
+                        .addComponent(pnlNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegisterContainerLayout.createSequentialGroup()
+                        .addComponent(cmbTurmaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)))
                 .addComponent(pnlNumeroMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(pnlCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,7 +237,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(pnlRegisterContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -236,21 +257,21 @@ public class CadastrarAluno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-       Usuario usuario = new Usuario();
-       Aluno aluno = new Aluno();
+        Usuario usuario = new Usuario();
+        Aluno aluno = new Aluno();
+        if (validaCampos() == true){
+            aluno.setNome(txtNome.getText());
+            aluno.setMatricula(txtNumeroMatricula.getText());
+            aluno.setCpf(txtCpf.getText());
+
+            usuario.setLogin(aluno.getMatricula());
+            usuario.setSenha(aluno.getCpf() + "." + aluno.getMatricula());
+            usuario.setTipoUsuario("Aluno");
        
-       aluno.setNome(txtNome.getText());
-       aluno.setMatricula(txtNumeroMatricula.getText());
-       aluno.setCpf(txtCpf.getText());
-       
-       
-       usuario.setLogin(aluno.getMatricula());
-       usuario.setSenha(aluno.getCpf() + "." + aluno.getMatricula());
-       usuario.setTipoUsuario("Aluno");
-       
-       FacadeInstance.getInstance().saveUsuario(usuario);
-       aluno.setUsuario(usuario);
-       FacadeInstance.getInstance().saveAluno(aluno);
+            FacadeInstance.getInstance().saveUsuario(usuario);
+            aluno.setUsuario(usuario);
+            FacadeInstance.getInstance().saveAluno(aluno);
+        }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     
@@ -299,8 +320,9 @@ public class CadastrarAluno extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JComboBox<String> cmbTurmaAluno;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel lblEmail2;
+    private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNumeroMatricula;
     private javax.swing.JPanel pnlCPF;
@@ -312,4 +334,24 @@ public class CadastrarAluno extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumeroMatricula;
     // End of variables declaration//GEN-END:variables
+    private boolean validaCampos() {
+       StringUtil util = StringUtil.getInstance();
+        if(txtNome.getText().equals("") && txtNumeroMatricula.getText().equals("") && txtCpf.getText().equals("") ){
+            JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+            return false; 
+        }
+        else if(util.isNullOrEmpty(txtNome.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        else if(util.isNullOrEmpty(txtNumeroMatricula.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Matricula.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        else if(util.isNullOrEmpty(txtCpf.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo CPF.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+   }
 }

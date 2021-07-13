@@ -8,6 +8,7 @@ package br.com.ifba.sava.turma.model;
 import br.com.ifba.sava.aluno.model.Aluno;
 import br.com.ifba.sava.avaliacaoturma.model.AvaliacaoTurma;
 import br.com.ifba.sava.curso.model.Curso;
+import br.com.ifba.sava.etapa.model.Etapa;
 import br.com.ifba.sava.infrastructure.model.PersistenceEntity;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -36,19 +37,19 @@ public class Turma extends PersistenceEntity{
     private List<Aluno> listAlunos;
     
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Curso curso;
+    private Etapa etapa;
     
     private String nome;
     private int AnoLetivo;
 
-    public Curso getCurso() {
-        return curso;
+    public Etapa getEtapa() {
+        return etapa;
     }
 
-    public void setCurso(Curso curso) {
-        this.curso = curso;
+    public void setEtapa(Etapa etapa) {
+        this.etapa = etapa;
     }
-    
+
     public void setAvaliacaoTurma(AvaliacaoTurma avaliacaoTurma){
         this.avaliacaoTurma = avaliacaoTurma;
     }

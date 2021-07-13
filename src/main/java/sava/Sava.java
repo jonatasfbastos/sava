@@ -17,6 +17,7 @@ import br.com.ifba.sava.matrizcurricular.model.MatrizCurricular;
 import br.com.ifba.sava.turma.model.Turma;
 import br.com.ifba.sava.turma.service.ServiceTurma;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,10 +30,26 @@ public class Sava {
      */
     public static void main(String[] args) {
         
-        Aluno aluno = new Aluno();
+       /* Aluno aluno = new Aluno();
         aluno.setCpf("123");
         FacadeInstance.getInstance().deleteAluno(aluno);
-        
+       */
+       
+
+       int tamanho_alunos_turma = FacadeInstance.getInstance().getAllTurma().get(1).getListAlunos().size();
+       
+       JOptionPane.showMessageDialog(null,FacadeInstance.getInstance().
+           getAllTurma(), "ERRO", JOptionPane.WARNING_MESSAGE);
+       
+       for(int i = 0; i<tamanho_alunos_turma;i++){
+           System.out.println(
+           FacadeInstance.getInstance().
+           getAllTurma().get(1).getListAlunos().get(i).getNome());
+            
+       }
+           
+       
+       
         // TODO code application logic here
 
        /* Turma turma = new Turma();

@@ -199,6 +199,10 @@ public class Facade implements IFacade {
         return serviceProfessor.updateProfessor(prof);
     }
     
+    public List<Professor> getAllProfessor() {
+        return serviceProfessor.getAllProfessor();
+    }
+    
     //-------------------- TURMA -------------------------//
    private final IServiceTurma serviceTurma = new ServiceTurma();
 

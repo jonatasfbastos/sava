@@ -70,8 +70,26 @@ public class HomeScreen extends javax.swing.JFrame {
         Professor prof = new Professor();
         prof.setNome("Jubileu");
         
-        List<Professor> listProfessors = new ArrayList<>();
-        listProfessors.add(prof);
+        Professor prof2 = new Professor();
+        prof2.setNome("Shelda");
+        
+        FacadeInstance.getInstance().saveProfessor(prof);
+        FacadeInstance.getInstance().saveProfessor(prof2);
+        
+        List<Professor> listProfessors;
+        listProfessors = FacadeInstance.getInstance().getAllProfessor();
+        
+        Aluno aluno1 = new Aluno();
+        aluno1.setNome("Pedro");
+        
+        Aluno aluno2 = new Aluno();
+        aluno2.setNome("Shelda");
+       
+        FacadeInstance.getInstance().saveAluno(aluno1);
+        FacadeInstance.getInstance().saveAluno(aluno2);
+        
+        List<Aluno> listAlunos;
+        listAlunos = FacadeInstance.getInstance().getAllAlunos();
         
         Disciplina disciplina = new Disciplina();
         disciplina.setNome("Matematica");
@@ -80,6 +98,7 @@ public class HomeScreen extends javax.swing.JFrame {
         
         Disciplina disciplina2 = new Disciplina();
         disciplina2.setNome("Protugues");
+        disciplina.setProfessores(listProfessors);
         FacadeInstance.getInstance().saveDisciplina(disciplina2);
         
         Etapa etapa = new Etapa();
@@ -114,6 +133,8 @@ public class HomeScreen extends javax.swing.JFrame {
         
         Curso teste = new Curso();
         teste.setNome("Biocombustíveis");
+        teste.setListAlunos(listAlunos);
+        teste.setListProfessors(listProfessors);
         teste.setMatrizCurricular(matrizCurricular);
         FacadeInstance.getInstance().saveCurso(teste);
         
@@ -133,29 +154,51 @@ public class HomeScreen extends javax.swing.JFrame {
         for(int i = 0; i < cursos.size(); i++) {
             cmbCursosProfessores.addItem(cursos.get(i).getNome());
             cmbCursosDisciplinas.addItem(cursos.get(i).getNome());
+            cmbCursosAlunos.addItem(cursos.get(i).getNome());
         }
     }
     
-    void atualizaListaAlunos() {
+    void atualizaListaAlunos(List<Aluno> listAlunos) {
         DefaultTableModel dadosAlunos = (DefaultTableModel) tblAlunos.getModel();
         while (tblAlunos.getModel().getRowCount() > 0) {  
            ((DefaultTableModel) tblAlunos.getModel()).removeRow(0);  
         } 
 
-        List<Aluno> aluno = FacadeInstance.getInstance().getAllAlunos();
-        for(int i = 0;i<aluno.size();i++){
+
+        for(int i = 0; i < listAlunos.size(); i++){
             Object[] dados = {
-                aluno.get(i).getNome(),
-                aluno.get(i).getMatricula(),
+                listAlunos.get(i).getNome(),
+                listAlunos.get(i).getMatricula()
             };
             
-            System.out.println("*********************************************");
-            System.out.println("matricula aq: " + aluno.get(i).getMatricula());
             dadosAlunos.addRow(dados);
         }
     }
     
+    private void CmbBoxAlunoListener() {
+        cmbCursosAlunos.addActionListener((ActionEvent e) -> {
+            String selected = (String)cmbCursosAlunos.getSelectedItem();
 
+            if(selected == "Biocombustíveis") {
+                buscarAlunos("Biocombustíveis");
+            } else if(selected == "Informática") {
+                buscarAlunos("Informática"); 
+            } else if(selected == "Eletromecânica") {
+                buscarAlunos("Eletromecânica"); 
+            } else {               
+            }
+        });
+    }
+
+    void buscarAlunos(String curso) {
+        Curso busca = new Curso();
+        busca.setNome(curso);
+        List<Curso> cursoBio = FacadeInstance.getInstance().findCursoByName(busca);
+        List<Aluno> listAlunos = cursoBio.get(0).getListAlunos();
+        
+        atualizaListaAlunos(listAlunos);
+    }
+    
     private void CmbBoxProfessorListener() {
         cmbCursosProfessores.addActionListener((ActionEvent e) -> {
             String selected = (String)cmbCursosProfessores.getSelectedItem();
@@ -175,11 +218,11 @@ public class HomeScreen extends javax.swing.JFrame {
         cmbCursosDisciplinas.addActionListener((ActionEvent e) -> {
             String selected = (String)cmbCursosDisciplinas.getSelectedItem();
             
-            if(selected == "Biocombustíveis") {
+            if("Biocombustíveis".equals(selected)) {
                 buscarDisciplinas("Biocombustíveis");
-            } else if(selected == "Informática") {
+            } else if("Informática".equals(selected)) {
                 buscarDisciplinas("Informática"); 
-            } else if(selected == "Eletromecânica") {
+            } else if("Eletromecânica".equals(selected)) {
                 buscarDisciplinas("Eletromecânica"); 
             } else {               
             }
@@ -196,10 +239,9 @@ public class HomeScreen extends javax.swing.JFrame {
 
         for(int i = 0; i < etapas.size(); i++) {
 
-            for(int j = 0; j < etapas.get(i).getListDisciplinas().size(); j++) {
-                disciplinas.add(etapas.get(i).getListDisciplinas().get(j));
-            }
+            etapas.get(i).getListDisciplinas().forEach(action -> disciplinas.add(action));
         }
+        
         atualizaListaDisciplinas(disciplinas);
     }
     
@@ -207,28 +249,11 @@ public class HomeScreen extends javax.swing.JFrame {
         Curso busca = new Curso();
         busca.setNome(curso);
         List<Curso> cursoBio = FacadeInstance.getInstance().findCursoByName(busca);
-        //Não pode ter dois cursos com o mesmo nome, sempre vai ser lista na posição zero
-        List<Etapa> etapas = cursoBio.get(0).getMatrizCurricular().getEtapa();
         
-        List<Disciplina> disciplinas = new ArrayList<>();
-        List<Professor> professoresAux = new ArrayList<>();
+        List<Professor> professors = new ArrayList<>();
+        professors = cursoBio.get(0).getListProfessors();
         
-        for(int i = 0; i < etapas.size(); i++) {
-
-            for(int j = 0; j < etapas.get(i).getListDisciplinas().size(); j++) {
-                disciplinas.add(etapas.get(i).getListDisciplinas().get(j));
-                
-                etapas.get(i).getListDisciplinas().get(j).getProfessores().forEach(action -> professoresAux.add(action));   
-            }
-        }
-        
-        List<Professor> professoresFinal = new ArrayList<>();
-        
-        professoresAux.stream()
-        .distinct()
-        .forEach(e -> professoresFinal.add(e));
-        
-        atualizaListaProfessores(professoresFinal);
+        atualizaListaProfessores(professors);
     }
     
     
@@ -1717,7 +1742,8 @@ public class HomeScreen extends javax.swing.JFrame {
         tabResponsaveis.setBackground(new Color(204,204,255));
         tabEtapas.setBackground(new Color(204,204,255));
         
-        atualizaListaAlunos();
+        CmbBoxAlunoListener();
+        
     }//GEN-LAST:event_tabAlunosMouseClicked
 
     private void tabProfessoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabProfessoresMouseClicked

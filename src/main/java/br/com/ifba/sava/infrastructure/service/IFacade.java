@@ -54,6 +54,7 @@ public interface IFacade {
     public abstract Professor saveProfessor(Professor prof);
     public abstract void deleteProfessor(Professor prof);
     public abstract Professor updateProfessor(Professor prof);
+    public abstract List<Professor> getAllProfessor();
     
     //------------------ TURMA --------------------------//
     public abstract Turma saveTurma(Turma turma);

@@ -56,7 +56,9 @@ public class HomeScreen extends javax.swing.JFrame {
         tabCursos.setBackground(new Color(204,204,255));
         tabResponsaveis.setBackground(new Color(204,204,255));
         tabEtapas.setBackground(new Color(204,204,255));
-                    
+        
+        moque();
+        fillAllCmbBox();
     }
 
     public HomeScreen(String text) {
@@ -126,6 +128,14 @@ public class HomeScreen extends javax.swing.JFrame {
         FacadeInstance.getInstance().saveCurso(teste3);
     }
 
+    void fillAllCmbBox() {
+        List<Curso> cursos = FacadeInstance.getInstance().getAllCurso();
+        for(int i = 0; i < cursos.size(); i++) {
+            cmbCursosProfessores.addItem(cursos.get(i).getNome());
+            cmbCursosDisciplinas.addItem(cursos.get(i).getNome());
+        }
+    }
+    
     void atualizaListaAlunos() {
         DefaultTableModel dadosAlunos = (DefaultTableModel) tblAlunos.getModel();
         while (tblAlunos.getModel().getRowCount() > 0) {  
@@ -143,21 +153,13 @@ public class HomeScreen extends javax.swing.JFrame {
             System.out.println("matricula aq: " + aluno.get(i).getMatricula());
             dadosAlunos.addRow(dados);
         }
-        //this.selecionado = this.jtPesquisador.getSelectedRow();
     }
     
 
-    private void ComboBoxCursoProfessor() {
-        moque();
-        List<Curso> cursos = FacadeInstance.getInstance().getAllCurso();
-        
-        for(int i = 0; i < cursos.size(); i++) {
-            cmbCursosProfessores.addItem(cursos.get(i).getNome());
-        }
-        
+    private void CmbBoxProfessorListener() {
         cmbCursosProfessores.addActionListener((ActionEvent e) -> {
             String selected = (String)cmbCursosProfessores.getSelectedItem();
-            
+
             if(selected == "Biocombustíveis") {
                 buscarProfessor("Biocombustíveis");
             } else if(selected == "Informática") {
@@ -166,21 +168,11 @@ public class HomeScreen extends javax.swing.JFrame {
                 buscarProfessor("Eletromecânica"); 
             } else {               
             }
-            
         });
     }
     
-     private void ComboBoxCurso (){
-  
-        
-         moque();
-        List<Curso> cursos = FacadeInstance.getInstance().getAllCurso();
-        for(int i = 0; i < cursos.size(); i++) {
-            cmbCursosDisciplinas.addItem(cursos.get(i).getNome());
-        }
-        
+     private void CmbBoxDisciplinasListener (){     
         cmbCursosDisciplinas.addActionListener((ActionEvent e) -> {
-            
             String selected = (String)cmbCursosDisciplinas.getSelectedItem();
             
             if(selected == "Biocombustíveis") {
@@ -219,24 +211,24 @@ public class HomeScreen extends javax.swing.JFrame {
         List<Etapa> etapas = cursoBio.get(0).getMatrizCurricular().getEtapa();
         
         List<Disciplina> disciplinas = new ArrayList<>();
-        List<Professor> professores = new ArrayList<>();
+        List<Professor> professoresAux = new ArrayList<>();
         
         for(int i = 0; i < etapas.size(); i++) {
 
             for(int j = 0; j < etapas.get(i).getListDisciplinas().size(); j++) {
                 disciplinas.add(etapas.get(i).getListDisciplinas().get(j));
                 
-                etapas.get(i).getListDisciplinas().get(j).getProfessores().forEach(action -> professores.add(action));     
+                etapas.get(i).getListDisciplinas().get(j).getProfessores().forEach(action -> professoresAux.add(action));   
             }
         }
         
         List<Professor> professoresFinal = new ArrayList<>();
         
-        professores.stream()
+        professoresAux.stream()
         .distinct()
         .forEach(e -> professoresFinal.add(e));
         
-        atualizaListaProfessores(professores);
+        atualizaListaProfessores(professoresFinal);
     }
     
     
@@ -1739,7 +1731,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlCursos.setVisible(false);
         pnlEtapas.setVisible(false);
         
-        ComboBoxCursoProfessor();
+        CmbBoxProfessorListener();
         tabProfessores.setBackground(new Color(255,255,255));
         tabInicio.setBackground(new Color(204,204,255));
         tabDisciplinas.setBackground(new Color(204,204,255));
@@ -1762,7 +1754,7 @@ public class HomeScreen extends javax.swing.JFrame {
         pnlCoordenadores.setVisible(false);
         pnlCursos.setVisible(false);
         pnlEtapas.setVisible(false);
-        ComboBoxCurso();
+        CmbBoxDisciplinasListener();
 
         tabDisciplinas.setBackground(new Color(255,255,255));
         tabInicio.setBackground(new Color(204,204,255));

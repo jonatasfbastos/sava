@@ -35,7 +35,7 @@ public class Curso extends PersistenceEntity{
     
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<MatrizCurricular> matrizCurricular;
-    
+    /*
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Professor> professor;
 
@@ -57,7 +57,7 @@ public class Curso extends PersistenceEntity{
     public void setTecAdm(List<TecnicoAdm> tecAdm) {
         this.tecAdm = tecAdm;
     }
-
+    */
    
     
     

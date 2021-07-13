@@ -22,7 +22,10 @@ public class MatrizCurricular extends PersistenceEntity{
     
     private String nome;
     private String codigo;
-
+    
+    @OneToMany (fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) 
+    private List<Etapa> etapa;
+    
     public List<Etapa> getEtapa() {
         return etapa;
     }
@@ -31,9 +34,6 @@ public class MatrizCurricular extends PersistenceEntity{
         this.etapa = etapa;
     }
     
-   @OneToMany (fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) 
-    private List<Etapa> etapa;
-
     public String getNome() {
         return nome;
     }
@@ -42,19 +42,11 @@ public class MatrizCurricular extends PersistenceEntity{
         this.nome = nome;
     }
 
-        
-    
     public String getCodigo() {
         return codigo;
     }
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-
-    
-
-    
-    
-    
+    }   
 }

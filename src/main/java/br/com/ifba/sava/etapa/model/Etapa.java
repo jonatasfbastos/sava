@@ -64,5 +64,4 @@ public class Etapa extends PersistenceEntity{
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    
 }

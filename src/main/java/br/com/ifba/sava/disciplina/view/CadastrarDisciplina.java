@@ -8,6 +8,7 @@ package br.com.ifba.sava.disciplina.view;
 import br.com.ifba.sava.disciplina.model.Disciplina;
 import br.com.ifba.sava.infrastructure.service.FacadeInstance;
 import br.com.ifba.sava.infrastructure.view.HomeScreen;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -200,10 +201,17 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
     private void btnCadastrarDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarDisciplinaActionPerformed
         Disciplina disciplina1 = new Disciplina();
         
-        disciplina1.setNome(txtNomeDisciplina.getText());
-        disciplina1.setCodigo(txtCodigo.getText());
+        if(txtNomeDisciplina.getText().isEmpty() || txtCodigo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            disciplina1.setNome(txtNomeDisciplina.getText());
+            disciplina1.setCodigo(txtCodigo.getText());
+            FacadeInstance.getInstance().saveDisciplina(disciplina1);
+            
+            txtNomeDisciplina.setText("");
+            txtCodigo.setText("");
+        }
         
-        FacadeInstance.getInstance().saveDisciplina(disciplina1);
     }//GEN-LAST:event_btnCadastrarDisciplinaActionPerformed
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed

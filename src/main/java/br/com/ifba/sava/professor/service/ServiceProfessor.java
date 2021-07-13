@@ -47,15 +47,17 @@ public class ServiceProfessor implements IServiceProfessor{
 
     @Override
     public void deleteProfessor(Professor prof) {
-        if(prof == null){
-            //exception professor null
+         if(prof == null){
+            //exception aluno null
             throw new BusinessException(PROFESSOR_NULL);
-        }else if(this.daoProfessor.findById(prof.getId()) == null) {
-            //exception professor não existe
-            throw new BusinessException(PROFESSOR_NAO_EXISTE);
-        }else{
+        }else if(this.daoProfessor.findById(prof.getId()) != null) {
             this.daoProfessor.delete(prof);
+            return;
+        }else if(this.daoProfessor.findBycpf(prof, prof.getCpf()) != null) {
+            this.daoProfessor.deleteByCpf(prof,prof.getCpf());
+            return;
         }
+            throw new BusinessException(PROFESSOR_NAO_EXISTE);    
     }
 
     @Override

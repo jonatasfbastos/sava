@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 /**
  *
  * @author beatriz
@@ -25,6 +26,7 @@ import javax.persistence.Persistence;
  */
 @SuppressWarnings("unchecked")
 public class BaseDao<Entity extends PersistenceEntity> implements IBaseDao<Entity>{
+
     
     protected static EntityManager entityManager;
     
@@ -90,7 +92,30 @@ public class BaseDao<Entity extends PersistenceEntity> implements IBaseDao<Entit
     public Entity findById(Long id){
         return (Entity) entityManager.find(getTypeClass(), id);
     }
+/////Comeco edited by////////// 
+    @Override
+    public Entity deleteByCpf(Entity entity, String cpf){
+        System.out.println("aaaaaaaaaaaaaa");
+        entity =  findBycpf(entity,cpf);
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
+        return entity;
+    }
     
+    @Override
+    public Entity findBycpf(Entity entity,String cpf){
+        String q = ("SELECT u FROM " + getTypeClassEntity(entity).getName() + " AS u WHERE u.cpf=:cpf");
+        Query query = entityManager.createQuery(q);
+        query.setParameter("cpf", cpf);
+        return (Entity) query.getSingleResult();
+    }
+    
+    public Class<?> getTypeClassEntity(Entity entity){
+        Class<?> clazz = entity.getClass();
+        return clazz;
+    }
+/////Fim edited by rafael//////////
     
     protected Class<?> getTypeClass(){
         

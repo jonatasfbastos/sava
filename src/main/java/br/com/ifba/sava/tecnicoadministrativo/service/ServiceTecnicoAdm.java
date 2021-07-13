@@ -47,15 +47,17 @@ public class ServiceTecnicoAdm implements IServiceTecnicoAdm {
     
     @Override
     public void deleteTecnicoAdm(TecnicoAdm tecnicoAdm) {
-       if(tecnicoAdm == null){
-            // Tratamento de exceção
+         if(tecnicoAdm == null){
+            //exception aluno null
             throw new BusinessException(TECNICOADM_NULL);
-        }else if(this.daoTecnicoAdm.findById(tecnicoAdm.getId()) == null) {
-            // Tratamento de exceção
-            throw new BusinessException(TECNICOADM_NAO_EXISTE);
-        }else{
+        }else if(this.daoTecnicoAdm.findById(tecnicoAdm.getId()) != null) {
             this.daoTecnicoAdm.delete(tecnicoAdm);
+            return;
+        }else if(this.daoTecnicoAdm.findBycpf(tecnicoAdm, tecnicoAdm.getCpf()) != null) {
+            this.daoTecnicoAdm.deleteByCpf(tecnicoAdm,tecnicoAdm.getCpf());
+            return;
         }
+            throw new BusinessException(TECNICOADM_NULL);    
     }
 
     @Override

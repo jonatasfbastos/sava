@@ -28,6 +28,11 @@ public class Sava {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        Aluno aluno = new Aluno();
+        aluno.setCpf("123");
+        FacadeInstance.getInstance().deleteAluno(aluno);
+        
         // TODO code application logic here
 
        /* Turma turma = new Turma();
@@ -42,7 +47,7 @@ public class Sava {
         FacadeInstance.getInstance().saveTurma(turma);*/
        
 
-       Disciplina disciplina = new Disciplina();
+      /* Disciplina disciplina = new Disciplina();
        disciplina.setNome("disciplina 1");
        FacadeInstance.getInstance().saveDisciplina(disciplina);
        disciplina.setNome("disciplina 2");
@@ -69,7 +74,7 @@ public class Sava {
        
       
         System.out.println(FacadeInstance.getInstance().getAllEtapa().get(0).getListDisciplinas().get(0).getNome()); 
-       
+       */
        
        
        

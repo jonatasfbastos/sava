@@ -53,4 +53,10 @@ public interface IBaseDao<Entity extends PersistenceEntity> {
      */
     Entity findById(Long id);
     
+    
+    //edited by rafael
+    Entity findBycpf(Entity entity,String cpf);
+    Entity deleteByCpf(Entity entity, String cpf);
+    //fim edited by rafael
+    
 }

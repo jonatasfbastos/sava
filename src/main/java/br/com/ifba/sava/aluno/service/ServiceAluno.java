@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class ServiceAluno implements IServiceAluno{
     //================= CONSTANTES =============================================
+    
     //mensagem de erro se o Aluno for null;
     public final static String ALUNO_NULL = "Aluno null";
     
@@ -54,12 +55,15 @@ public class ServiceAluno implements IServiceAluno{
          if(aluno == null){
             //exception aluno null
             throw new BusinessException(ALUNO_NULL);
-        }else if(this.daoAluno.findById(aluno.getId()) == null) {
-            //exception aluno não existe
-            throw new BusinessException(ALUNO_NAO_EXISTE);
-        }else{
+        }else if(this.daoAluno.findById(aluno.getId()) != null) {
             this.daoAluno.delete(aluno);
+            return;
+        }else if(this.daoAluno.findBycpf(aluno, aluno.getCpf()) != null) {
+            this.daoAluno.deleteByCpf(aluno,aluno.getCpf());
+            return;
         }
+            throw new BusinessException(ALUNO_NAO_EXISTE);    
+
     }
 
     @Override

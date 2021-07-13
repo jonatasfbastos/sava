@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -133,19 +134,19 @@ public class HomeScreen extends javax.swing.JFrame {
         
         Curso teste = new Curso();
         teste.setNome("Biocombustíveis");
-        teste.setListAlunos(listAlunos);
-        teste.setListProfessors(listProfessors);
-        teste.setMatrizCurricular(matrizCurricular);
+  //      teste.setListAlunos(listAlunos);
+      //  teste.setListProfessors(listProfessors);
+   //     teste.setMatrizCurricular(matrizCurricular);
         FacadeInstance.getInstance().saveCurso(teste);
         
         Curso teste2 = new Curso();
         teste2.setNome("Informática");
-        teste2.setMatrizCurricular(matrizCurricular2);
+    //    teste2.setMatrizCurricular(matrizCurricular2);
         FacadeInstance.getInstance().saveCurso(teste2); 
         
         Curso teste3 = new Curso();
         teste3.setNome("Eletromecânica");
-        teste3.setMatrizCurricular(matrizCurricular3);
+   //     teste3.setMatrizCurricular(matrizCurricular3);
         FacadeInstance.getInstance().saveCurso(teste3);
     }
 
@@ -175,6 +176,19 @@ public class HomeScreen extends javax.swing.JFrame {
         }
     }
     
+        private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {                                           
+            if(tblAlunos.getSelectedRow() != -1 ){
+               String clicado = (String) ((DefaultTableModel) tblAlunos.getModel()).getValueAt(tblAlunos.getSelectedRow(), 3);
+              
+                Aluno aluno = new Aluno();
+                //aluno.setCpf(1l);
+               // FacadeInstance.getInstance().deleteAluno(aluno);
+                ((DefaultTableModel) tblAlunos.getModel()).removeRow(tblAlunos.getSelectedRow());
+            }else{
+                JOptionPane.showMessageDialog(null, "Selecione uma linha primeiro!", "ERRO", JOptionPane.WARNING_MESSAGE);
+            }
+    }  
+    
     private void CmbBoxAlunoListener() {
         cmbCursosAlunos.addActionListener((ActionEvent e) -> {
             String selected = (String)cmbCursosAlunos.getSelectedItem();
@@ -194,9 +208,9 @@ public class HomeScreen extends javax.swing.JFrame {
         Curso busca = new Curso();
         busca.setNome(curso);
         List<Curso> cursoBio = FacadeInstance.getInstance().findCursoByName(busca);
-        List<Aluno> listAlunos = cursoBio.get(0).getListAlunos();
+       // List<Aluno> listAlunos = cursoBio.get(0).getListAlunos();
         
-        atualizaListaAlunos(listAlunos);
+   //     atualizaListaAlunos(listAlunos);
     }
     
     private void CmbBoxProfessorListener() {
@@ -234,13 +248,13 @@ public class HomeScreen extends javax.swing.JFrame {
         busca.setNome(curso);
         List<Curso> cursoBio = FacadeInstance.getInstance().findCursoByName(busca);
         //Não pode ter dois cursos com o mesmo nome, sempre vai ser lista na posição zero
-        List<Etapa> etapas = cursoBio.get(0).getMatrizCurricular().getEtapa();
+      //  List<Etapa> etapas = cursoBio.get(0).getMatrizCurricular().getEtapa();
         List<Disciplina> disciplinas = new ArrayList<>();
 
-        for(int i = 0; i < etapas.size(); i++) {
+  //      for(int i = 0; i < etapas.size(); i++) {
 
-            etapas.get(i).getListDisciplinas().forEach(action -> disciplinas.add(action));
-        }
+   //         etapas.get(i).getListDisciplinas().forEach(action -> disciplinas.add(action));
+    //    }
         
         atualizaListaDisciplinas(disciplinas);
     }
@@ -251,7 +265,7 @@ public class HomeScreen extends javax.swing.JFrame {
         List<Curso> cursoBio = FacadeInstance.getInstance().findCursoByName(busca);
         
         List<Professor> professors = new ArrayList<>();
-        professors = cursoBio.get(0).getListProfessors();
+      //  professors = cursoBio.get(0).getListProfessors();
         
         atualizaListaProfessores(professors);
     }
